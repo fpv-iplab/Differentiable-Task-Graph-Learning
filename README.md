@@ -94,6 +94,6 @@ python captaincook4d_results.py
 
 ...
 
-# Authors
+## Authors
 
 ![Authors](./assets/authors/authors.png)
