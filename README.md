@@ -9,6 +9,7 @@ Here we report the guide to use our Direct Optimization (DO) model and train it 
 - [Qualitative results](#qualitative-results)
 - [Get DO results of Table 1 of the paper](#get-do-results-of-table-1-of-the-paper)
 - [Citation](#citation)
+- [Authors](#authors)
 ---
 
 <p align="center">
