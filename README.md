@@ -93,3 +93,7 @@ python captaincook4d_results.py
 ## Citation
 
 ...
+
+# Authors
+
+![Authors](./assets/authors/authors.png)
