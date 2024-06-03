@@ -1,0 +1,105 @@
+{
+  "steps": {
+    "0": "START",
+    "1": "Discard-Discard ends of the tortilla",
+    "2": "slicing-Continue slicing with floss to create 1 more pinwheel",
+    "3": "Clean-Clean the knife by wiping with a paper towel",
+    "4": "Cross-Cross the floss's two ends over the tortilla roll's top",
+    "5": "Slide-Slide floss under the tortilla, perpendicular to the length of the roll",
+    "6": "Spread-Spread jelly over the nut butter",
+    "7": "pull-pull the floss ends in opposite directions to slice",
+    "8": "Place-Place the pinwheels on a plate",
+    "9": "Secure-Secure the rolled tortilla by inserting 5 toothpicks about 1 inch apart",
+    "10": "scoop-Use the knife to scoop jelly from the jar",
+    "11": "Spread-Spread nut butter onto the tortilla, leaving 1/2-inch uncovered at the edges",
+    "12": "scoop-Use a butter knife to scoop nut butter from the jar",
+    "13": "Trim-Trim the ends of the tortilla roll with the butter knife, leaving 1/2 inch margin between the last toothpick and the end of the roll",
+    "14": "Place-Place 8-inch flour tortilla on cutting board",
+    "15": "Roll-Roll the tortilla from one end to the other into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps, but not so tight that the filling leaks",
+    "16": "Place-Place the floss halfway between toothpicks",
+    "17": "Clean-Clean the knife by wiping it with a paper towel",
+    "18": "END"
+  },
+  "edges": [
+    [
+      13,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      6,
+      3
+    ],
+    [
+      16,
+      4
+    ],
+    [
+      1,
+      18
+    ],
+    [
+      10,
+      6
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      15,
+      9
+    ],
+    [
+      17,
+      10
+    ],
+    [
+      12,
+      11
+    ],
+    [
+      14,
+      12
+    ],
+    [
+      7,
+      2
+    ],
+    [
+      9,
+      13
+    ],
+    [
+      3,
+      15
+    ],
+    [
+      5,
+      16
+    ],
+    [
+      11,
+      17
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      8,
+      18
+    ],
+    [
+      13,
+      5
+    ]
+  ]
+}

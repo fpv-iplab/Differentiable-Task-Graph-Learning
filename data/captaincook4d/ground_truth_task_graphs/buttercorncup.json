@@ -1,0 +1,84 @@
+{
+  "steps":{
+    "0":"START",
+    "1":"add-add lime juice to the bowl",
+    "2":"Measure-Measure 2 cups of frozen corn",
+    "3":"Add-1 teaspoon of pepper powder to the bowl",
+    "4":"Extract-Extract lime juice from 1/3 lime",
+    "5":"Add-Add the corn into a microwave-safe bowl",
+    "6":"Mix-Mix the contents of the bowl well",
+    "7":"Microwave-Microwave the corn for 2 minutes",
+    "8":"Microwave-Microwave the corn for 3 more minutes",
+    "9":"stir-then stir the bowl",
+    "10":"Add-Add 1 teaspoon salt to the bowl",
+    "11":"Thaw-Thaw the frozen corn by putting it in a sieve and running it under cold water",
+    "12":"Add-Add 1 teaspoon of softened butter",
+    "13":"END"
+  },
+  "edges":[
+    [
+      8,
+      1
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      7,
+      3
+    ],
+    [
+      11,
+      5
+    ],
+    [
+      10,
+      6
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      9,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      12,
+      9
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      2,
+      11
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      7,
+      12
+    ],
+    [
+      6,
+      13
+    ]
+  ]
+}

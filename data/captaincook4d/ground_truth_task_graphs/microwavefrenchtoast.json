@@ -1,0 +1,33 @@
+{
+  "steps":{
+    "0":"START",
+    "1":"Microwave-Microwave on high for 90 seconds until the egg is cooked through",
+    "2":"add-add bread pieces to the egg mixture in the mug, pressing the bread down into the egg",
+    "3":"stir-stir the mug",
+    "4":"melt-In a large mug, melt 1 tablespoon of softened butter in the microwave for about 30 seconds",
+    "5":"Sprinkle-Sprinkle 1/4 teaspoon cinnamon over the egg",
+    "6":"cut-cut the contents on plate, and serve",
+    "7":"Put-Put the mug's contents on a plate",
+    "8":"Roll-Roll the butter around in the mug to coat it",
+    "9":"Cut or tear-Cut or tear 1 slices of bread into bite-size pieces",
+    "10":"Add-Add 1/4 teaspoon vanilla extract to the mug",
+    "11":"whisk-In the mug, whisk one egg with a fork until well blended",
+    "12":"END"
+  },
+  "edges": [
+    [2, 1],
+    [9, 2],
+    [3, 2],
+    [10, 3],
+    [5, 3],
+    [11, 5],
+    [7, 6],
+    [1, 7],
+    [4, 8],
+    [0, 4],
+    [0, 9],
+    [8, 11],
+    [11, 10],
+    [6, 12]
+  ]
+}

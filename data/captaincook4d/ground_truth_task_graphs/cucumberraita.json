@@ -1,0 +1,20 @@
+{"steps": {"0": "START", "1": "Add-1/4 teaspoon of red chilli powder to the bowl", "2": "peel-peel the cucumber", "3": "whisk-In a mixing bowl, whisk 1 cup of chilled curd until smooth. Use fresh homemade or packaged curd", "4": "Add-1/4 teaspoon salt to the bowl", "5": "chop or grate-chop or grate the cucumber", "6": "Combine-Combine all the ingredients in the bowl", "7": "add-add 1 tablespoon of chopped cilantro leaves to the bowl", "8": "Add-Add 1 teaspoon of cumin powder to the bowl", "9": "Rinse-Rinse 1 medium sized cucumber", "10": "Add-Add the chopped or grated cucumber to the whisked curd", "11": "Add-1/2 teaspoon of chaat masala powder to the bowl", "12": "END"}, "edges":  [
+    [9, 2],
+    [2, 5],
+    [1, 6],
+    [10, 6],
+    [8, 6],
+    [11, 6],
+    [7, 6],
+    [4, 6],
+    [5, 10],
+    [3, 10],
+    [3, 1],
+    [0, 3],
+    [3, 4],
+    [3, 7],
+    [3, 8],
+    [0, 9],
+    [3, 11],
+    [6, 12]
+  ]}

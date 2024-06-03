@@ -1,0 +1,25 @@
+{
+  "steps":{
+    "0":"START",
+    "1":"Heat-Heat the contents of the mug for 1 minute and serve",
+    "2":"Add-Add 1/5 teaspoon cinnamon to the mug",
+    "3":"Mix-Mix the contents of the mug",
+    "4":"Add-Add 1 teaspoon of white sugar to the mug",
+    "5":"Fill-Fill a microwave-safe mug with skimmed milk",
+    "6":"Microwave-Microwave the contents of the mug for 1 minute",
+    "7":"Add-Add 2 pieces of chocolate to the mug",
+    "8":"END"
+  },
+  "edges":[
+    [3, 1],
+    [7, 3],
+    [4, 3],
+    [2, 3],
+    [6, 4],
+    [0, 5],
+    [1, 8],
+    [6, 7],
+    [6, 2],
+    [5, 6]
+  ]
+}

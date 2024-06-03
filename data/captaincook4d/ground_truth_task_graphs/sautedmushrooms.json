@@ -1,0 +1,117 @@
+{
+    "steps": {
+        "0": "START",
+        "1": "pat-pat rinsed mushrooms dry with a paper towel",
+        "2": "Rinse-Rinse 3 mushrooms under cold water",
+        "3": "cook-cook the pan, often stirring, for 1 minute",
+        "4": "add-Once the pan is hot, add the mushrooms",
+        "5": "Add-Add chopped shallot to the pan",
+        "6": "Slice-Slice the mushrooms",
+        "7": "mince-mince garlic cloves",
+        "8": "Chop-Chop 1 shallot",
+        "9": "cook-cook for 3-5 minutes, stirring often, until mushrooms start to soften and brown",
+        "10": "Pull-Pull out mushroom stems",
+        "11": "Heat-Heat 1 tbsp olive oil in a large skillet over medium-high heat",
+        "12": "Transfer-Transfer the contents of the pan to a serving dish",
+        "13": "Peel-Peel 2 garlic cloves",
+        "14": "Add-1/4 tbsp balsamic vinegar to the pan",
+        "15": "Add-Add 2 cloves of minced garlic to the pan",
+        "16": "Season-pepper on pan to taste",
+        "17": "Season-Season pan with salt",
+        "18": "END"
+    },
+    "edges": [
+        [
+            2,
+            1
+        ],
+        [
+            5,
+            3
+        ],
+        [
+            11,
+            4
+        ],
+        [
+            9,
+            5
+        ],
+        [
+            10,
+            6
+        ],
+        [
+            13,
+            7
+        ],
+        [
+            4,
+            9
+        ],
+        [
+            1,
+            10
+        ],
+        [
+            8,
+            11
+        ],
+        [
+            6,
+            11
+        ],
+        [
+            7,
+            11
+        ],
+        [
+            17,
+            12
+        ],
+        [
+            16,
+            12
+        ],
+        [
+            15,
+            12
+        ],
+        [
+            14,
+            12
+        ],
+        [
+            3,
+            14
+        ],
+        [
+            3,
+            15
+        ],
+        [
+            3,
+            16
+        ],
+        [
+            3,
+            17
+        ],
+        [
+            0,
+            2
+        ],
+        [
+            0,
+            8
+        ],
+        [
+            0,
+            13
+        ],
+        [
+            12,
+            18
+        ]
+    ]
+}

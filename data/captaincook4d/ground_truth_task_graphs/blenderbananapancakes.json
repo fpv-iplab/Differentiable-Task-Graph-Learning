@@ -1,0 +1,21 @@
+{"steps": {"0": "START", "1": "Add-1/2 tsp baking powder to a blender", "2": "Serve-Serve the pancakes with chopped strawberries", "3": "Melt-Melt a small knob of butter in a non-stick frying pan over low-medium heat", "4": "splash-splash maple syrup on plate", "5": "Add-Add 1 banana to a blender", "6": "Cook-Cook for 1 min or until the tops start to bubble", "7": "blitz-blitz the blender for 20 seconds", "8": "Flip-Flip the pancakes with a fork or a fish slice spatula", "9": "Add-1 egg to a blender", "10": "cook-cook for 20-30 seconds more", "11": "Pour-Pour three little puddles straight from the blender into the frying pan", "12": "Add-1 heaped tbsp flour to a blender", "13": "Chop-Chop 1 strawberry", "14": "Transfer-Transfer to a plate", "15": "END"}, "edges": [
+    [14, 2],
+    [7, 3],
+    [13, 2],
+    [2, 4],
+    [11, 6],
+    [5, 7],
+    [12, 7],
+    [1, 7],
+    [9, 7],
+    [6, 8],
+    [8, 10],
+    [3, 11],
+    [10, 14],
+    [0, 1],
+    [0, 5],
+    [0, 9],
+    [0, 12],
+    [0, 13],
+    [4, 15]
+  ]}

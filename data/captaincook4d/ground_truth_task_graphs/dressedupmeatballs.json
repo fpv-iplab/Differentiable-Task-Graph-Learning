@@ -1,0 +1,98 @@
+{
+    "steps": {
+        "0": "START",
+        "1": "Peel-Peel 1 garlic clove",
+        "2": "Pour-Pour the sauces over the meatballs",
+        "3": "Cut-Cut 1/8 garlic clove",
+        "4": "Peel-Peel one medium onion",
+        "5": "Stir-Stir the contents in the microwave with a spoon",
+        "6": "Slice-Slice 1/8 medium onion",
+        "7": "Microwave-Microwave the plate, covered, on high for 1.5 minutes",
+        "8": "Place-Place 5 meatballs in a Microwave-safe plate",
+        "9": "Cut-Cut 1/4 medium carrot into short, thin strips",
+        "10": "Mix-Mix 1/4 cup sweet-and-sour sauce and 1/2 teaspoon soy sauce in a small bowl",
+        "11": "Top-Top the plate with the carrots, onion, garlic and 1/4 tsp pepper powder",
+        "12": "Microwave-Microwave for 1 more minute",
+        "13": "Mince-Mince 1/8 garlic clove",
+        "14": "cut-Cut onion into two pieces",
+        "15": "END"
+    },
+    "edges": [
+        [
+            10,
+            2
+        ],
+        [
+            11,
+            2
+        ],
+        [
+            1,
+            3
+        ],
+        [
+            7,
+            5
+        ],
+        [
+            14,
+            6
+        ],
+        [
+            8,
+            11
+        ],
+        [
+            9,
+            11
+        ],
+        [
+            6,
+            11
+        ],
+        [
+            13,
+            11
+        ],
+        [
+            2,
+            7
+        ],
+        [
+            5,
+            12
+        ],
+        [
+            3,
+            13
+        ],
+        [
+            4,
+            14
+        ],
+        [
+            0,
+            1
+        ],
+        [
+            0,
+            4
+        ],
+        [
+            0,
+            8
+        ],
+        [
+            0,
+            9
+        ],
+        [
+            0,
+            10
+        ],
+        [
+            12,
+            15
+        ]
+    ]
+}
