@@ -79,27 +79,9 @@ Options:
 ## Qualitative results
 The figure reports the generated task graphs of the procedure called "Dressed Up Meatballs". On the left there is the ground truth task graph, while on the right the generated using the Direct Optimization model. These graphs must be interpreted from the bottom up, reflecting the bottom-up nature of dependency edges.
 
-<style>
-  .container {
-    display: flex; /* Use flexbox to align children side by side */
-  }
-  .half-width {
-    flex: 1; /* Each child will take equal space */
-  }
-  img {
-    width: 100%; /* Make the image fill the container */
-    height: auto; /* Keep the aspect ratio of the image */
-  }
-</style>
-<body>
-<div class="container">
-  <div class="half-width">
-    <img src="./assets/task_graph_ground_truth.png" alt="First Image">
-  </div>
-  <div class="half-width">
-    <img src="./assets/task_graph_generated.png" alt="Second Image">
-  </div>
-</div>
+Ground Truth             |  Generated 
+:-------------------------:|:-------------------------:
+![First Image](./assets/task_graph_ground_truth.png) | ![Second Image](./assets/task_graph_generated.png)
 
 
 ## Get DO results of Table 1 of the paper
@@ -111,26 +93,3 @@ python captaincook4d_results.py
 ## Citation
 
 ...
-
-## Authors
-
-<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px;">
-  <div style="flex: 1 1 200px; text-align: center; min-width: 150px;">
-    <a href="https://seminaraluigi.altervista.org" style="text-decoration: none; color: inherit;">
-      <img src="./assets/authors/LuigiSeminara.jpg" alt="Luigi Seminara" style="border-radius:50%; width: 150px; height: 150px;">
-      <div>Luigi Seminara</div>
-    </a>
-  </div>
-  <div style="flex: 1 1 200px; text-align: center; min-width: 150px;">
-    <a href="https://www.dmi.unict.it/farinella/" style="text-decoration: none; color: inherit;">
-      <img src="./assets/authors/Prof_Giovanni_Maria_Farinella.png" alt="Prof. Giovanni Maria Farinella" style="border-radius:50%; width: 150px; height: 150px;">
-      <div>Prof. Giovanni Maria Farinella</div>
-    </a>
-  </div>
-  <div style="flex: 1 1 200px; text-align: center; min-width: 150px;">
-    <a href="https://www.antoninofurnari.it/" style="text-decoration: none; color: inherit;">
-      <img src="./assets/authors/AntoninoFurnari.png" alt="Antonino Furnari" style="border-radius:50%; width: 150px; height: 150px;">
-      <div>Antonino Furnari</div>
-    </a>
-  </div>
-</div>
