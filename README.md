@@ -16,6 +16,7 @@ Here we report the guide to use our Direct Optimization (DO) model and train it 
   <img src="./assets/tgml.png" width="70%" height="auto">
 </p>
 
+[arXiv pre-print](https://arxiv.org/pdf/2406.01486v1)
 
 ## Environment configuration
 
@@ -92,8 +93,20 @@ python captaincook4d_results.py
 ```
 
 ## Citation
+If you use the code/models hosted in this repository, please cite the following paper:
 
-...
+```text
+@misc{seminara2024differentiable,
+      title={Differentiable Task Graph Learning: Procedural Activity Representation and Online Mistake Detection from Egocentric Videos}, 
+      author={Luigi Seminara and Giovanni Maria Farinella and Antonino Furnari},
+      year={2024},
+      eprint={2406.01486},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+Please, refer to the [paper](https://arxiv.org/pdf/2406.01486v1) for more technical details.
+
 
 ## Authors
 
