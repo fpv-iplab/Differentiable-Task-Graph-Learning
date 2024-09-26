@@ -1,6 +1,18 @@
-# Differentiable Task Graph Learning
+# Differentiable Task Graph Learning: Procedural Activity Representation and Online Mistake Detection from Egocentric Videos
 
-Here we report the guide to use our Direct Optimization (DO) model and train it in our defined CaptainCook4D data split for generating task graphs.
+[Differentiable Task Graph Learning: Procedural Activity Representation and Online Mistake Detection from Egocentric Videos](https://arxiv.org/abs/2406.01486)
+
+[Luigi Seminara](https://seminaraluigi.altervista.org/), [Giovanni Maria Farinella](https://www.dmi.unict.it/farinella/), [Antonino Furnari](https://antoninofurnari.github.io/)
+
+NeurIPS (spotlight), 2024
+
+[arXiv pre-print](https://arxiv.org/pdf/2406.01486v1)
+
+## ✍️ Catalog
+🚧 WORK IN PROGRESS:
+- [x] Direct Optimization (DO) Model
+- [ ] Task Graph Transformer (TGT) Model
+- [ ] Online Mistake Detection
 
 ---
 - [Environment configuration](#environment-configuration)
@@ -15,8 +27,6 @@ Here we report the guide to use our Direct Optimization (DO) model and train it 
 <p align="center">
   <img src="./assets/tgml.png" width="70%" height="auto">
 </p>
-
-[arXiv pre-print](https://arxiv.org/pdf/2406.01486v1)
 
 ## Environment configuration
 
