@@ -10,6 +10,7 @@ NeurIPS (spotlight), 2024
 
 ## ✍️ Catalog
 🚧 WORK IN PROGRESS:
+- [ ] Baselines
 - [x] Direct Optimization (DO) Model
 - [ ] Task Graph Transformer (TGT) Model
 - [ ] Online Mistake Detection
