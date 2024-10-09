@@ -41,10 +41,6 @@ def main(keysteps:str, objective:str, baseline_folder_output:str, augmentations:
             "sequences": []
         }
         
-        # Create two different lists: one for sequences with all steps and one for sequences with less steps
-        sequences_with_all_steps = []
-        sequences_with_less_steps = []
-        
         # If max_length is -1, we set it to the length of all videos + 1
         if max_length == -1:
             max_length = len(keysteps["annotations"]) + 1
@@ -71,39 +67,14 @@ def main(keysteps:str, objective:str, baseline_folder_output:str, augmentations:
             
             # We add the sequences to the scenarios_sequences dictionary if the length is less than max_length
             if len(scenarios_sequences[scenario]["sequences"]) < max_length:
-                if len(sequence1) < len(keysteps["taxonomy"][scenario]):
-                    sequences_with_less_steps.append(sequence1)
-                else:
-                    sequences_with_all_steps.append(sequence1)
-                    if sequence1 not in scenarios_sequences[scenario]["sequences"]:
-                        scenarios_sequences[scenario]["sequences"].append(sequence1)
+                if sequence1 not in scenarios_sequences[scenario]["sequences"]:
+                    scenarios_sequences[scenario]["sequences"].append(sequence1)
                 if augmentations:
                     if sequence2 not in scenarios_sequences[scenario]["sequences"]:
                         scenarios_sequences[scenario]["sequences"].append(sequence2)
                     if sequence3 not in scenarios_sequences[scenario]["sequences"]:
                         scenarios_sequences[scenario]["sequences"].append(sequence3)
-        
-        # if list of sequences with all steps is not empty, we calculate the probability of each step in the sequence
-        if sequences_with_all_steps != []:
-            prob_position_in_sequence = {}
-            for keystep in keysteps["taxonomy"][scenario]:
-                prob_position_in_sequence[int(keystep)] = [0] * len(keysteps["taxonomy"][scenario])
-            for seq in sequences_with_all_steps:
-                for i, step in enumerate(seq):
-                    prob_position_in_sequence[step][i] += 1
-            for step in prob_position_in_sequence:
-                prob_position_in_sequence[step] = torch.softmax(torch.tensor(np.array([x for x in prob_position_in_sequence[step]]), dtype=float), dim=0).cpu().numpy()
-            for seq in sequences_with_less_steps:
-                for keystep in keysteps["taxonomy"][scenario]:
-                    if int(keystep) not in seq:
-                        prob_position = np.argmax(prob_position_in_sequence[int(keystep)])
-                        seq.insert(prob_position, int(keystep))
-                if seq not in scenarios_sequences[scenario]["sequences"]:
-                    scenarios_sequences[scenario]["sequences"].append(seq)
-        else:
-            for seq in sequences_with_less_steps:
-                if seq not in scenarios_sequences[scenario]["sequences"]:
-                    scenarios_sequences[scenario]["sequences"].append(seq)
+            
         threshold = 1 / len(keysteps["taxonomy"][scenario])
         _, _, graph, _, _ = baseline_ILP(scenarios_sequences[scenario]["sequences"], objective, thresh=threshold)
         mapping_to_taxonomy = {}
