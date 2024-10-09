@@ -10,7 +10,7 @@ NeurIPS (spotlight), 2024
 
 ## ✍️ Catalog
 🚧 WORK IN PROGRESS:
-- [ ] Baselines
+- [x] Baselines
 - [x] Direct Optimization (DO) Model
 - [ ] Task Graph Transformer (TGT) Model
 - [ ] Online Mistake Detection
@@ -61,34 +61,6 @@ In the **./data** directory, you will find the CaptainCook4D data that we have d
 
 
 
-## Training
-
-To generate a single task graph, run:
-```shell
-python train.py -cfg ./configs/CaptainCook4D/Ramen.yaml
-
-Usage: train.py [OPTIONS]
-
-Options:
-  -cfg, --config TEXT  Path to the config file. You can find the config file
-                       in the config folder.  [required]
-  -l, --log            Log the output to a file.
-  -s, --seed INTEGER   Seed for reproducibility.
-  --help               Show this message and exit.
-```
-
-To generate all task graphs, run:
-```shell
-python train_all.py --more_seeds
-
-Usage: train_all.py [OPTIONS]
-
-Options:
-  --more_seeds  Use multiple seeds for error bars.
-  --help        Show this message and exit.
-```
-
-
 ## Qualitative results
 The figure reports the generated task graphs of the procedure called "Dressed Up Meatballs". On the left there is the ground truth task graph, while on the right the generated using the Direct Optimization model. These graphs must be interpreted from the bottom up, reflecting the bottom-up nature of dependency edges.
 
@@ -97,11 +69,6 @@ Ground Truth             |  Generated
 ![First Image](./assets/task_graph_ground_truth.png) | ![Second Image](./assets/task_graph_generated.png)
 
 
-## Get DO results of Table 1 of the paper
-Run the following command after `python train_all.py --more_seeds`:
-```shell
-python captaincook4d_results.py
-```
 
 ## Citation
 If you use the code/models hosted in this repository, please cite the following paper:
