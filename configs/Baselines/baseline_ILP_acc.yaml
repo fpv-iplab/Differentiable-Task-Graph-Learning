@@ -1,0 +1,5 @@
+DATA:
+  KEYSTEPS_JSON_PATH: ../../data/captaincook4d/task_graph_generation_annotations.json
+  OUTPUT_PATH: ./Baseline_ILP_acc
+  SCRIPT_PATH: ILP.py
+  OBJECTIVE: acc # This is the objective function to optimize (acc or prec)

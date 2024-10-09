@@ -1,0 +1,5 @@
+DATA:
+  ANNOTATIONS: ../../data/captaincook4d/task_graph_generation_annotations.json
+  GT_TASK_GRAPHS: ../../data/captaincook4d/ground_truth_task_graphs
+  PRED_TASK_GRAPHS: ./Baseline_ILP_acc
+  OUTPUT_PATH: ./Baseline_ILP_acc/evaluation
