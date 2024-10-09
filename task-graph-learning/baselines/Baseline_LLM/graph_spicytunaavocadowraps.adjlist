@@ -1,0 +1,47 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-269810hGICzDVVCQpy.json
+# GMT Wed Apr 17 07:23:45 2024
+# 
+339_Add-1 tsp Sriracha sauce to the bowl;3
+327_Add-1/4 cup mayonnaise to the bowl;{}
+334_Add-Add 1 can drained tuna to the bowl;{}
+333_Add-add chopped scallion to the bowl;{}
+327_Add-1/4 cup mayonnaise to the bowl;1
+START;{}
+334_Add-Add 1 can drained tuna to the bowl;1
+328_drain-drain excess water from can;{}
+333_Add-add chopped scallion to the bowl;1
+340_Chop-Chop 1 scallion;{}
+336_Open-Open a can of tuna;1
+START;{}
+328_drain-drain excess water from can;1
+336_Open-Open a can of tuna;{}
+340_Chop-Chop 1 scallion;1
+START;{}
+329_Lay-Lay out 2 large lettuce leaves;1
+START;{}
+331_Mix-Mix the contents of the bowl;3
+339_Add-1 tsp Sriracha sauce to the bowl;{}
+338_Season-Season bowl with 1/4 tsp salt;{}
+326_Season-season 1/4 tsp pepper on the bowl;{}
+338_Season-Season bowl with 1/4 tsp salt;1
+START;{}
+326_Season-season 1/4 tsp pepper on the bowl;1
+START;{}
+330_Roll-Roll up the lettuce wraps;2
+332_top-top lettuce leaves with the tuna mixture;{}
+325_place-place avocado slices on each leaf;{}
+332_top-top lettuce leaves with the tuna mixture;2
+329_Lay-Lay out 2 large lettuce leaves;{}
+331_Mix-Mix the contents of the bowl;{}
+325_place-place avocado slices on each leaf;2
+329_Lay-Lay out 2 large lettuce leaves;{}
+341_cut-cut avocado into thin slices;{}
+335_Take-Take 1 ripe avocado;1
+START;{}
+341_cut-cut avocado into thin slices;1
+335_Take-Take 1 ripe avocado;{}
+337_secure-secure the wrap with a toothpick;1
+330_Roll-Roll up the lettuce wraps;{}
+START;0
+END;1
+337_secure-secure the wrap with a toothpick;{}

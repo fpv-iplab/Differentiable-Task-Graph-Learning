@@ -1,0 +1,34 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-954241K7BYGofbiNU.json
+# GMT Mon Apr 15 15:07:17 2024
+# 
+130_Add-1 teaspoon of pepper powder to the bowl;2
+136_Add-Add 1 teaspoon salt to the bowl;{}
+76_Mix-Mix the contents of the bowl well;{}
+136_Add-Add 1 teaspoon salt to the bowl;1
+132_Add-Add the corn into a microwave-safe bowl;{}
+132_Add-Add the corn into a microwave-safe bowl;1
+137_Thaw-Thaw the frozen corn by putting it in a sieve and running it under cold water;{}
+133_Microwave-Microwave the corn for 2 minutes;1
+132_Add-Add the corn into a microwave-safe bowl;{}
+134_Microwave-Microwave the corn for 3 more minutes;1
+133_Microwave-Microwave the corn for 2 minutes;{}
+76_Mix-Mix the contents of the bowl well;2
+134_Microwave-Microwave the corn for 3 more minutes;{}
+128_add-add lime juice to the bowl;{}
+138_Add-Add 1 teaspoon of softened butter;1
+START;{}
+137_Thaw-Thaw the frozen corn by putting it in a sieve and running it under cold water;1
+129_Measure-Measure 2 cups of frozen corn;{}
+131_Extract-Extract lime juice from 1/3 lime;1
+START;{}
+129_Measure-Measure 2 cups of frozen corn;1
+START;{}
+128_add-add lime juice to the bowl;1
+131_Extract-Extract lime juice from 1/3 lime;{}
+135_stir-then stir the bowl;1
+76_Mix-Mix the contents of the bowl well;{}
+START;0
+END;3
+130_Add-1 teaspoon of pepper powder to the bowl;{}
+138_Add-Add 1 teaspoon of softened butter;{}
+135_stir-then stir the bowl;{}

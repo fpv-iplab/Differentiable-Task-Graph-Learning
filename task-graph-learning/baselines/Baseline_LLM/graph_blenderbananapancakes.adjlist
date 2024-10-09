@@ -1,0 +1,38 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-184719743oNFniFy0p.json
+# GMT Tue Apr 16 18:31:39 2024
+# 
+229_Add-1 egg to a blender;1
+START;{}
+232_Add-1 heaped tbsp flour to a blender;1
+START;{}
+221_Add-1/2 tsp baking powder to a blender;1
+232_Add-1 heaped tbsp flour to a blender;{}
+225_Add-Add 1 banana to a blender;1
+START;{}
+233_Chop-Chop 1 strawberry;1
+START;{}
+226_Cook-Cook for 1 min or until the tops start to bubble;1
+231_Pour-Pour three little puddles straight from the blender into the frying pan;{}
+231_Pour-Pour three little puddles straight from the blender into the frying pan;2
+223_Melt-Melt a small knob of butter in a non-stick frying pan over low-medium heat;{}
+227_blitz-blitz the blender for 20 seconds;{}
+228_Flip-Flip the pancakes with a fork or a fish slice spatula;1
+226_Cook-Cook for 1 min or until the tops start to bubble;{}
+223_Melt-Melt a small knob of butter in a non-stick frying pan over low-medium heat;1
+START;{}
+227_blitz-blitz the blender for 20 seconds;3
+229_Add-1 egg to a blender;{}
+221_Add-1/2 tsp baking powder to a blender;{}
+225_Add-Add 1 banana to a blender;{}
+222_Serve-Serve the pancakes with chopped strawberries;2
+234_Transfer-Transfer to a plate;{}
+233_Chop-Chop 1 strawberry;{}
+234_Transfer-Transfer to a plate;1
+230_cook-cook for 20-30 seconds more;{}
+230_cook-cook for 20-30 seconds more;1
+228_Flip-Flip the pancakes with a fork or a fish slice spatula;{}
+224_splash-splash maple syrup on plate;1
+222_Serve-Serve the pancakes with chopped strawberries;{}
+START;0
+END;1
+224_splash-splash maple syrup on plate;{}

@@ -1,0 +1,31 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-105723FfsVgHbVoIvL.json
+# GMT Sat Apr 13 17:42:17 2024
+# 
+80_Add-Add 1 tbsp salsa to the bowl;1
+76_Mix-Mix the contents of the bowl well;{}
+77_add-Extract and add contents of an egg to a microwave-safe bowl;1
+START;{}
+76_Mix-Mix the contents of the bowl well;1
+72_Whisk-Whisk the egg;{}
+74_Add-Add 1/2 tbsp sweet and sour sauce to the bowl;1
+76_Mix-Mix the contents of the bowl well;{}
+73_Microwave-Microwave for 3 minutes, stirring in between;2
+80_Add-Add 1 tbsp salsa to the bowl;{}
+74_Add-Add 1/2 tbsp sweet and sour sauce to the bowl;{}
+72_Whisk-Whisk the egg;1
+77_add-Extract and add contents of an egg to a microwave-safe bowl;{}
+81_Place-Place 8 inch tortilla on a cutting board;1
+START;{}
+79_Pour-Pour egg mixture on top of the tortilla;2
+73_Microwave-Microwave for 3 minutes, stirring in between;{}
+81_Place-Place 8 inch tortilla on a cutting board;{}
+78_Roll-Roll the tortilla from one end to another into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps but not so tight that the filling leaks;1
+75_Sprinkle-Sprinkle 1 tbsp shredded cheddar cheese on top of the egg;{}
+75_Sprinkle-Sprinkle 1 tbsp shredded cheddar cheese on top of the egg;1
+79_Pour-Pour egg mixture on top of the tortilla;{}
+82_Sprinkle-Sprinkle oregano in the bowl;1
+76_Mix-Mix the contents of the bowl well;{}
+START;0
+END;2
+78_Roll-Roll the tortilla from one end to another into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps but not so tight that the filling leaks;{}
+82_Sprinkle-Sprinkle oregano in the bowl;{}

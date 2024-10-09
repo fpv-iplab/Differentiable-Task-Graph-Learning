@@ -1,0 +1,55 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-388092xlixzMz7LwYY.json
+# GMT Tue Apr 16 20:35:30 2024
+# 
+305_Allow-Allow to cool until it is no longer hot to the touch;1
+312_Microwave-Microwave the mug and batter on high power for 60 seconds. Check if the cake is done by inserting and toothpick into the center of the cake and then removing it. If wet batter clings to the toothpick, microwave for an additional 5 seconds. If the toothpick comes out clean, continue;{}
+312_Microwave-Microwave the mug and batter on high power for 60 seconds. Check if the cake is done by inserting and toothpick into the center of the cake and then removing it. If wet batter clings to the toothpick, microwave for an additional 5 seconds. If the toothpick comes out clean, continue;1
+307_Pour-Pour batter into prepared mug;{}
+309_Invert-Invert the mug to release the cake onto a plate;1
+305_Allow-Allow to cool until it is no longer hot to the touch;{}
+297_Measure and add-1.5 tbsp sugar to the mixing bowl;1
+START;{}
+304_Measure and add-1/4 tsp baking powder to the bowl;1
+START;{}
+313_Measure and add-1/4 tsp vanilla extract to the bowl;1
+START;{}
+296_Measure and add-2 tbsp water to the bowl;1
+START;{}
+299_Measure and add-Measure and add 2 tbsp flour to the mixing bowl;1
+START;{}
+300_Measure and add-Measure and add 2 tsp vegetable oil to the bowl;1
+START;{}
+310_Measure and add-a pinch of salt to the mixing bowl;1
+START;{}
+307_Pour-Pour batter into prepared mug;2
+294_Whisk-Whisk batter until no lumps remain;{}
+303_Place-Place the paper cupcake liner inside the mug;{}
+303_Place-Place the paper cupcake liner inside the mug;1
+START;{}
+294_Whisk-Whisk batter until no lumps remain;1
+308_Whisk-Whisk to combine mixture of flour, sugar and baking powder in the bowl;{}
+298_Scoop-While the cake is cooling, prepare to pipe the frosting. Scoop 4 spoonfuls of chocolate frosting into a zip-top bag;1
+305_Allow-Allow to cool until it is no longer hot to the touch;{}
+301_Set-Set aside the lined mug;1
+303_Place-Place the paper cupcake liner inside the mug;{}
+302_Squeeze-Squeeze the frosting through the opening to apply small dollops of frosting to the plate in a circle around the base of the cake;1
+306_cut-Use scissors to cut one corner from the bag to create a small opening 1/4 inch in diameter;{}
+306_cut-Use scissors to cut one corner from the bag to create a small opening 1/4 inch in diameter;1
+311_seal-seal zip top bag, removing as much air as possible;{}
+308_Whisk-Whisk to combine mixture of flour, sugar and baking powder in the bowl;3
+297_Measure and add-1.5 tbsp sugar to the mixing bowl;{}
+304_Measure and add-1/4 tsp baking powder to the bowl;{}
+299_Measure and add-Measure and add 2 tbsp flour to the mixing bowl;{}
+311_seal-seal zip top bag, removing as much air as possible;1
+298_Scoop-While the cake is cooling, prepare to pipe the frosting. Scoop 4 spoonfuls of chocolate frosting into a zip-top bag;{}
+295_remove-then carefully remove the paper liner;1
+309_Invert-Invert the mug to release the cake onto a plate;{}
+START;0
+END;7
+313_Measure and add-1/4 tsp vanilla extract to the bowl;{}
+296_Measure and add-2 tbsp water to the bowl;{}
+300_Measure and add-Measure and add 2 tsp vegetable oil to the bowl;{}
+310_Measure and add-a pinch of salt to the mixing bowl;{}
+301_Set-Set aside the lined mug;{}
+302_Squeeze-Squeeze the frosting through the opening to apply small dollops of frosting to the plate in a circle around the base of the cake;{}
+295_remove-then carefully remove the paper liner;{}

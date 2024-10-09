@@ -1,0 +1,41 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-307306YrDSGS6jJcUO.json
+# GMT Thu Apr 11 10:02:56 2024
+# 
+22_Cut-Cut 1/4 medium carrot into short, thin strips;1
+START;{}
+16_Cut-Cut 1/8 garlic clove;1
+14_Peel-Peel 1 garlic clove;{}
+14_Peel-Peel 1 garlic clove;1
+START;{}
+25_Microwave-Microwave for 1 more minute;1
+20_Microwave-Microwave the plate, covered, on high for 1.5 minutes;{}
+20_Microwave-Microwave the plate, covered, on high for 1.5 minutes;1
+21_Place-Place 5 meatballs in a Microwave-safe plate;{}
+21_Place-Place 5 meatballs in a Microwave-safe plate;1
+START;{}
+26_Mince-Mince 1/8 garlic clove;1
+14_Peel-Peel 1 garlic clove;{}
+23_Mix-Mix 1/4 cup sweet-and-sour sauce and 1/2 teaspoon soy sauce in a small bowl;1
+START;{}
+17_Peel-Peel one medium onion;1
+START;{}
+15_Pour-Pour the sauces over the meatballs;1
+23_Mix-Mix 1/4 cup sweet-and-sour sauce and 1/2 teaspoon soy sauce in a small bowl;{}
+19_Slice-Slice 1/8 medium onion;1
+17_Peel-Peel one medium onion;{}
+18_Stir-Stir the contents in the microwave with a spoon;1
+20_Microwave-Microwave the plate, covered, on high for 1.5 minutes;{}
+24_Top-Top the plate with the carrots, onion, garlic and 1/4 tsp pepper powder;3
+22_Cut-Cut 1/4 medium carrot into short, thin strips;{}
+16_Cut-Cut 1/8 garlic clove;{}
+19_Slice-Slice 1/8 medium onion;{}
+27_cut-Cut onion into two pieces;1
+17_Peel-Peel one medium onion;{}
+START;0
+END;6
+25_Microwave-Microwave for 1 more minute;{}
+26_Mince-Mince 1/8 garlic clove;{}
+15_Pour-Pour the sauces over the meatballs;{}
+18_Stir-Stir the contents in the microwave with a spoon;{}
+24_Top-Top the plate with the carrots, onion, garlic and 1/4 tsp pepper powder;{}
+27_cut-Cut onion into two pieces;{}

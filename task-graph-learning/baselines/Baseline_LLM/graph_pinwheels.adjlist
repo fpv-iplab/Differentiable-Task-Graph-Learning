@@ -1,0 +1,48 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-954241K7BYGofbiNU.json
+# GMT Mon Apr 15 14:55:40 2024
+# 
+118_Clean-Clean the knife by wiping it with a paper towel;3
+113_scoop-Use a butter knife to scoop nut butter from the jar;{}
+111_scoop-Use the knife to scoop jelly from the jar;{}
+114_Trim-Trim the ends of the tortilla roll with the butter knife, leaving 1/2 inch margin between the last toothpick and the end of the roll;{}
+113_scoop-Use a butter knife to scoop nut butter from the jar;1
+START;{}
+111_scoop-Use the knife to scoop jelly from the jar;1
+START;{}
+114_Trim-Trim the ends of the tortilla roll with the butter knife, leaving 1/2 inch margin between the last toothpick and the end of the roll;1
+110_Secure-Secure the rolled tortilla by inserting 5 toothpicks about 1 inch apart;{}
+104_Clean-Clean the knife by wiping with a paper towel;3
+113_scoop-Use a butter knife to scoop nut butter from the jar;{}
+111_scoop-Use the knife to scoop jelly from the jar;{}
+114_Trim-Trim the ends of the tortilla roll with the butter knife, leaving 1/2 inch margin between the last toothpick and the end of the roll;{}
+105_Cross-Cross the floss's two ends over the tortilla roll's top;2
+117_Place-Place the floss halfway between toothpicks;{}
+106_Slide-Slide floss under the tortilla, perpendicular to the length of the roll;{}
+117_Place-Place the floss halfway between toothpicks;1
+110_Secure-Secure the rolled tortilla by inserting 5 toothpicks about 1 inch apart;{}
+106_Slide-Slide floss under the tortilla, perpendicular to the length of the roll;1
+110_Secure-Secure the rolled tortilla by inserting 5 toothpicks about 1 inch apart;{}
+103_Discard-Discard ends of the tortilla;1
+114_Trim-Trim the ends of the tortilla roll with the butter knife, leaving 1/2 inch margin between the last toothpick and the end of the roll;{}
+115_Place-Place 8-inch flour tortilla on cutting board;1
+START;{}
+110_Secure-Secure the rolled tortilla by inserting 5 toothpicks about 1 inch apart;1
+116_Roll-Roll the tortilla from one end to the other into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps, but not so tight that the filling leaks;{}
+109_Place-Place the pinwheels on a plate;1
+102_slicing-Continue slicing with floss to create 1 more pinwheel;{}
+108_pull-pull the floss ends in opposite directions to slice;1
+105_Cross-Cross the floss's two ends over the tortilla roll's top;{}
+102_slicing-Continue slicing with floss to create 1 more pinwheel;1
+108_pull-pull the floss ends in opposite directions to slice;{}
+116_Roll-Roll the tortilla from one end to the other into a log shape, about 1.5 inches thick. Roll it tight enough to prevent gaps, but not so tight that the filling leaks;1
+107_Spread-Spread jelly over the nut butter;{}
+112_Spread-Spread nut butter onto the tortilla, leaving 1/2-inch uncovered at the edges;1
+115_Place-Place 8-inch flour tortilla on cutting board;{}
+107_Spread-Spread jelly over the nut butter;1
+112_Spread-Spread nut butter onto the tortilla, leaving 1/2-inch uncovered at the edges;{}
+START;0
+END;4
+118_Clean-Clean the knife by wiping it with a paper towel;{}
+104_Clean-Clean the knife by wiping with a paper towel;{}
+103_Discard-Discard ends of the tortilla;{}
+109_Place-Place the pinwheels on a plate;{}

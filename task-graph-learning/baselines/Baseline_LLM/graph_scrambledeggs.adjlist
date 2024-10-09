@@ -1,0 +1,67 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-226402IjKdx6HrPKXr.json
+# GMT Mon Apr 15 17:39:40 2024
+# 
+168_Add-Add 1/8 tsp of turmeric to the pan;1
+173_Heat-Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat;{}
+173_Heat-Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat;1
+START;{}
+162_Add-Add chilli to the pan;2
+161_Chop-Chop 1 green chilli;{}
+173_Heat-Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat;{}
+161_Chop-Chop 1 green chilli;1
+START;{}
+160_Add-Add garlic to the pan;2
+180_Mince-Mince peeled garlic cloves;{}
+173_Heat-Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat;{}
+180_Mince-Mince peeled garlic cloves;1
+176_Peel-Peel 2 garlic cloves;{}
+175_Add-Add tomatoes to the pan;2
+169_Chop-Chop 1/4 tomato;{}
+173_Heat-Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat;{}
+169_Chop-Chop 1/4 tomato;1
+START;{}
+158_Chop-Chop 1 tsp cilantro;1
+START;{}
+163_Chop-Chop 1/4 medium onion;1
+START;{}
+170_Cook-Cook covered for 1 minute or until the tomatoes soften;1
+175_Add-Add tomatoes to the pan;{}
+165_Cook-Cook for 1 minute, mixing everything;4
+168_Add-Add 1/8 tsp of turmeric to the pan;{}
+162_Add-Add chilli to the pan;{}
+160_Add-Add garlic to the pan;{}
+175_Add-Add tomatoes to the pan;{}
+167_Crack-Crack one egg in the bowl;1
+START;{}
+174_Garnish-Garnish with 1 tbsp chopped cilantro and serve;2
+158_Chop-Chop 1 tsp cilantro;{}
+165_Cook-Cook for 1 minute, mixing everything;{}
+176_Peel-Peel 2 garlic cloves;1
+START;{}
+166_Saute-Saute the onions on medium heat until they are soft and translucent;1
+179_add-add chopped onions to the pan;{}
+179_add-add chopped onions to the pan;2
+163_Chop-Chop 1/4 medium onion;{}
+173_Heat-Heat 2 tbsp oil in a heavy-bottomed or nonstick pan on medium heat;{}
+159_Whisk-Whisk the egg mixture in the bowl;1
+164_add-add 1/3 tsp salt to the bowl;{}
+177_add-add 1 tbsp milk to the bowl;1
+167_Crack-Crack one egg in the bowl;{}
+164_add-add 1/3 tsp salt to the bowl;1
+177_add-add 1 tbsp milk to the bowl;{}
+178_add-add 1/3 tsp salt to the pan;4
+168_Add-Add 1/8 tsp of turmeric to the pan;{}
+162_Add-Add chilli to the pan;{}
+160_Add-Add garlic to the pan;{}
+175_Add-Add tomatoes to the pan;{}
+171_mixing-Keep mixing with a spatula for 3 minutes or until the eggs are almost cooked;1
+172_pour-Slowly pour the whisked eggs into the pan;{}
+172_pour-Slowly pour the whisked eggs into the pan;1
+159_Whisk-Whisk the egg mixture in the bowl;{}
+START;0
+END;5
+170_Cook-Cook covered for 1 minute or until the tomatoes soften;{}
+174_Garnish-Garnish with 1 tbsp chopped cilantro and serve;{}
+166_Saute-Saute the onions on medium heat until they are soft and translucent;{}
+178_add-add 1/3 tsp salt to the pan;{}
+171_mixing-Keep mixing with a spatula for 3 minutes or until the eggs are almost cooked;{}

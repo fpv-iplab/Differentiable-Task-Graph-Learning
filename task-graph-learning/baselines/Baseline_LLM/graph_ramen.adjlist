@@ -1,0 +1,43 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-105723FfsVgHbVoIvL.json
+# GMT Sat Apr 13 16:30:12 2024
+# 
+50_Add-Add basil to the bowl;2
+54_Put-Put all the Vegetables in a microwave-safe bowl;{}
+43_Stir-Stir noodles with a spoon or fork until the flavouring dissolves;{}
+54_Put-Put all the Vegetables in a microwave-safe bowl;2
+46_slice-slice 1/4 medium onion into pieces;{}
+51_Chop-Chop 1 garlic clove on a cutting board;{}
+42_Mix-Mix in the flavour packet to the bowl;1
+52_Add-Add the noodles to the bowl;{}
+43_Stir-Stir noodles with a spoon or fork until the flavouring dissolves;1
+42_Mix-Mix in the flavour packet to the bowl;{}
+53_Add-Add chopped cilantro to the bowl;2
+48_Let-Let the noodles sit for about 1 minute after the microwave stops;{}
+43_Stir-Stir noodles with a spoon or fork until the flavouring dissolves;{}
+45_Microwave-Microwave the ramen for 4 minutes;2
+55_cover-cover the noodles with water;{}
+54_Put-Put all the Vegetables in a microwave-safe bowl;{}
+48_Let-Let the noodles sit for about 1 minute after the microwave stops;1
+45_Microwave-Microwave the ramen for 4 minutes;{}
+52_Add-Add the noodles to the bowl;2
+44_Remove-Remove the noodles from the package(Break Noodles / Keep them as a block);{}
+55_cover-cover the noodles with water;{}
+44_Remove-Remove the noodles from the package(Break Noodles / Keep them as a block);1
+START;{}
+55_cover-cover the noodles with water;1
+52_Add-Add the noodles to the bowl;{}
+51_Chop-Chop 1 garlic clove on a cutting board;1
+14_Peel-Peel 1 garlic clove;{}
+14_Peel-Peel 1 garlic clove;1
+START;{}
+49_Cover-Cover with a lid (or paper towel) to prevent splattering;1
+45_Microwave-Microwave the ramen for 4 minutes;{}
+47_Peel-Peel 1 medium onion;1
+START;{}
+46_slice-slice 1/4 medium onion into pieces;1
+47_Peel-Peel 1 medium onion;{}
+START;0
+END;3
+50_Add-Add basil to the bowl;{}
+53_Add-Add chopped cilantro to the bowl;{}
+49_Cover-Cover with a lid (or paper towel) to prevent splattering;{}

@@ -1,0 +1,22 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-307306YrDSGS6jJcUO.json
+# GMT Thu Apr 11 10:06:28 2024
+# 
+87_Add-Add 1 teaspoon of white sugar to the mug;1
+START;{}
+84_Add-Add 1/5 teaspoon cinnamon to the mug;1
+88_Fill-Fill a microwave-safe mug with skimmed milk;{}
+88_Fill-Fill a microwave-safe mug with skimmed milk;1
+START;{}
+90_Add-Add 2 pieces of chocolate to the mug;1
+88_Fill-Fill a microwave-safe mug with skimmed milk;{}
+83_Heat-Heat the contents of the mug for 1 minute and serve;1
+89_Microwave-Microwave the contents of the mug for 1 minute;{}
+89_Microwave-Microwave the contents of the mug for 1 minute;1
+85_Mix-Mix the contents of the mug;{}
+85_Mix-Mix the contents of the mug;3
+87_Add-Add 1 teaspoon of white sugar to the mug;{}
+84_Add-Add 1/5 teaspoon cinnamon to the mug;{}
+90_Add-Add 2 pieces of chocolate to the mug;{}
+START;0
+END;1
+83_Heat-Heat the contents of the mug for 1 minute and serve;{}

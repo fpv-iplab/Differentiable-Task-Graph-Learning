@@ -1,0 +1,43 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-105723FfsVgHbVoIvL.json
+# GMT Sat Apr 13 17:22:06 2024
+# 
+64_Boil-Boil the water. (While the water is boiling, assemble the filter cone);1
+70_transfer-transfer water to a kettle;{}
+68_Measure-Measure 12 ounces of cold water;1
+START;{}
+70_transfer-transfer water to a kettle;1
+68_Measure-Measure 12 ounces of cold water;{}
+63_Discard-Discard the paper filter and coffee grounds;1
+66_drain-Let the coffee drain completely into the mug before removing the dripper;{}
+66_drain-Let the coffee drain completely into the mug before removing the dripper;1
+61_pour-Slowly pour the rest of the water over the grounds in a circular motion. Do not overfill beyond the top of the paper filter;{}
+67_Grind-Grind the coffee beans until the coffee grounds are the consistency of coarse sand, about 20 seconds;1
+65_Weigh-Weigh the coffee beans (0.8oz-0.12 oz);{}
+65_Weigh-Weigh the coffee beans (0.8oz-0.12 oz);1
+START;{}
+69_Place-Place the dripper on top of a coffee mug;1
+60_Place-Place the paper filter in the dripper;{}
+60_Place-Place the paper filter in the dripper;1
+62_Prepare-Prepare the filter insert by folding the paper filter in half to create a semi-circle, and in half again to create a quarter-circle;{}
+62_Prepare-Prepare the filter insert by folding the paper filter in half to create a semi-circle, and in half again to create a quarter-circle;1
+START;{}
+57_Pour-Pour a small amount of water into the filter to wet the grounds;2
+64_Boil-Boil the water. (While the water is boiling, assemble the filter cone);{}
+58_Transfer-Transfer the grounds to the filter cone;{}
+58_Transfer-Transfer the grounds to the filter cone;2
+67_Grind-Grind the coffee beans until the coffee grounds are the consistency of coarse sand, about 20 seconds;{}
+60_Place-Place the paper filter in the dripper;{}
+56_Wait-Wait about 30 seconds for the coffee to bloom. (You will see small bubbles or foam on the coffee grounds during this step.);1
+57_Pour-Pour a small amount of water into the filter to wet the grounds;{}
+71_check-Once the water has boiled, check the temperature of the water. (The water should be between 195-205 degrees Fahrenheit or between 91-96 degrees Celsius. If the water is too hot, let it cool briefly.);1
+64_Boil-Boil the water. (While the water is boiling, assemble the filter cone);{}
+61_pour-Slowly pour the rest of the water over the grounds in a circular motion. Do not overfill beyond the top of the paper filter;2
+56_Wait-Wait about 30 seconds for the coffee to bloom. (You will see small bubbles or foam on the coffee grounds during this step.);{}
+71_check-Once the water has boiled, check the temperature of the water. (The water should be between 195-205 degrees Fahrenheit or between 91-96 degrees Celsius. If the water is too hot, let it cool briefly.);{}
+59_spread-spread open filter in dripper to create a cone;1
+60_Place-Place the paper filter in the dripper;{}
+START;0
+END;3
+63_Discard-Discard the paper filter and coffee grounds;{}
+69_Place-Place the dripper on top of a coffee mug;{}
+59_spread-spread open filter in dripper to create a cone;{}

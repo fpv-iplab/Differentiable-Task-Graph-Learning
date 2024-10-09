@@ -1,0 +1,53 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-954241K7BYGofbiNU.json
+# GMT Mon Apr 15 15:18:31 2024
+# 
+141_Add-1/2 tsp cumin seeds to the pan;1
+154_Heat-Heat 3 tbsp oil in a pan over medium heat;{}
+154_Heat-Heat 3 tbsp oil in a pan over medium heat;1
+START;{}
+146_Add-1/2 tsp salt to the pan;1
+START;{}
+139_Add-Add 1/4 tsp mustard to the pan;1
+154_Heat-Heat 3 tbsp oil in a pan over medium heat;{}
+147_Add-Add 2 tbsp red chili powder to the pan;1
+START;{}
+142_Add-Add tomato puree to the pan;1
+150_puree-puree tomatoes without any water in a blender/mixer;{}
+150_puree-puree tomatoes without any water in a blender/mixer;1
+155_Chop-Chop tomato roughly (anysize chunks are fine);{}
+155_Chop-Chop tomato roughly (anysize chunks are fine);1
+149_Take-Take 1 tomato;{}
+149_Take-Take 1 tomato;1
+START;{}
+151_Lower-Lower the heat;1
+154_Heat-Heat 3 tbsp oil in a pan over medium heat;{}
+144_Mix-Mix well tomato puree with contents in the pan;1
+142_Add-Add tomato puree to the pan;{}
+145_Peel-Peel 4 large garlic cloves;1
+START;{}
+148_Saute-Saute the garlic for 2-3 minutes;2
+145_Peel-Peel 4 large garlic cloves;{}
+154_Heat-Heat 3 tbsp oil in a pan over medium heat;{}
+143_Take-Take the pan off the heat;1
+153_simmer-Allow the mixture to simmer over low heat for 5 minutes or until the mixture becomes thick;{}
+153_simmer-Allow the mixture to simmer over low heat for 5 minutes or until the mixture becomes thick;2
+144_Mix-Mix well tomato puree with contents in the pan;{}
+151_Lower-Lower the heat;{}
+156_Transfer-Transfer it to a serving bowl;1
+143_Take-Take the pan off the heat;{}
+152_add-When mustard and cumin seeds begin to sizzle, add minced garlic;3
+141_Add-1/2 tsp cumin seeds to the pan;{}
+139_Add-Add 1/4 tsp mustard to the pan;{}
+140_mince-mince the garlic;{}
+140_mince-mince the garlic;1
+145_Peel-Peel 4 large garlic cloves;{}
+157_mix-mix well contents of the pan;1
+START;{}
+START;0
+END;6
+146_Add-1/2 tsp salt to the pan;{}
+147_Add-Add 2 tbsp red chili powder to the pan;{}
+148_Saute-Saute the garlic for 2-3 minutes;{}
+156_Transfer-Transfer it to a serving bowl;{}
+152_add-When mustard and cumin seeds begin to sizzle, add minced garlic;{}
+157_mix-mix well contents of the pan;{}

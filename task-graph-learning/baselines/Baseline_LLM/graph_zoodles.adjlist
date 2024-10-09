@@ -1,0 +1,38 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-53544JzAmP7h1ElPR.json
+# GMT Mon Apr 15 20:36:26 2024
+# 
+193_Add-1/6 cup grated parmesan cheese;1
+192_Cook-Cook for 2 minutes or until the zoodles are done;{}
+192_Cook-Cook for 2 minutes or until the zoodles are done;1
+201_Add-Add the zucchini noodles;{}
+199_Add-Add 1 large minced garlic cloves to the pan;2
+200_Peel-Peel 1 garlic cloves;{}
+196_Heat-Heat a large pan on medium heat;{}
+200_Peel-Peel 1 garlic cloves;1
+START;{}
+196_Heat-Heat a large pan on medium heat;1
+START;{}
+201_Add-Add the zucchini noodles;1
+203_Spiralize-Spiralize 1 medium zucchini into thin noodles using a spiralizer;{}
+203_Spiralize-Spiralize 1 medium zucchini into thin noodles using a spiralizer;1
+START;{}
+202_Cook-Cook garlic until fragrant (about 1 minutes). Be careful not to burn garlic;1
+199_Add-Add 1 large minced garlic cloves to the pan;{}
+204_Melt-Melt 1 tablespoons of softened butter;1
+196_Heat-Heat a large pan on medium heat;{}
+197_Remove-Remove from heat;2
+192_Cook-Cook for 2 minutes or until the zoodles are done;{}
+202_Cook-Cook garlic until fragrant (about 1 minutes). Be careful not to burn garlic;{}
+195_Top-Top with more parmesan if desired;1
+197_Remove-Remove from heat;{}
+194_season-pepper to taste;1
+197_Remove-Remove from heat;{}
+198_season-season with salt;1
+197_Remove-Remove from heat;{}
+START;0
+END;5
+193_Add-1/6 cup grated parmesan cheese;{}
+204_Melt-Melt 1 tablespoons of softened butter;{}
+195_Top-Top with more parmesan if desired;{}
+194_season-pepper to taste;{}
+198_season-season with salt;{}

@@ -1,0 +1,34 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-307306YrDSGS6jJcUO.json
+# GMT Thu Apr 11 10:07:15 2024
+# 
+3_Coat -Coat a 6-oz. ramekin cup with cooking spray;1
+START;{}
+12_Cut -Cut the English muffin into two pieces with a knife;1
+START;{}
+9_Line -Line the bottom piece of the English muffin with lettuce;1
+12_Cut -Cut the English muffin into two pieces with a knife;{}
+8_Microwave -Continue to Microwave for 15-30 more seconds or until the egg is almost set;1
+4_Microwave-Microwave the ramekin cup uncovered on high for 30 seconds;{}
+4_Microwave-Microwave the ramekin cup uncovered on high for 30 seconds;1
+1_Pour-Pour 1 egg into the ramekin cup;{}
+10_Microwave -Microwave just until cheese melts, about 10 seconds;1
+5_sprinkle -sprinkle 1 tablespoon of cheese on cup;{}
+5_sprinkle -sprinkle 1 tablespoon of cheese on cup;1
+8_Microwave -Continue to Microwave for 15-30 more seconds or until the egg is almost set;{}
+1_Pour-Pour 1 egg into the ramekin cup;1
+3_Coat -Coat a 6-oz. ramekin cup with cooking spray;{}
+2_Place -Place the egg from the cup over the lettuce;2
+8_Microwave -Continue to Microwave for 15-30 more seconds or until the egg is almost set;{}
+9_Line -Line the bottom piece of the English muffin with lettuce;{}
+6_Top -Top cup with 1 tablespoon of salsa;1
+8_Microwave -Continue to Microwave for 15-30 more seconds or until the egg is almost set;{}
+7_replace -replace the top of the English muffin;1
+2_Place -Place the egg from the cup over the lettuce;{}
+11_stir-stir the ramekin cup;1
+1_Pour-Pour 1 egg into the ramekin cup;{}
+START;0
+END;4
+10_Microwave -Microwave just until cheese melts, about 10 seconds;{}
+6_Top -Top cup with 1 tablespoon of salsa;{}
+7_replace -replace the top of the English muffin;{}
+11_stir-stir the ramekin cup;{}

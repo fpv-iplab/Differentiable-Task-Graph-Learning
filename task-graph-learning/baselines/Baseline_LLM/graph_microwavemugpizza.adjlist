@@ -1,0 +1,38 @@
+#/home/lseminara/anaconda3/envs/phd-research/lib/python3.9/site-packages/ipykernel_launcher.py --f=/home/lseminara/.local/share/jupyter/runtime/kernel-v2-105723FfsVgHbVoIvL.json
+# GMT Sat Apr 13 15:50:52 2024
+# 
+34_Add-1 tablespoon of olive oil to the mug;1
+37_Mix-Mix the contents of the mug thoroughly. (There might be some lumps, but that is ok.);{}
+36_Take-Take a microwavable mug;1
+START;{}
+33_add-Measure 4 tablespoons of flour and add it to the mug;1
+36_Take-Take a microwavable mug;{}
+28_add-Measure 1/8 teaspoon of salt and add it to the mug;1
+START;{}
+40_add-Measure 1/8 teaspoon of baking powder and add it to the mug;1
+36_Take-Take a microwavable mug;{}
+35_add-Measure 1/16 teaspoon of baking soda and add it to the mug;1
+36_Take-Take a microwavable mug;{}
+41_Add-Add in 3 tablespoons of milk to the mug;4
+33_add-Measure 4 tablespoons of flour and add it to the mug;{}
+28_add-Measure 1/8 teaspoon of salt and add it to the mug;{}
+40_add-Measure 1/8 teaspoon of baking powder and add it to the mug;{}
+35_add-Measure 1/16 teaspoon of baking soda and add it to the mug;{}
+37_Mix-Mix the contents of the mug thoroughly. (There might be some lumps, but that is ok.);1
+41_Add-Add in 3 tablespoons of milk to the mug;{}
+32_Microwave-Microwave for 1 minute 20 seconds, or until it rises and the toppings are bubbling;1
+29_Sprinkle-Sprinkle dried Italian herbs inside the mug;{}
+30_Take-Take 1 tablespoon of marinara sauce;1
+34_Add-1 tablespoon of olive oil to the mug;{}
+31_spread-spread marinara sauce around the surface of the batter;1
+30_Take-Take 1 tablespoon of marinara sauce;{}
+39_Sprinkle-Sprinkle 1 generous tablespoon of mozzarella cheese on top of the sauce;1
+31_spread-spread marinara sauce around the surface of the batter;{}
+29_Sprinkle-Sprinkle dried Italian herbs inside the mug;1
+39_Sprinkle-Sprinkle 1 generous tablespoon of mozzarella cheese on top of the sauce;{}
+38_Stir-Stir the contents in the mug well;1
+START;{}
+START;0
+END;2
+32_Microwave-Microwave for 1 minute 20 seconds, or until it rises and the toppings are bubbling;{}
+38_Stir-Stir the contents in the mug well;{}
