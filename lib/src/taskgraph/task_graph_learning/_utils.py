@@ -1,3 +1,5 @@
+# Copyright (c) FPV@IPLab, and its affiliates. All Rights Reserved.
+
 import networkx as nx
 import copy
 from typing import List, Dict
@@ -5,16 +7,23 @@ import numpy as np
 import json
 import yaml
 from box import Box
+import glob
+import os
 
 
 def extract_predecessors(G: nx.DiGraph) -> Dict[int, List[int]]:
-    """Extract the predecessors of the graph.
+    """
+    Extract the predecessors of the graph.
     
-    Parameters:
-    - G (nx.DiGraph): The graph.
+    Parameters
+    ----------
+    G : nx.DiGraph
+        The direct graph.
 
-    Returns:
-    Dict[int, List[int]]: The predecessors.
+    Returns
+    -------
+    Dict[int, List[int]]
+        The predecessors.
     """
     predecessors = {}
     for current_node in G.nodes:
@@ -23,10 +32,13 @@ def extract_predecessors(G: nx.DiGraph) -> Dict[int, List[int]]:
 
 
 def delete_redundant_edges(G:nx.DiGraph) -> None:
-    """Delete the redundant edges of the graph.
+    """
+    Delete the redundant edges of the graph.
     
-    Parameters:
-    - G (nx.DiGraph): The graph.
+    Parameters
+    ----------
+    G : nx.DiGraph
+        The direct graph.
     """
     G_copy = copy.deepcopy(G)
     for current_node in G.nodes:
@@ -37,14 +49,20 @@ def delete_redundant_edges(G:nx.DiGraph) -> None:
 
 
 def sequences_accuracy(sequences:np.ndarray, pred_predecessors:Dict[int, List[int]]) -> float:
-    """Compute the accuracy of the prediction
+    """
+    Compute the accuracy of the prediction
 
-    Parameters:
-    - sequences: List of sequences
-    - pred_predecessors: Dict of predicted predecessors
+    Parameters
+    ----------
+    sequences : np.ndarray 
+        List of sequences
+    pred_predecessors : Dict[int, List[int]] 
+        Dict of predicted predecessors
 
-    Returns:
-    float: The accuracy of sequneces in the current predicted Task Graph
+    Returns
+    -------
+    float
+        The accuracy of sequneces in the current predicted Task Graph.
     """
     accuracy = 0
     for sequence in sequences:
@@ -59,11 +77,85 @@ def sequences_accuracy(sequences:np.ndarray, pred_predecessors:Dict[int, List[in
     return accuracy / len(sequences) if len(sequences) > 0 else 0
 
 
-def load_config_task_graph_learning(config_file) -> Dict:
-    """Load config file for task graph learning"""
+def load_config_baseline(config_file:str) -> Dict:
+    """
+    Load config file for baseline
+    
+    Parameters
+    ----------
+    config_file : str
+        The config file path.
+        
+    Returns
+    -------
+    Dict
+        A dictionary of the config file.
+    """
+    with open(config_file, 'r') as f:
+        config = yaml.safe_load(f)
+    config = Box(config)
+    return config.DATA
+
+
+def load_config_task_graph_learning(config_file:str) -> Dict:
+    """
+    Load config file for task graph learning
+    
+    Parameters
+    ----------
+    config_file : str
+        The config file path.
+        
+    Returns
+    -------
+    Dict
+        A dictionary of the config file.
+    """
     with open(config_file, 'r') as f:
         config = yaml.safe_load(f)
     config = Box(config)
     config.TRAIN.ANNOTATIONS = json.load(open(config.TRAIN.ANNOTATIONS))
     config.TRAIN.ACTIVITY_NAME = config.TRAIN.ACTIVITY_NAME.lower().replace(" ", "")
     return config.TRAIN
+
+def load_config_mistake_detection(config_file:str) -> Dict:
+    """
+    Load config file for mistake detection
+    
+    Parameters
+    ----------
+    config_file : str
+        The config file path.
+        
+    Returns
+    -------
+    Dict
+        A dictionary of the config file.
+    """
+    with open(config_file, 'r') as f:
+        config = yaml.safe_load(f)
+    config = Box(config)
+    config.DATA.ANNOTATIONS = json.load(open(config.DATA.ANNOTATIONS))
+    return config.DATA
+
+def load_config_evaluation_baseline(config_file) -> Dict:
+    """
+    Load config file for evaluation baseline
+    
+    Parameters
+    ----------
+    config_file : str
+        The config file path.
+        
+    Returns
+    -------
+    Dict
+        A dictionary of the config file.
+    """
+    with open(config_file, 'r') as f:
+        config = yaml.safe_load(f)
+    config = Box(config)
+    config.DATA.ANNOTATIONS = json.load(open(config.DATA.ANNOTATIONS))
+    config.DATA.GT_TASK_GRAPHS = glob.glob(os.path.join(config.DATA.GT_TASK_GRAPHS, "*.json"))
+    config.DATA.PRED_TASK_GRAPHS = glob.glob(os.path.join(config.DATA.PRED_TASK_GRAPHS, "*.adjlist"))
+    return config.DATA
