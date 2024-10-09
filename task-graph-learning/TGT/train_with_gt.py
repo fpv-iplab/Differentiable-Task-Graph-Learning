@@ -1,6 +1,5 @@
 # Copyright (c) FPV@IPLab, and its affiliates. All Rights Reserved.
 
-import copy
 import numpy as np
 import networkx as nx
 import torch
@@ -34,6 +33,8 @@ from sklearn.metrics import precision_score as precision, recall_score as recall
 def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, project_name:str, entity:str, max_length:int):
     # Check if wandb is True
     if w:
+        if entity is None:
+            raise ValueError("You need to specify the entity name.")
         # Initialize wandb
         wandb.login()
         wandb.init(project=project_name, entity=entity)
@@ -46,9 +47,6 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
 
     # Epochs
     epochs = cfg.EPOCHS
-    
-    # Epsilon
-    epsilon = cfg.EPSILON
 
     # Beta and beta_end
     beta = 1.0
@@ -177,12 +175,12 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
 
     for i in range(epochs):
 
-        if (i + 1) % 100 == 0:
+        if (i + 1) % 200 == 0:
             beta = np.interp(i, [0, epochs], [beta, beta_end])
 
         net.train()
         optimizer.zero_grad()
-        loss1, loss2 = net(input_embeds, y, eps=epsilon, beta=beta)
+        loss1, loss2 = net(input_embeds, y, beta=beta)
         loss = loss1 + loss2
         loss.backward()
         optimizer.step()
@@ -192,20 +190,11 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
             pred_adjacency_matrix = pred_adjacency_matrix.cpu().numpy()
             pred, _ = net.get_adjacency_matrix(input_embeds)
             pred = pred.cpu().numpy()
-            pred_adjacency_matrix_complete, _ = net.get_adjacency_matrix(input_embeds)
-            pred_adjacency_matrix_complete = pred_adjacency_matrix_complete.cpu().numpy()
 
         # Take the matrix removing first row, first column, last row and las column
         pred_adjacency_matrix = pred_adjacency_matrix[1:-1, 1:-1]
         pred = pred[1:-1, 1:-1]
         pred_adjacency_matrix = np.where(pred_adjacency_matrix < (1/(num_nodes-2)), 0, 1)
-        pred_adjacency_matrix_complete = np.where(pred_adjacency_matrix_complete < (1/(num_nodes-2)), 0, 1)
-        pred_adjacency_matrix_complete[0] *= 0
-        pred_adjacency_matrix_complete[-1] *= 0
-        pred_adjacency_matrix_complete[:, 0] *= 0
-        pred_adjacency_matrix_complete[:, -1] *= 0
-        pred_adjacency_matrix_complete[1, 0] = 1
-        pred_adjacency_matrix_complete[-1, -2] = 1
         GP = nx.DiGraph(pred_adjacency_matrix)
 
         in_degree_zeros = [node for node in GP.nodes if GP.in_degree(node) == 0 and node != id_end-1 and node != id_start-1]
