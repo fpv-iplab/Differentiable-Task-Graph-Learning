@@ -100,7 +100,7 @@ class TGT(nn.Module):
         values = self.softmax(softmax_input)
         return values, vectors
 
-    def forward(self, vectors, y, eps, beta, mask=None):
+    def forward(self, vectors, y, eps=1e-6, beta=1.0, mask=None):
         values, vectors = self.get_adjacency_matrix(vectors, mask)
         vectors = F.normalize(vectors, p=2, dim=-1)
         vectors = vectors @ vectors.T
