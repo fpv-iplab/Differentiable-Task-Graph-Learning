@@ -1,4 +1,6 @@
-# This script trains the model on the task graph learning task. The model is trained on the CaptainCook4D dataset.
+# Copyright (c) FPV@IPLab, and its affiliates. All Rights Reserved.
+
+# This script is used to learn the task graph from the sequences of the CaptainCook4D dataset.
 
 import numpy as np
 import networkx as nx
@@ -8,19 +10,23 @@ import os
 import json
 import sys
 
-from taskgraph.task_graph_learning import (DO, 
-                                           extract_predecessors,
-                                           delete_redundant_edges,
-                                           load_config_task_graph_learning,
-                                           sequences_accuracy)
-
+try:
+    from taskgraph.task_graph_learning import (DO, 
+                                            extract_predecessors,
+                                            delete_redundant_edges,
+                                            load_config_task_graph_learning,
+                                            sequences_accuracy)
+except:
+    raise Exception("You need to install the TGML library. Please read the README.md file.")
+    
 from sklearn.metrics import precision_score as precision, recall_score as recall, f1_score
 
 @click.command()
 @click.option("--config", "-cfg", type=str, required=True, help="Path to the config file. You can find the config file in the config folder.")
 @click.option("--log", "-l", type=bool, default=False, is_flag=True, help="Log the output to a file.")
 @click.option("--seed", "-s", type=int, default=None, help="Seed for reproducibility.")
-def main(config:str, log:bool, seed:int):
+@click.option("--device", "-d", type=str, default="cuda:0", help="Device to use for training.")
+def main(config:str, log:bool, seed:int, device:str):
     # Load config
     cfg = load_config_task_graph_learning(config)
 
@@ -135,7 +141,7 @@ def main(config:str, log:bool, seed:int):
     train_seq_no_beta_gamma = np.array([([id_start - 1] + [(s - 1) for s in seq] + [id_end - 1]) for seq in train_sequences])
 
     # Select the device
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device(device if torch.cuda.is_available() else "cpu")
 
     # Create the model
     net = DO(num_nodes, device).to(device)

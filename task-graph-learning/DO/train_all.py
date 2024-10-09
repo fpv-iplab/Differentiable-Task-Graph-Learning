@@ -1,4 +1,6 @@
-# This script runs train.py for all yaml files in the CaptainCook4D folder.
+# Copyright (c) FPV@IPLab, and its affiliates. All Rights Reserved.
+
+# This script runs train_with_gt.py for all yaml files in the CaptainCook4D folder.
 
 import os
 import threading
@@ -6,7 +8,8 @@ import click
 
 @click.command()
 @click.option("--more_seeds", is_flag=True, help="Use multiple seeds for error bars.")
-def main(more_seeds):
+@click.option("--device", "-d", type=str, default="cuda:0", help="Device to use for training.")
+def main(more_seeds:bool, device:str):
     print("more_seeds:", more_seeds)
     print("Running train_all_with_gt.py")
 
@@ -15,15 +18,15 @@ def main(more_seeds):
         if more_seeds:
             # Use three different seeds for error bars
             for seed in [42, 1337, 2024, 2025, 2026]:
-                command = f"python train.py --config ./configs/CaptainCook4D/{yaml_file} --seed {seed} --log"
+                command = f"python train_with_gt.py --config ../../configs/CaptainCook4D/{yaml_file} --seed {seed} --log --device {device}"
                 os.system(command)
         else:
-            command = f"python train.py --config ./configs/CaptainCook4D/{yaml_file} --log"
+            command = f"python train_with_gt.py --config ../../configs/CaptainCook4D/{yaml_file} --log --device {device}"
             os.system(command)
         print(f"Finished training for {yaml_file}")
 
     threads = []
-    for yaml_file in os.listdir("./configs/CaptainCook4D"):
+    for yaml_file in os.listdir("../../configs/CaptainCook4D"):
         # Start a new thread for each yaml file
         thread = threading.Thread(target=run_training, args=(yaml_file,))
         threads.append(thread)
