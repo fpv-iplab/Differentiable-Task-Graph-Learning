@@ -7,21 +7,22 @@ import networkx as nx
 
 class TransitionGraph:
     """
+    Description
+    -----------
     TransitionGraph class to represent the transition graph of a scenario.
     """
 
     def __init__(self, keystep_json:str, scenario:str, max_length:int=-1) -> None:
         """
+        Description
+        -----------
         Init function for the TransitionGraph class.
 
         Parameters
         ----------
-        keystep_json : str
-            The path to the keystep json file.
-        scenario : str
-            The scenario to be analyzed.
-        max_length : int
-            (Optional) The maximum length of the sequences to be considered. Default is -1.
+        - **keystep_json (str)**: The path to the keystep json file.
+        - **scenario (str)**: The scenario to be analyzed.
+        - **max_length (int)**: *(Optional)* The maximum length of the sequences to be considered. Default is -1.
         """
         self.keystep_json = keystep_json
         self.scenario = scenario
@@ -50,14 +51,15 @@ class TransitionGraph:
     
     def setup(self, max_length:int) -> None:
         """
+        Description
+        -----------
         Setup function for TransitionGraph class. 
         This function will find the scenario in the keystep json file, 
         create a new json file with only the scenario, and parse the mermaid file.
         
         Parameters
         ----------
-        max_length : int
-            The maximum length of the sequences to be considered.
+        - **max_length (int)**: The maximum length of the sequences to be considered.
         """
         self.find_scenario(max_length)
         self.create_id_to_step()
@@ -66,12 +68,13 @@ class TransitionGraph:
 
     def find_scenario(self, max_length:int) -> None:
         """
+        Description
+        -----------
         Find the scenario in the keystep json file and create a new json file with only the scenario.
         
         Parameters
         ----------
-        max_length : int
-            The maximum length of the sequences to be considered.
+        - **max_length (int)**: The maximum length of the sequences to be considered.
         """
         self.dict_scenario = json.load(open(self.keystep_json))
         dict_scenario_ = copy.deepcopy(self.dict_scenario)
@@ -84,6 +87,8 @@ class TransitionGraph:
 
     def create_id_to_step(self) -> None:
         """
+        Description
+        -----------
         Create a dictionary that maps the id of a step to the step name.
         """
         self.id_to_step = {}
@@ -93,12 +98,16 @@ class TransitionGraph:
 
     def create_step_to_id(self) -> None:
         """
+        Description
+        -----------
         Create a dictionary that maps the step name to the id of the step.
         """
         self.step_to_id = {v : k for k, v in self.id_to_step.items()}
         
     def create_transition_matrix(self) -> None:
         """
+        Description
+        -----------
         Create a transition matrix from the actions in the scenario.
         """
         self.actions = []
@@ -126,39 +135,41 @@ class TransitionGraph:
 
     def get_transition_matrix(self) -> pd.DataFrame:
         """
+        Description
+        -----------
         Get the transition matrix of the scenario.
 
         Returns
         -------
-        pd.DataFrame
-            The transition matrix of the scenario.
+        - **pd.DataFrame**: The transition matrix of the scenario.
         """
         return self.transition_matrix
     
     def save_transition_matrix(self, output_filename:str) -> None:
         """
+        Description
+        -----------
         Save the transition matrix to a csv file.
 
         Parameters
         ----------
-        output_filename : str
-            The name of the output file.
+        - **output_filename (str)**: The name of the output file.
         """
         self.transition_matrix.to_csv(output_filename)
     
     def get_preconditions_scores(self, step_id:int) -> dict:
         """
+        Description
+        -----------
         Get the past steps of a given step id.
 
         Parameters
         ----------
-        step_id : int
-            The step id.
+        - **step_id (int)**: The step id.
 
         Returns
         -------
-        dict 
-            A dictionary with the past steps and their conditional probability.
+        - **dict**: A dictionary with the past steps and their conditional probability.
         """
         past_steps = {}
         if step_id not in self.actions:
@@ -177,17 +188,17 @@ class TransitionGraph:
     
     def get_future_scores(self, step_id:int) -> dict:
         """
+        Description
+        -----------
         Get the future steps of a given step id.
 
         Parameters
         ----------
-        step_id : int 
-            The step id.
+        - **step_id (int)**: The step id.
 
         Returns
         -------
-        dict
-            A dictionary with the future steps and their conditional probability.
+        - **dict**: A dictionary with the future steps and their conditional probability.
         """
         future_steps = {}
         if step_id not in self.actions:
@@ -203,12 +214,13 @@ class TransitionGraph:
 
     def create_networkx_graph(self) -> tuple[nx.DiGraph, dict]:
         """
+        Description
+        -----------
         Create a networkx graph from the transition matrix.
 
         Returns
         -------
-        tuple(nx.DiGraph, dict)
-            A networkx graph and a dictionary with the edge labels.
+        - **tuple(nx.DiGraph, dict)**: A networkx graph and a dictionary with the edge labels.
         """
         G = nx.DiGraph()
         edge_labels = {}
@@ -286,12 +298,3 @@ class TransitionGraph:
                     G.add_edge(current_node, anchestor)
 
         return G, edge_labels
-
-if __name__ == '__main__':
-    tg = TransitionGraph(keystep_json="/home/lseminara/PhD/NeurIPS_2024/data/captaincook4d/train.json", scenario="coffee")
-    print(tg.get_transition_matrix())
-    print(tg.get_preconditions_scores(68))
-    print(tg.get_future_scores(68))
-    tg.save_transition_matrix("./transition_matrix.csv")
-    G, _ = tg.create_networkx_graph()
-    print(G.nodes())
