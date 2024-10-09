@@ -1,7 +1,5 @@
 # Copyright (c) FPV@IPLab, and its affiliates. All Rights Reserved.
 
-# This script is used to learn the task graph from the sequences of the CaptainCook4D dataset.
-
 import numpy as np
 import networkx as nx
 import torch
@@ -208,11 +206,11 @@ def main(config:str, log:bool, seed:int, device:str):
                     A.draw(os.path.join(output_path, f"{activity_name}", "GP_graph_best.png"))
                 else:
                     early_stopping_counter += 1
+                    
+        print(f"Epoch {i+1}: beta = {beta} | loss = {loss.item()} | precision = {precision_score} | recall = {recall_score} | accuracy of sequences = {sequences_accuracy_score}")
         
         if early_stopping_counter == 25:
             break
-
-        print(f"Epoch {i+1}: beta = {beta} | loss = {loss.item()} | precision = {precision_score} | recall = {recall_score} | accuracy of sequences = {sequences_accuracy_score}")
     
     print("Training completed")
     torch.save(net.state_dict(), os.path.join(output_path, f"{activity_name}", f"model_{activity_name}_final.pth"))
