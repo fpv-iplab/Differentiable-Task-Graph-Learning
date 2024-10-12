@@ -23,9 +23,12 @@ NeurIPS (spotlight), 2024
 - [ ] Online Mistake Detection
 
 ---
+- [Repository Structure](#repository-structure)
 - [Environment configuration](#environment-configuration)
 - [Data](#data)
 - [Qualitative results](#qualitative-results)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
 - [Citation](#citation)
 - [Authors](#authors)
 ---
@@ -112,6 +115,14 @@ Ground Truth             |  Generated
 ## Contact
 This repository is created and maintained by [Luigi](https://seminaraluigi.altervista.org/). Technical questions and discussions are encouraged via [GitHub issues](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/issues), as this allows everyone interested in the work to benefit from the shared information. However, you can always reach us directly via <a href="mailto:luigi.seminara@phd.unict.it?subject=Inquiry about your paper Differentiable Task Graph Learning&cc=antonino.furnari@unict.it;giovanni.farinella@unict.it">email</a>.
 
+
+
+## Acknowledgements
+This research is supported in part by the PNRR PhD scholarship "Digital Innovation: Models, Systems and Applications" DM 118/2023, by the project Future Artificial Intelligence Research (FAIR) – PNRR MUR Cod. PE0000013 - CUP: E63C22001940006, and by the Research Program PIAno di inCEntivi per la Ricerca di Ateneo 2020/2022 — Linea di Intervento 3 "Starting Grant" EVIPORES Project - University of Catania.
+
+We thank the authors of [PREGO](https://github.com/aleflabo/PREGO) and in particular [Alessandro Flaborea](https://github.com/aleflabo) and [Guido Maria D'Amely di Melendugno](https://github.com/GDam90) for sharing the code to replicate experiments in the PREGO benchmark.
+
+Visit [PREGO repository](https://github.com/aleflabo/PREGO) for more details.
 
 
 ## Citation
