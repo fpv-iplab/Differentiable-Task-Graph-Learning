@@ -8,6 +8,13 @@ NeurIPS (spotlight), 2024
 
 [arXiv pre-print](https://arxiv.org/pdf/2406.01486v1)
 
+
+
+## 📢 News
+- [September, 2024] *Differentiable Task Graph Learning* is accepted in **NeurIPS 2024** as <u>spotlight</u>.
+
+
+
 ## ✍️ Catalog
 🚧 WORK IN PROGRESS:
 - [x] Baselines
@@ -18,9 +25,7 @@ NeurIPS (spotlight), 2024
 ---
 - [Environment configuration](#environment-configuration)
 - [Data](#data)
-- [Training](#training)
 - [Qualitative results](#qualitative-results)
-- [Get DO results of Table 1 of the paper](#get-do-results-of-table-1-of-the-paper)
 - [Citation](#citation)
 - [Authors](#authors)
 ---
@@ -28,6 +33,40 @@ NeurIPS (spotlight), 2024
 <p align="center">
   <img src="./assets/tgml.png" width="70%" height="auto">
 </p>
+
+
+## Repository Structure
+```text
+Differentiable-Task-Graph-Learning
+├── assets
+├── configs
+│   ├── Baselines
+│   ├── CaptainCook4D-DO
+│   └── CaptainCook4D-TGT-text
+├── data
+│   └── captaincook4d
+│       └── ground_truth_task_graphs
+├── lib
+└── task-graph-learning
+    ├── DO
+    ├── TGT
+    ├── baselines
+    └── utils
+```
+- ``assets/``: This folder contains static resources such as images, logos, or visualizations used in the project (for presentations or documentation purposes).
+- ``configs/``: This directory contains various configuration files, divided into subcategories:
+  - ``Baseline/``: Configurations for baseline methods.
+  - ``CaptainCook4D-DO/``: Configuration files for using CaptainCook4D datasets with the Direct Optimization (DO) model.
+  - ``CaptainCook4D-TGT-text/``: Configuration files for using CaptainCook4D dataset with the Task Graph Transformer (TGT) model based on text embeddings.
+- ``data/``: Houses the dataset used in the project.
+  - ``captaincook4d/``: A subdirectory dedicated to the CaptainCook4D dataset.
+    - ``ground_truth_task_graphs/``: Contains ground truth task graphs.
+- ``lib/``: Contains external libraries, utilities, and custom modules that the project depends on for task graph learning.
+- ``task-graph-learning/``: Contains all the scripts for task graph learning.
+  - ``DO/``: Contains the scripts to use the Direct Optimization (DO) method for task graph learning.
+  - ``TGT/``: Contains the scripts to use the Task Graph Transformer (TGT) approach for task graph learning.
+  - ``baselines/``: Contains the scripts to use the baselines for task graph generation.
+  - ``utils/``: Contains scripts for evaluation.
 
 ## Environment configuration
 
@@ -70,17 +109,20 @@ Ground Truth             |  Generated
 
 
 
+## Contact
+This repository is created and maintained by [Luigi](https://seminaraluigi.altervista.org/). Technical questions and discussions are encouraged via [GitHub issues](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/issues), as this allows everyone interested in the work to benefit from the shared information. However, you can always reach us directly via <a href="mailto:luigi.seminara@phd.unict.it?subject=Inquiry about your paper Differentiable Task Graph Learning&cc=antonino.furnari@unict.it;giovanni.farinella@unict.it">email</a>.
+
+
+
 ## Citation
 If you use the code/models hosted in this repository, please cite the following paper:
 
 ```text
-@misc{seminara2024differentiable,
-      title={Differentiable Task Graph Learning: Procedural Activity Representation and Online Mistake Detection from Egocentric Videos}, 
-      author={Luigi Seminara and Giovanni Maria Farinella and Antonino Furnari},
-      year={2024},
-      eprint={2406.01486},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{seminara2024differentiable,
+  title={Differentiable Task Graph Learning: Procedural Activity Representation and Online Mistake Detection from Egocentric Videos},
+  author={Seminara, Luigi and Farinella, Giovanni Maria and Furnari, Antonino},
+  journal={arXiv preprint arXiv:2406.01486},
+  year={2024}
 }
 ```
 Please, refer to the [paper](https://arxiv.org/pdf/2406.01486v1) for more technical details.
