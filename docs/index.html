@@ -42,6 +42,10 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Include MathJax script -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -61,6 +65,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="#tgml" class="nav-item nav-link">TGML</a>
+                <a href="#direct-optimization" class="nav-item nav-link">DO</a>
+                <a href="#task-graph-transformer" class="nav-item nav-link">TGT</a>
                 <a href="#paper" class="nav-item nav-link">Paper</a>
                 <a href="#people" class="nav-item nav-link">People</a>
             </div>
@@ -145,6 +152,91 @@
         </div>
     </div>
     <!-- Abstract xs-sd-md End -->
+
+    <hr class="divider">
+
+    <!-- TGML Start -->
+    <div class="container-xxl py-5">
+        <a class="anchor" id="tgml"></a>
+
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Task Graph Maximum Likelihood (TGML)</h6>
+            </div>
+            <div class="container text-left wow fadeInUp" data-wow-delay="0.2s">
+                <p>Our main contribution is a novel framework for learning task graphs from action sequences, which relies on maximum likelihood estimation to provide a differentiable loss function which can be included in end-to-end models and optimized with gradient descent:</p>
+                <p>
+                    \begin{align}
+                        \mathcal{L}(\mathcal{Y},Z) =  - \sum_{k = 1}^{|Y|} \sum_{t = 1}^{|y^{(k)}|} \big(\textcolor{cyan}{\log{\sum_{{j \in \mathcal{O}(y^{(k)},t)}}Z_{y_tj}}} 
+                        - \beta \cdot \textcolor{teal}{\log{\sum_{{\substack{h \in \overline{\mathcal{O}(y^{(k)},t)}\\{j \in \mathcal{O}(y^{(k)},t)}}}}  Z_{hj}}} \big)
+                        \label{eq:loss}
+                    \end{align}
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- TGML End -->
+
+    <hr class="divider">
+
+    <!-- DO Start -->
+    <div class="container-xxl py-5">
+        <a class="anchor" id="direct-optimization"></a>
+
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Direct Optimization (DO)</h6>
+            </div>
+            <div class="container text-left wow fadeInUp" data-wow-delay="0.2s">
+                <p>The first model aims to directly optimize the parameters of the adjacency matrix by performing gradient descent on the TGML loss (Eq. <a href="#tgml">(1)</a>).
+                    We define the parameters of this model as an edge scoring matrix \(A \in \mathbb{R}^{(n+2) \times (n+2)}\), where \(n\) is the number of key-steps, plus the placeholder start (\(S\)) and end (\(E\)) nodes, and \(A_{ij}\) is a score assigned to edge \(K_i \rightarrow K_j\).
+                    To prevent the model from learning edge weights eluding the assumptions of directed acyclic graphs, we mask black cells in the figure below with \(-\infty\).</p>
+                <div class="text-center">
+                    <img class="img-fluid" src="img/methods/DO.svg" alt="Direct Optimization">
+                </div>
+                <br>
+                <p>
+                    To constrain the elements of \(Z\) in the \([0,1]\) range and obtain normalized weights, we softmax-normalize the rows of the scoring matrix to obtain the adjacency matrix \(Z = softmax(A)\). Note that elements masked with \(-\infty\) will be automatically mapped to \(0\) by the softmax function similarly to <a href="https://arxiv.org/abs/1706.03762" target="_blank">Vaswani et al.</a>. 
+                    We train this model by performing batch gradient descent directly on the score matrix \(A\) with the proposed TGML loss. We train a separate model per procedure, as each procedure is associated to a different task graph. As many applications require an unweighted graph, we binarize the adjacency matrix with the threshold \(\frac{1}{n}\), where \(n\) is the number of nodes. 
+                    We also employ a post-processing stage in which we remove redundant edges, loops, and add obvious missing connections to \(S\) and \(E\) nodes.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- DO End -->
+
+    <hr class="divider">
+
+    <!-- TGT Start -->
+    <div class="container-xxl py-5">
+        <a class="anchor" id="task-graph-transformer"></a>
+
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Task Graph Transformer (TGT)</h6>
+            </div>
+            <div class="container text-left wow fadeInUp" data-wow-delay="0.2s">
+                <p>
+                    Figure below illustrates the proposed model, which is termed Task Graph Transformer (TGT). The proposed model can take as input either \(D\)-dimensional embeddings of textual descriptions of key-steps or \(D\)-dimensional video embeddings of key-step segments extracted from video. 
+                    In the first case, the model takes as input the same set of embeddings at each forward pass, while in the second case, at each forward pass, we randomly sample a video embedding per key-step from the training videos (hence each key-step embedding can be sampled from a different video). 
+                    We also include two \(D\)-dimensional learnable embeddings for the \(S\) and \(E\) nodes.
+                </p>
+                <div class="text-center">
+                    <img class="img-fluid" src="img/methods/TGT.svg" alt="Task Graph Transformer">
+                </div>
+                <br>
+                <p>
+                    All key-step embeddings are processed by a transformer encoder, which outputs \(D\)-dimensional vectors enriched with information from other embeddings. To prevent representation collapse, we apply a regularization loss encouraging distinctiveness between pairs of different nodes. 
+                    Let \(X\) be the matrix of embeddings produced by the transformer model. We L2-normalize features, then compute pairwise cosine similarities \(Y = X \cdot X^T \cdot \exp(T)\) as in <a href="https://proceedings.mlr.press/v139/radford21a" target="_blank">Radford et al.</a>.
+                    To prevent the transformer encoder from mapping distinct key-step embeddings to similar representations, we enforce the values outside the diagonal of \(Y\) to be smaller than the values in the diagonal. This is done by encouraging each row of the matrix \(Y\) to be close to a one-hot vector with a cross-entropy loss. 
+                    Regularized embeddings are finally passed through a relation transformer head which considers all possible pairs of embeddings and concatenates them in a \((n+2) \times (n+2) \times 2D\) matrix \(R\) of relation vectors. 
+                    For instance, \(R[i,j]\) is the concatenation of vectors \(X[i]\) and \(X[j]\). Relation vectors are passed to a transformer layer which aims to mine relationships among relation vectors, followed by a multilayer perceptron to reduce dimensionality to \(16\) units and another pair of transformer layer and multilayer perceptron to map relation vectors to scalar values, 
+                    which are reshaped to size \((n+2) \times (n+2)\) to form the score matrix \(A\). We hence apply the same optimization procedure as in the DO method to supervise the whole architecture.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- TGT End -->
 
     <hr class="divider">
 
