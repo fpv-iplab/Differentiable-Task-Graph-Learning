@@ -41,7 +41,7 @@ def task_graph_rate(sequence, A, all_nodes, beta):
     else:
         sequence_np = sequence
 
-    with ThreadPoolExecutor(max_workers=len(sequence) - 1) as executor:
+    with ThreadPoolExecutor(max_workers=1) as executor:
         futures = [executor.submit(compute_rate, i, sequence_np, A, all_nodes) for i in range(1, len(sequence)-1)]
         for future in futures:
             s += future.result()
@@ -83,7 +83,7 @@ def task_graph_maximum_likelihood_loss(y, A, beta):
     losses = []
     all_nodes = list(range(A.shape[0]))
     all_nodes = np.array(all_nodes[1:-1])
-    with ThreadPoolExecutor(max_workers=20) as executor:
+    with ThreadPoolExecutor(max_workers=1) as executor:
         futures = [executor.submit(compute_rate, s, all_nodes) for s in y]
         for future in futures:
             rate = future.result()
