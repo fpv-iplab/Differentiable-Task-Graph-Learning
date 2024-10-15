@@ -68,6 +68,7 @@
                 <a href="#tgml" class="nav-item nav-link">TGML</a>
                 <a href="#direct-optimization" class="nav-item nav-link">DO</a>
                 <a href="#task-graph-transformer" class="nav-item nav-link">TGT</a>
+                <a href="#download" class="nav-item nav-link">Download</a>
                 <a href="#paper" class="nav-item nav-link">Paper</a>
                 <a href="#people" class="nav-item nav-link">People</a>
             </div>
@@ -217,7 +218,7 @@
             </div>
             <div class="container text-left wow fadeInUp" data-wow-delay="0.2s">
                 <p>
-                    Figure below illustrates the proposed model, which is termed Task Graph Transformer (TGT). The proposed model can take as input either \(D\)-dimensional embeddings of textual descriptions of key-steps or \(D\)-dimensional video embeddings of key-step segments extracted from video. 
+                    Figure below illustrates the second proposed model, which is termed Task Graph Transformer (TGT). The proposed model can take as input either \(D\)-dimensional embeddings of textual descriptions of key-steps or \(D\)-dimensional video embeddings of key-step segments extracted from video. 
                     In the first case, the model takes as input the same set of embeddings at each forward pass, while in the second case, at each forward pass, we randomly sample a video embedding per key-step from the training videos (hence each key-step embedding can be sampled from a different video). 
                     We also include two \(D\)-dimensional learnable embeddings for the \(S\) and \(E\) nodes.
                 </p>
@@ -237,6 +238,62 @@
         </div>
     </div>
     <!-- TGT End -->
+
+    <hr class="divider">
+
+    <!-- Annotation Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <a class="anchor" id="download"></a>
+        <div class="text-center">
+            <h6 class="section-title bg-white text-center text-primary px-3">Download</h6>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="ribbon">Data</div>
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-edit text-primary mb-4"></i>
+                            <h5 class="mb-3">Annotations</h5>
+                            <a class="btn btn-primary" href="https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/data">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="ribbon">TGL</div>
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-file-alt text-primary mb-4"></i>
+                            <h5 class="mb-3">Task Graph Learning</h5>
+                            <a class="btn btn-primary" href="https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3">
+                        <div class="ribbon">Mistake</div>
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-cube text-primary mb-4"></i>
+                            <h5 class="mb-3">Online Mistake Detection</h5>
+                            <a class="btn btn-primary" href="#">Coming Soon...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="service-item text-center pt-3">
+                        <div class="ribbon">Features</div>
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-tools text-primary mb-4"></i>
+                            <h5 class="mb-3">Features</h5>
+                            <a class="btn btn-primary" href="#">Coming Soon...</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
 
     <hr class="divider">
 
