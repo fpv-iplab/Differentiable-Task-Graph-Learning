@@ -8,6 +8,7 @@ import os
 import json
 import sys
 import wandb
+import random
 
 try:
     from taskgraph.task_graph_learning import (TGT, 
@@ -19,6 +20,9 @@ except:
     raise Exception("You need to install the TGML library. Please read the README.md file.")
 
 from sklearn.metrics import precision_score as precision, recall_score as recall, f1_score
+
+# Set the environment variable for CUBLAS
+os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
 
 @click.command()
 @click.option("--config", "-cfg", type=str, required=True)
@@ -50,12 +54,17 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
 
     # Beta and beta_end
     beta = 1.0
-    beta_end = 0.2
+    beta_end = 0.05
 
     # Set seed
     cfg.SEED = seed
     torch.manual_seed(cfg.SEED)
     np.random.seed(cfg.SEED)
+    random.seed(cfg.SEED)
+
+    # Set the deterministic algorithms
+    torch.backends.cudnn.deterministic = True
+    torch.use_deterministic_algorithms(True)
 
     # Output path
     output_path = cfg.OUTPUT_DIR
@@ -131,7 +140,8 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
             if step in sequences:
                 continue
             sequences.append(step)
-        train_sequences.append(sequences)
+        if sequences not in train_sequences:
+            train_sequences.append(sequences)
     
     if max_length != -1:
         print("-"*50)
@@ -155,7 +165,7 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
     embeddings_path = cfg.EMBEDDINGS
     input_embeds = []
     for embedding in os.listdir(os.path.join(embeddings_path, activity_name)):
-        input_embeds.append(torch.load(os.path.join(embeddings_path, activity_name, embedding), weights_only=True)['text'].view(-1))
+        input_embeds.append(torch.load(os.path.join(embeddings_path, activity_name, embedding))['text'].view(-1))
     input_embeds = torch.stack(input_embeds, dim=0).to(device)
     input_embeds = torch.nn.Embedding.from_pretrained(input_embeds, freeze=True)
     encoder_input = torch.nn.Sequential(input_embeds).to(device)
