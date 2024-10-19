@@ -4,5 +4,5 @@ TRAIN:
   ACTIVITY_NAME: "Microwave Egg Sandwich"
   OUTPUT_DIR: "./Experiments-TGT-text-model"
   SEED: 42
-  EPOCHS: 1000
+  EPOCHS: 3000
   EMBEDDINGS: "../../data/captaincook4d/text_feature"
