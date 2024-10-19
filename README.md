@@ -19,8 +19,10 @@ NeurIPS (spotlight), 2024
 🚧 WORK IN PROGRESS:
 - [x] Baselines
 - [x] Direct Optimization (DO) Model
-- [ ] Task Graph Transformer (TGT) Model
+- [x] Task Graph Transformer (TGT) Model
+- [x] Video Understanding
 - [ ] Online Mistake Detection
+- [ ] Guide for all experiments
 
 ---
 - [Repository Structure](#repository-structure)
