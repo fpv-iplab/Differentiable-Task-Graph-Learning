@@ -25,16 +25,16 @@ from sklearn.metrics import precision_score as precision, recall_score as recall
 os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
 
 @click.command()
-@click.option("--config", "-cfg", type=str, required=True)
-@click.option("--pre_trained", type=str, default=None)
-@click.option("--log", "-l", type=bool, default=False, is_flag=True)
-@click.option("--seed", "-s", type=int, default=42)
-@click.option("--cuda", type=int, default=0)
-@click.option("-w", type=bool, default=False, is_flag=True)
-@click.option("--project_name", type=str, default="TGT")
-@click.option("--entity", type=str, default=None)
-@click.option("--max_length", type=int, default=-1)
-def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, project_name:str, entity:str, max_length:int):
+@click.option("--config", "-cfg", type=str, required=True, help="Path to the config file. You can find the config file in the config folder.")
+@click.option("--pre_trained", type=str, default=None, help="Path to the pre-trained model.")
+@click.option("--log", "-l", type=bool, default=False, is_flag=True, help="Log the output in a file.")
+@click.option("--seed", "-s", type=int, default=42, help="Seed for reproducibility.")
+@click.option("--cuda", type=int, default=0, help="CUDA device to use.")
+@click.option("-w", type=bool, default=False, is_flag=True, help="Use wandb.")
+@click.option("--project_name", type=str, default="TGT", help="Project name for wandb.")
+@click.option("--entity", type=str, default=None, help="Entity name for wandb.")
+@click.option("--save", type=bool, default=False, is_flag=True, help="Save the model.")
+def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, project_name:str, entity:str, save:bool):
     # Check if wandb is True
     if w:
         if entity is None:
@@ -86,9 +86,10 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
     # Create NetworkX graph
     GT = nx.DiGraph()
 
+    # Add nodes and edges to the graph
     for node in task_graph_json["steps"]:
         GT.add_node(int(node), label=task_graph_json["steps"][node], shape="box")
-    
+    # The edges are reversed because the task graph is in the opposite direction (read the paper for more information)
     for edge in task_graph_json["edges"]:
         GT.add_edge(edge[1], edge[0])
 
@@ -118,15 +119,18 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
     # Taxonomy
     taxonomy_json = cfg.ANNOTATIONS["taxonomy"]
 
-    # step_idx_description
+    # Get the mapping from the description to the id of the keysteps inside the taxonomy
     description_to_id = {}
     for step_id in taxonomy_json[activity_name]:
         description_to_id[taxonomy_json[activity_name][step_id]["name"]] = int(step_id)
+        
+    # Create the mapping from the node to the id of the keystep
     mapping_nodes = {}
     for node in GT.nodes:
         if GT.nodes[node]["label"] in description_to_id:
             mapping_nodes[node] = int(description_to_id[GT.nodes[node]["label"]])
-                
+    
+    # Create the mapping from the id of the keystep to the node
     id_to_node = {mapping_nodes[node]: node for node in mapping_nodes}
 
     # Get train sequences
@@ -140,14 +144,7 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
             if step in sequences:
                 continue
             sequences.append(step)
-        if sequences not in train_sequences:
-            train_sequences.append(sequences)
-    
-    if max_length != -1:
-        print("-"*50)
-        print(f"Reducing the sequences to {max_length}.")
-        print("-"*50)
-        train_sequences = train_sequences[:max_length]
+        train_sequences.append(sequences)
     
     # Convert the sequences to node ids and add the beta, start, end and gamma nodes
     for i, seq in enumerate(train_sequences):
@@ -185,7 +182,8 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
 
     for i in range(epochs):
 
-        if (i + 1) % 200 == 0:
+        # warm-up of beta
+        if (i + 1) % 100 == 0:
             beta = np.interp(i, [0, epochs], [beta, beta_end])
 
         net.train()
@@ -198,19 +196,20 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
             net.eval()
             pred_adjacency_matrix, _ = net.get_adjacency_matrix(input_embeds)
             pred_adjacency_matrix = pred_adjacency_matrix.cpu().numpy()
-            pred, _ = net.get_adjacency_matrix(input_embeds)
-            pred = pred.cpu().numpy()
 
         # Take the matrix removing first row, first column, last row and las column
         pred_adjacency_matrix = pred_adjacency_matrix[1:-1, 1:-1]
-        pred = pred[1:-1, 1:-1]
+        
+        # Threshold the matrix
         pred_adjacency_matrix = np.where(pred_adjacency_matrix < (1/(num_nodes-2)), 0, 1)
         GP = nx.DiGraph(pred_adjacency_matrix)
 
+        # Take all nodes with in_degree = 0 and add an edge from the end node to the node
         in_degree_zeros = [node for node in GP.nodes if GP.in_degree(node) == 0 and node != id_end-1 and node != id_start-1]
         for node in in_degree_zeros:
             GP.add_edge(id_end-1, node)
 
+        # Take all nodes with out_degree = 0 and add an edge from the node to the start node
         out_degree_zeros = [node for node in GP.nodes if GP.out_degree(node) == 0 and node != id_end-1 and node != id_start-1]
         for node in out_degree_zeros:
             GP.add_edge(node, id_start-1)
@@ -221,6 +220,8 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
             GP.nodes[node]["label"] = GT.nodes[node]["label"]
             GP.nodes[node]["shape"] = "box"
 
+        # Here we use the GT graph to calculate the precision, recall, f1 and accuracy of sequences
+        # The GT is never used in the training process
         GT_flatten_adj = nx.adjacency_matrix(GT, nodelist=sorted(GT.nodes)).todense().flatten()
         GP_flatten_adj = nx.adjacency_matrix(GP, nodelist=sorted(GP.nodes)).todense().flatten()
         precision_score = precision(GT_flatten_adj, GP_flatten_adj)
@@ -244,14 +245,14 @@ def main(config:str, pre_trained:str, log:bool, seed:int, cuda:int, w:bool, proj
                 "accuracy_of_sequences": accuracy_of_sequences_score
             })
 
-
     print("Training completed")
 
     A = nx.nx_agraph.to_agraph(GP)
     A.layout('dot')
     A.draw(os.path.join(output_path, f"{activity_name}", "GP_graph.png"))
 
-    torch.save(net.state_dict(), os.path.join(output_path, f"{activity_name}", f"model_{activity_name}.pth"))
+    if save:
+        torch.save(net.state_dict(), os.path.join(output_path, f"{activity_name}", f"model_{activity_name}-{cfg.SEED}.pt"))
     
     # Test the model
     with torch.no_grad():
