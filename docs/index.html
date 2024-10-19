@@ -162,10 +162,11 @@
 
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Task Graph Maximum Likelihood (TGML)</h6>
+                <h6 class="section-title bg-white text-center text-primary px-3">Task Graph Maximum Likelihood</h6>
             </div>
             <div class="container text-left wow fadeInUp" data-wow-delay="0.2s">
                 <p>Our main contribution is a novel framework for learning task graphs from action sequences, which relies on maximum likelihood estimation to provide a differentiable loss function which can be included in end-to-end models and optimized with gradient descent:</p>
+                <div class="text-center" style="width: 100%; overflow-x: auto;">
                 <p>
                     \begin{align}
                         \mathcal{L}(\mathcal{Y},Z) =  - \sum_{k = 1}^{|Y|} \sum_{t = 1}^{|y^{(k)}|} \big(\textcolor{cyan}{\log{\sum_{{j \in \mathcal{O}(y^{(k)},t)}}Z_{y_tj}}} 
@@ -173,6 +174,7 @@
                         \label{eq:loss}
                     \end{align}
                 </p>
+            </div>
             </div>
         </div>
     </div>
