@@ -1,0 +1,8 @@
+TRAIN:
+  ANNOTATIONS: "../../data/captaincook4d/task_graph_generation_annotations.json"
+  TASK_GRAPHS: "../../data/captaincook4d/ground_truth_task_graphs"
+  ACTIVITY_NAME: "Pinwheels"
+  OUTPUT_DIR: "./Experiments-TGT-video-model"
+  SEED: 42
+  EPOCHS: 3000
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
