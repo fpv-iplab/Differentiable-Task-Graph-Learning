@@ -1,0 +1,5 @@
+DATA:
+  KEYSTEPS_JSON_PATH: ../../data/captaincook4d/task_graph_generation_annotations.json
+  OUTPUT_PATH: ./Baseline_Count_Based
+  SCRIPT_PATH: count_based.py
+  MAX_LENGTH: 5
