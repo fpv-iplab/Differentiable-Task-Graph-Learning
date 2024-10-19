@@ -162,11 +162,9 @@ def main(config:str, log:bool, seed:int, device:str):
         with torch.no_grad():
             net.eval()
             pred_adjacency_matrix = net.get_adjacency_matrix().cpu().numpy()
-            pred = net.get_adjacency_matrix().cpu().numpy()
         
         # Take the matrix removing first row, first column, last row and las column
         pred_adjacency_matrix = pred_adjacency_matrix[1:-1, 1:-1]
-        pred = pred[1:-1, 1:-1]
         pred_adjacency_matrix = np.where(pred_adjacency_matrix < (1/(num_nodes-2)), 0, 1)
         GP = nx.DiGraph(pred_adjacency_matrix)
 
