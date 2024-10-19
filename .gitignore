@@ -1,6 +1,19 @@
 # Output
-Experiments
-Table_1
+data/captaincook4d/text_feature
+data/captaincook4d/video_and_text_feature
+task-graph-learning/baselines/Baseline_Count_Based
+task-graph-learning/baselines/Baseline_ILP_acc
+task-graph-learning/baselines/Baseline_ILP_prec
+task-graph-learning/baselines/Baseline_LLM/evaluation
+task-graph-learning/DO/Experiments-DO-model
+task-graph-learning/TGT/Experiments-TGT-text-model
+task-graph-learning/TGT/Experiments-TGT-text-model-5-shots
+task-graph-learning/TGT/Experiments-TGT-text-model-leave_one_out
+task-graph-learning/TGT/Experiments-TGT-text-model-unified
+task-graph-learning/TGT/Experiments-TGT-video-model
+task-graph-learning/TGT/wandb
+task-graph-learning/video_understanding/ordering
+task-graph-learning/video_understanding/forecasting
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
