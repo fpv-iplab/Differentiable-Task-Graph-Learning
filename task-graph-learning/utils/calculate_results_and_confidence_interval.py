@@ -6,10 +6,26 @@ import click
 import json
 import glob
 import numpy as np
+import random
+
+def bootstrap(data, n_samples, n_iterations=1000):
+    """Perform bootstrap resampling on the data and return confidence intervals."""
+    means = []
+    for _ in range(n_iterations):
+        # Resample with replacement
+        bootstrap_sample = [random.choice(data) for _ in range(n_samples)]
+        # Compute the mean for the bootstrap sample
+        means.append(np.mean(bootstrap_sample))
+    
+    # Get the 5th and 95th percentiles for the 90% confidence interval
+    lower_bound = np.percentile(means, 5)
+    upper_bound = np.percentile(means, 95)
+    return lower_bound, upper_bound
 
 @click.command()
 @click.option('--results', '-r', help='Path to the results file')
 def main(results: str):
+    random.seed(42)
     folders = glob.glob(results + '/*')
     folder_confidence_intervals = {
         "Precision": [],
@@ -21,9 +37,6 @@ def main(results: str):
         "Recall": [],
         "F1": []
     }
-
-    # Confidence value for 95% CI with t-distribution
-    confidence_value = 2.776
 
     for folder in folders:
         folder_metrics = {
@@ -54,18 +67,15 @@ def main(results: str):
         final_metrics["Recall"].append(recall_mean)
         final_metrics["F1"].append(f1_mean)
 
-        # Calculate standard deviation for the folder
-        precision_std = np.std(precision_array, ddof=1)
-        recall_std = np.std(recall_array, ddof=1)
-        f1_std = np.std(f1_array, ddof=1)
-
         # Number of samples in this folder (n)
         n = len(json_files)
-
-        # Calculate confidence intervals for this folder
-        precision_ci = confidence_value * (precision_std / np.sqrt(n))
-        recall_ci = confidence_value * (recall_std / np.sqrt(n))
-        f1_ci = confidence_value * (f1_std / np.sqrt(n))
+        
+        precision_ci = bootstrap(folder_metrics["Precision"], n)
+        precision_ci = precision_ci[1] - precision_ci[0]
+        recall_ci = bootstrap(folder_metrics["Recall"], n)
+        recall_ci = recall_ci[1] - recall_ci[0]
+        f1_ci = bootstrap(folder_metrics["F1"], n)
+        f1_ci = f1_ci[1] - f1_ci[0]
 
         # Store the confidence intervals for each folder
         folder_confidence_intervals["Precision"].append(precision_ci)
@@ -91,9 +101,9 @@ def main(results: str):
     f1_ci_mean *= 100
 
     # Print the mean of the confidence intervals for each metric in percentages
-    print(f"Mean 95% CI for Precision: {final_precision_mean:.2f}% ± {precision_ci_mean:.2f}%")
-    print(f"Mean 95% CI for Recall: {final_recall_mean:.2f}% ± {recall_ci_mean:.2f}%")
-    print(f"Mean 95% CI for F1: {final_f1_mean:.2f}% ± {f1_ci_mean:.2f}%")
+    print(f"Mean 90% CI for Precision: {final_precision_mean:.2f}% ± {precision_ci_mean:.2f}%")
+    print(f"Mean 90% CI for Recall: {final_recall_mean:.2f}% ± {recall_ci_mean:.2f}%")
+    print(f"Mean 90% CI for F1: {final_f1_mean:.2f}% ± {f1_ci_mean:.2f}%")
 
 if __name__ == '__main__':
     main()
