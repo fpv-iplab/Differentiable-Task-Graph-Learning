@@ -1,0 +1,5 @@
+TRAIN:
+  ANNOTATIONS: "../TGT/Experiments-TGT-video-model/tomatochutney/not_used_in_train.json"
+  ACTIVITY_NAME: "Tomato Chutney"
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
+  MODEL: ../TGT/Experiments-TGT-video-model/tomatochutney/model_tomatochutney_best.pth

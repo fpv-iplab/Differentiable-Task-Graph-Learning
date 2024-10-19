@@ -1,0 +1,5 @@
+TRAIN:
+  ANNOTATIONS: "../TGT/Experiments-TGT-video-model/dressedupmeatballs/not_used_in_train.json"
+  ACTIVITY_NAME: "Dressed Up Meatballs"
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
+  MODEL: ../TGT/Experiments-TGT-video-model/dressedupmeatballs/model_dressedupmeatballs_best.pth

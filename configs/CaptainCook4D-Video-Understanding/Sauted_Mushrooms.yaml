@@ -1,0 +1,5 @@
+TRAIN:
+  ANNOTATIONS: "../TGT/Experiments-TGT-video-model/sautedmushrooms/not_used_in_train.json"
+  ACTIVITY_NAME: "Sauted Mushrooms"
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
+  MODEL: ../TGT/Experiments-TGT-video-model/sautedmushrooms/model_sautedmushrooms_best.pth

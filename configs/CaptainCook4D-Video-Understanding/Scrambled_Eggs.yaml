@@ -1,0 +1,5 @@
+TRAIN:
+  ANNOTATIONS: "../TGT/Experiments-TGT-video-model/scrambledeggs/not_used_in_train.json"
+  ACTIVITY_NAME: "Scrambled Eggs"
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
+  MODEL: ../TGT/Experiments-TGT-video-model/scrambledeggs/model_scrambledeggs_best.pth

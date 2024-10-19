@@ -1,0 +1,5 @@
+TRAIN:
+  ANNOTATIONS: "../TGT/Experiments-TGT-video-model/spicytunaavocadowraps/not_used_in_train.json"
+  ACTIVITY_NAME: "Spicy Tuna Avocado Wraps"
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
+  MODEL: ../TGT/Experiments-TGT-video-model/spicytunaavocadowraps/model_spicytunaavocadowraps_best.pth

@@ -1,0 +1,5 @@
+TRAIN:
+  ANNOTATIONS: "../TGT/Experiments-TGT-video-model/microwavemugpizza/not_used_in_train.json"
+  ACTIVITY_NAME: "Microwave Mug Pizza"
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
+  MODEL: ../TGT/Experiments-TGT-video-model/microwavemugpizza/model_microwavemugpizza_best.pth

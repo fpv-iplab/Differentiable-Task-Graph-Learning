@@ -1,0 +1,5 @@
+TRAIN:
+  ANNOTATIONS: "../TGT/Experiments-TGT-video-model/capresebruschetta/not_used_in_train.json"
+  ACTIVITY_NAME: "Caprese Bruschetta"
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
+  MODEL: ../TGT/Experiments-TGT-video-model/capresebruschetta/model_capresebruschetta_best.pth

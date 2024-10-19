@@ -1,0 +1,5 @@
+TRAIN:
+  ANNOTATIONS: "../TGT/Experiments-TGT-video-model/herbomeletwithfriedtomatoes/not_used_in_train.json"
+  ACTIVITY_NAME: "Herb Omelet with Fried Tomatoes"
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
+  MODEL: ../TGT/Experiments-TGT-video-model/herbomeletwithfriedtomatoes/model_herbomeletwithfriedtomatoes_best.pth
