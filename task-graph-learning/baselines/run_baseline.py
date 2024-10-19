@@ -21,6 +21,10 @@ def main(config:str):
         objective = cfg.OBJECTIVE
     except:
         objective = None
+    try:
+        max_length = cfg.MAX_LENGTH
+    except:
+        max_length = -1
     if not os.path.isfile(keysteps):
         raise Exception(f"Keysteps JSON file '{keysteps}' does not exist.")
     try:
@@ -31,11 +35,11 @@ def main(config:str):
     # Execute script
     if objective:
         if augmented:
-            os.system(f"python {script} --keysteps {keysteps} --objective {objective} -bfo {baseline_folder_output} --augmentations")
+            os.system(f"python {script} --keysteps {keysteps} --objective {objective} -bfo {baseline_folder_output} --augmentations --max_length {max_length}")
         else:
-            os.system(f"python {script} --keysteps {keysteps} --objective {objective} -bfo {baseline_folder_output}")
+            os.system(f"python {script} --keysteps {keysteps} --objective {objective} -bfo {baseline_folder_output} --max_length {max_length}")
     else:
-        os.system(f"python {script} --keysteps {keysteps} -bfo {baseline_folder_output}")
+        os.system(f"python {script} --keysteps {keysteps} -bfo {baseline_folder_output} --max_length {max_length}")
     
 
 if __name__ == '__main__':

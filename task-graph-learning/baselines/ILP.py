@@ -11,7 +11,7 @@ import click
 import os
 import networkx as nx
 import numpy as np
-import torch
+import random
 
 try:
     from taskgraph.task_graph_learning import baseline_ILP, save_graph_as_svg
@@ -25,6 +25,9 @@ except:
 @click.option('--augmentations', '-a', help='Use augmentations', is_flag=True, default=False)
 @click.option('--max_length', '-ml', help='Max length of the sequences', default=-1)
 def main(keysteps:str, objective:str, baseline_folder_output:str, augmentations:bool, max_length:int):
+    # Set seed for reproducibility
+    np.random.seed(42)
+    random.seed(42)
 
     # Create the baseline folder output
     os.makedirs(baseline_folder_output, exist_ok=True)
@@ -67,14 +70,18 @@ def main(keysteps:str, objective:str, baseline_folder_output:str, augmentations:
             
             # We add the sequences to the scenarios_sequences dictionary if the length is less than max_length
             if len(scenarios_sequences[scenario]["sequences"]) < max_length:
-                if sequence1 not in scenarios_sequences[scenario]["sequences"]:
+                if max_length != len(keysteps["annotations"]) + 1:
+                    scenarios_sequences[scenario]["sequences"].append(sequence1)
+                elif sequence1 not in scenarios_sequences[scenario]["sequences"]:
                     scenarios_sequences[scenario]["sequences"].append(sequence1)
                 if augmentations:
                     if sequence2 not in scenarios_sequences[scenario]["sequences"]:
                         scenarios_sequences[scenario]["sequences"].append(sequence2)
                     if sequence3 not in scenarios_sequences[scenario]["sequences"]:
                         scenarios_sequences[scenario]["sequences"].append(sequence3)
-            
+        if max_length != len(keysteps["annotations"]) + 1:
+            while len(scenarios_sequences[scenario]["sequences"]) < max_length:
+                scenarios_sequences[scenario]["sequences"].append(random.choice(scenarios_sequences[scenario]["sequences"]))
         threshold = 1 / len(keysteps["taxonomy"][scenario])
         _, _, graph, _, _ = baseline_ILP(scenarios_sequences[scenario]["sequences"], objective, thresh=threshold)
         mapping_to_taxonomy = {}
