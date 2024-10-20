@@ -1,3 +1,5 @@
+# Copyright (c) FPV@IPLab, and its affiliates. All Rights Reserved.
+
 import os
 import threading
 import click
@@ -5,7 +7,7 @@ import click
 @click.command()
 @click.option("--pre_trained", type=str, required=True, help="Path to the pre-trained model.")
 def main(pre_trained:str):
-    print("Running test_all_generation.py")
+    print("Running test_all_with_one.py")
 
     def run_testing(yaml_file):
         print(f"Running test for {yaml_file}")
