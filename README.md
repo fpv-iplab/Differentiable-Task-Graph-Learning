@@ -56,7 +56,9 @@ Differentiable-Task-Graph-Learning
     ├── DO
     ├── TGT
     ├── baselines
-    └── utils
+    ├── utils
+    └── video_understanding
+
 ```
 - ``assets/``: This folder contains static resources such as images, logos, or visualizations used in the project (for presentations or documentation purposes).
 - ``configs/``: This directory contains various configuration files, divided into subcategories:
@@ -72,6 +74,7 @@ Differentiable-Task-Graph-Learning
   - ``TGT/``: Contains the scripts to use the Task Graph Transformer (TGT) approach for task graph learning.
   - ``baselines/``: Contains the scripts to use the baselines for task graph generation.
   - ``utils/``: Contains scripts for evaluation.
+  - ``video_understanding/``: Contains scripts for the video understanding tasks.
 
 ## Environment configuration
 
