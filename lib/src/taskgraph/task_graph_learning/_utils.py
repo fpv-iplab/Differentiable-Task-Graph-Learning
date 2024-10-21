@@ -13,17 +13,17 @@ import os
 
 def extract_predecessors(G: nx.DiGraph) -> Dict[int, List[int]]:
     """
+    Description
+    -----------
     Extract the predecessors of the graph.
     
     Parameters
     ----------
-    G : nx.DiGraph
-        The direct graph.
+    - **G (nx.DiGraph)**: The direct graph.
 
     Returns
     -------
-    Dict[int, List[int]]
-        The predecessors.
+    - **Dict[int, List[int]]**: The predecessors.
     """
     predecessors = {}
     for current_node in G.nodes:
@@ -33,12 +33,13 @@ def extract_predecessors(G: nx.DiGraph) -> Dict[int, List[int]]:
 
 def delete_redundant_edges(G:nx.DiGraph) -> None:
     """
+    Description
+    -----------
     Delete the redundant edges of the graph.
     
     Parameters
     ----------
-    G : nx.DiGraph
-        The direct graph.
+    - **G (nx.DiGraph)**: The direct graph.
     """
     G_copy = copy.deepcopy(G)
     for current_node in G.nodes:
@@ -50,19 +51,18 @@ def delete_redundant_edges(G:nx.DiGraph) -> None:
 
 def sequences_accuracy(sequences:np.ndarray, pred_predecessors:Dict[int, List[int]]) -> float:
     """
-    Compute the accuracy of the prediction
+    Description
+    -----------
+    Compute the accuracy of the prediction.
 
     Parameters
     ----------
-    sequences : np.ndarray 
-        List of sequences
-    pred_predecessors : Dict[int, List[int]] 
-        Dict of predicted predecessors
+    - **sequences (np.ndarray)**: List of sequences.
+    - **pred_predecessors (Dict[int, List[int]])**: Dict of predicted predecessors.
 
     Returns
     -------
-    float
-        The accuracy of sequneces in the current predicted Task Graph.
+    - **float**: The accuracy of sequneces in the current predicted Task Graph.
     """
     accuracy = 0
     for sequence in sequences:
@@ -79,17 +79,17 @@ def sequences_accuracy(sequences:np.ndarray, pred_predecessors:Dict[int, List[in
 
 def load_config_baseline(config_file:str) -> Dict:
     """
-    Load config file for baseline
+    Description
+    -----------
+    Load config file for baseline.
     
     Parameters
     ----------
-    config_file : str
-        The config file path.
+    - **config_file (str)**: The config file path.
         
     Returns
     -------
-    Dict
-        A dictionary of the config file.
+    - **Dict**: A dictionary of the config file.
     """
     with open(config_file, 'r') as f:
         config = yaml.safe_load(f)
@@ -99,17 +99,17 @@ def load_config_baseline(config_file:str) -> Dict:
 
 def load_config_task_graph_learning(config_file:str) -> Dict:
     """
-    Load config file for task graph learning
+    Description
+    -----------
+    Load config file for task graph learning.
     
     Parameters
     ----------
-    config_file : str
-        The config file path.
+    - **config_file (str)**: The config file path.
         
     Returns
     -------
-    Dict
-        A dictionary of the config file.
+    - **Dict**: A dictionary of the config file.
     """
     with open(config_file, 'r') as f:
         config = yaml.safe_load(f)
@@ -120,17 +120,17 @@ def load_config_task_graph_learning(config_file:str) -> Dict:
 
 def load_config_mistake_detection(config_file:str) -> Dict:
     """
-    Load config file for mistake detection
+    Description
+    -----------
+    Load config file for mistake detection.
     
     Parameters
     ----------
-    config_file : str
-        The config file path.
+    - **config_file (str)**: The config file path.
         
     Returns
     -------
-    Dict
-        A dictionary of the config file.
+    - **Dict**: A dictionary of the config file.
     """
     with open(config_file, 'r') as f:
         config = yaml.safe_load(f)
@@ -140,17 +140,17 @@ def load_config_mistake_detection(config_file:str) -> Dict:
 
 def load_config_evaluation_baseline(config_file) -> Dict:
     """
-    Load config file for evaluation baseline
+    Description
+    -----------
+    Load config file for evaluation baseline.
     
     Parameters
     ----------
-    config_file : str
-        The config file path.
+    - **config_file (str)**: The config file path.
         
     Returns
     -------
-    Dict
-        A dictionary of the config file.
+    - **Dict**: A dictionary of the config file.
     """
     with open(config_file, 'r') as f:
         config = yaml.safe_load(f)

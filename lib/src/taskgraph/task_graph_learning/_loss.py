@@ -8,23 +8,20 @@ from concurrent.futures import ThreadPoolExecutor
 
 def task_graph_rate(sequence, A, all_nodes, beta):
     """
+    Description
+    -----------
     Compute the rate of a sequence of nodes in a task graph.
     
     Parameters
     ----------
-    sequence : np.ndarray
-        The sequence of nodes.
-    A : np.ndarray
-        The adjacency matrix of the task graph.
-    all_nodes : np.ndarray
-        The list of all nodes in the task graph.
-    beta : float
-        The beta parameter.
+    - **sequence (np.ndarray)**: The sequence of nodes.
+    - **A (np.ndarray)**: The adjacency matrix of the task graph.
+    - **all_nodes (np.ndarray)**: The list of all nodes in the task graph.
+    - **beta (float)**: The beta parameter.
         
     Returns
     -------
-    float
-        The rate of the sequence.
+    - **float**: The rate of the sequence.
     """
     def compute_rate(i, sequence_np, A, all_nodes):
         current = sequence_np[i]
@@ -50,23 +47,19 @@ def task_graph_rate(sequence, A, all_nodes, beta):
 
 def task_graph_maximum_likelihood_loss(y, A, beta):
     """
+    Description
+    -----------
     Compute the maximum likelihood loss of a sequence of nodes in a task graph.
     
     Parameters
     ----------
-    y : np.ndarray
-        The sequence of nodes.
-        
-    A : np.ndarray
-        The adjacency matrix of the task graph.
-        
-    beta : float
-        The beta parameter.
+    - **y (np.ndarray)**: The sequence of nodes.
+    - **A (np.ndarray)**: The adjacency matrix of the task graph.
+    - **beta (float)**: The beta parameter.
         
     Returns
     -------
-    torch.Tensor
-        The loss of the sequence.
+    - **torch.Tensor**: The loss of the sequence.
     """
     def compute_rate(s, all_nodes):
         # Here we delete the repeated steps in the sequence with a probability of 0.5

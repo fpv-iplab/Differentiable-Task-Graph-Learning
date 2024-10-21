@@ -12,18 +12,16 @@ from ._transition_graph import TransitionGraph
 
 def get_preconditions(scenario:str, actions_names:dict[str, list], data:dict[str, dict], baseline_func:callable):
     """
+    Description
+    -----------
     Get the preconditions of the actions of the given scenario.
 
     Parameters
     ----------
-    scenario : str 
-        The name of the scenario.
-    actions_names : dict[str, list]
-        A dictionary containing the actions and their names.
-    data : dict[str, dict]
-        The annotations of the videos.
-    baseline_func : callable
-        The baseline function.
+    - **scenario (str)**: The name of the scenario.
+    - **actions_names (dict[str, list])**: A dictionary containing the actions and their names.
+    - **data (dict[str, dict])**: The annotations of the videos.
+    - **baseline_func (callable)**: The baseline function.
 
     Returns
     ------- 
@@ -49,17 +47,17 @@ def get_preconditions(scenario:str, actions_names:dict[str, list], data:dict[str
 
 def create_eligibility_vectors(sequences:list) -> dict:
     """
+    Description
+    -----------
     Create the eligibility vectors of the actions of the given scenario.
     
     Parameters
     ----------
-    sequences : List
-        The actions in the videos of the scenario.
+    - **sequences (List)**: The actions in the videos of the scenario.
         
     Returns
     -------
-    dict
-        The eligibility vectors of the actions of the given scenario.
+    - **dict**: The eligibility vectors of the actions of the given scenario.
     """
     # Initialize eligibility vectors dictionary
     eligibility_vectors = defaultdict(list)
@@ -77,11 +75,13 @@ def create_eligibility_vectors(sequences:list) -> dict:
 
 def iteration_ILP(sequences:list[list[int]], eligibility_vectors_dict:dict, objective:str="acc", alpha:int=0) -> tuple[dict, dict]:
     """
-    The code implements two objective functions:
+    Description
+    -----------
+    The code implements:
     - Eq. 6 of [1], credited as (Muggleton, 1991) and (Sohn et al., 2020):
-        this is obtained by specifying objective='acc'
-    - Eq. 7 of [1]: this is obtained by specifying objective='prec' and alpha=0
-    - Eq. 8 of [1]: this is obtained by specifying objective='prec' and alpha>0
+        this is obtained by specifying objective='acc'.
+    - Eq. 7 of [1]: this is obtained by specifying objective='prec' and alpha=0.
+    - Eq. 8 of [1]: this is obtained by specifying objective='prec' and alpha>0.
     
     References
     ----------
@@ -89,19 +89,14 @@ def iteration_ILP(sequences:list[list[int]], eligibility_vectors_dict:dict, obje
 
     Parameters
     ----------
-    sequences : List[List[int]]
-        The actions in the videos of the scenario.
-    eligibility_vectors_dict : dict 
-        The eligibility vectors of the actions of the given scenario.
-    objective : str 
-        (Optional) The objective function. Defaults to "acc".
-    alpha : int 
-        (Optional) The alpha value. Defaults to 0.
+    - **sequences (List[List[int]])**: The actions in the videos of the scenario.
+    - **eligibility_vectors_dict (dict)**: The eligibility vectors of the actions of the given scenario.
+    - **objective (str)**: *(Optional)* The objective function. Defaults to "acc".
+    - **alpha (int)**: *(Optional)* The alpha value. Defaults to 0.
 
     Returns
     -------
-    tuple[dict, dict]
-        The preconditions of the actions of the given scenario.
+    - **tuple[dict, dict]**: The preconditions of the actions of the given scenario.
     """
     preconditions = defaultdict(list)
     precondition_scores = defaultdict(list)
@@ -168,21 +163,19 @@ def iteration_ILP(sequences:list[list[int]], eligibility_vectors_dict:dict, obje
 
 def delete_simple_cycles(G:nx.DiGraph, precondition_scores:dict, preconditions:dict) -> bool:
     """
+    Description
+    -----------
     Check if the graph contains simple cycles.
     
     Parameters
     ----------
-    G : nx.DiGraph
-        The graph.
-    precondition_scores : dict
-        The scores of the preconditions.
-    preconditions : dict
-        The preconditions.
+    - **G (nx.DiGraph)**: The graph.
+    - **precondition_scores (dict)**: The scores of the preconditions.
+    - **preconditions (dict)**: The preconditions.
     
     Returns
     -------
-    bool
-        True if the graph is a DAG after removing the simple cycles, False otherwise.
+    - **bool**: True if the graph is a DAG after removing the simple cycles, False otherwise.
     """
     G_copy = copy.deepcopy(G)
     already_removed = []
@@ -206,21 +199,19 @@ def delete_simple_cycles(G:nx.DiGraph, precondition_scores:dict, preconditions:d
 
 def baseline_ILP(sequences:list[list[int]], objective:str="acc", thresh:int=0) -> tuple[dict, dict, nx.DiGraph, dict, dict]:
     """
+    Description
+    -----------
     Calculate the preconditions of the actions of the given scenario using the ILP baseline.
     
     Parameters
     ----------
-    sequences : list[list[int]]
-        The actions in the videos of the scenario.
-    objective : str
-        (Optional) The objective function. Defaults to "acc".
-    thresh : int
-        (Optional) The threshold. Defaults to 0.
+    - **sequences (list[list[int]])**: The actions in the videos of the scenario.
+    - **objective (str)**: *(Optional)* The objective function. Defaults to "acc".
+    - **thresh (int)**: *(Optional)* The threshold. Defaults to 0.
 
     Returns
     -------
-    tuple[dict, dict, nx.DiGraph, dict, dict]
-        The preconditions of the actions of the given scenario.
+    - **tuple[dict, dict, nx.DiGraph, dict, dict]**: The preconditions of the actions of the given scenario.
     """
     alpha = 0
     eligibility_vectors_dict = create_eligibility_vectors(sequences)
@@ -272,21 +263,19 @@ def baseline_ILP(sequences:list[list[int]], objective:str="acc", thresh:int=0) -
 
 def baseline_transition_graph(keystep_json:str, scenario:str, max_length:int) -> TransitionGraph:
     """
+    Description
+    -----------
     Create the transition graph of the preconditions of the actions of the given scenario.
     
     Parameters
     ----------
-    keystep_json : str
-        The path to the keystep json file.
-    scenario : str
-        The name of the scenario.
-    max_length : int
-        The max length of the sequences to be considered.
+    - **keystep_json (str)**: The path to the keystep json file.
+    - **scenario (str)**: The name of the scenario.
+    - **max_length (int)**: The max length of the sequences to be considered.
 
     Returns
     -------
-    TransitionGraph
-        The transition graph of the preconditions of the actions of the given scenario.
+    - **TransitionGraph**: The transition graph of the preconditions of the actions of the given scenario.
     """
     return TransitionGraph(keystep_json, scenario, max_length)
 
@@ -294,27 +283,22 @@ def baseline_transition_graph(keystep_json:str, scenario:str, max_length:int) ->
 
 def create_graph(preconditions:dict[str, list[int]], scenario:str, actions:list[int], names:list[str], save:bool=False, output:str="./") -> nx.DiGraph:
     """
+    Description
+    -----------
     Create the graph of the preconditions of the actions of the given scenario.
 
     Parameters
     ----------
-    preconditions : dict[str, list[int]]
-        The preconditions of the actions of the given scenario.
-    scenario : str
-        The name of the scenario.
-    actions : list[int]
-        The actions id in the scenario.
-    names : list[str]
-        The actions names in the scenario.
-    save : bool
-        (Optional) If True save the graph as svg. Defaults to False.
-    output : str
-        (Optional) The output directory. Defaults to "./".
+    - **preconditions (dict[str, list[int]])**: The preconditions of the actions of the given scenario.
+    - **scenario (str)**: The name of the scenario.
+    - **actions (list[int])**: The actions id in the scenario.
+    - **names (list[str])**: The actions names in the scenario.
+    - **save (bool)**: *(Optional)* If True save the graph as svg. Defaults to False.
+    - **output (str)**: *(Optional)* The output directory. Defaults to "./".
 
     Returns
     -------
-    nx.DiGraph
-        The graph of the preconditions of the actions of the given scenario.
+    - **nx.DiGraph**: The graph of the preconditions of the actions of the given scenario.
     """
     # Create the graph
     G = nx.DiGraph()
@@ -339,12 +323,13 @@ def create_graph(preconditions:dict[str, list[int]], scenario:str, actions:list[
 
 def delete_cycles(G:nx.DiGraph) -> None:
     """
+    Description
+    -----------
     Delete the cycles of the graph.
     
     Parameters
     ----------
-    G : nx.DiGraph
-        The direct graph.
+    - **G (nx.DiGraph)**: The direct graph.
     """
     while not nx.is_directed_acyclic_graph(G):
         # Find a cycles in a directed graph
@@ -356,12 +341,13 @@ def delete_cycles(G:nx.DiGraph) -> None:
 
 def delete_redundant_edges(G:nx.DiGraph) -> None:
     """
+    Description
+    -----------
     Delete the redundant edges of the graph.
     
     Parameters
     ----------
-    G : nx.DiGraph
-        The direct graph.
+    - **G (nx.DiGraph)**: The direct graph.
     """
     G_copy = copy.deepcopy(G)
     for current_node in G.nodes:
@@ -374,12 +360,13 @@ def delete_redundant_edges(G:nx.DiGraph) -> None:
 
 def insert_start_end_nodes(G:nx.DiGraph) -> None:
     """
+    Description
+    -----------
     Insert the start and end nodes in the graph.
     
     Parameters
     ----------
-    G : nx.DiGraph
-        The direct graph.
+    - **G (nx.DiGraph)**: The direct graph.
     """
     # Insert the END node
     G.add_node("END", info="END", node_color='lightblue', node_shape='')
@@ -396,16 +383,15 @@ def insert_start_end_nodes(G:nx.DiGraph) -> None:
 
 def save_graph_as_svg(G:nx.DiGraph, scenario:str, output:str) -> None:
     """
+    Description
+    -----------
     Save the graph as svg.
 
     Parameters
     ----------
-    G : nx.DiGraph
-        The direct graph.
-    scenario : str
-        The name of the scenario.
-    output : str
-        The output directory.
+    - **G (nx.DiGraph)**: The direct graph.
+    - **scenario (str)**: The name of the scenario.
+    - **output (str)**: The output directory.
     """
     # Set the shape of the nodes
     for node in G.nodes:
