@@ -22,12 +22,12 @@ NeurIPS (spotlight), 2024
 - [x] Task Graph Transformer (TGT) Model
 - [x] Video Understanding
 - [ ] Online Mistake Detection
-- [ ] Guide for all experiments
+- [ ] Guide for all experiments
 
 ---
 - [Repository Structure](#repository-structure)
 - [Environment configuration](#environment-configuration)
-- [Data](#data)
+- [Data and format](#data-and-format)
 - [Qualitative results](#qualitative-results)
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
@@ -36,9 +36,12 @@ NeurIPS (spotlight), 2024
 ---
 
 <p align="center">
-  <img src="./assets/tgml.png" width="70%" height="auto">
+  <img src="./assets/DO.svg" width="100%" height="auto">
 </p>
 
+<p align="center">
+  <img src="./assets/TGT.svg" width="100%" height="auto">
+</p>
 
 ## Repository Structure
 ```text
@@ -49,8 +52,10 @@ Differentiable-Task-Graph-Learning
 │   ├── CaptainCook4D-DO
 │   └── CaptainCook4D-TGT-text
 ├── data
-│   └── captaincook4d
-│       └── ground_truth_task_graphs
+│   ├── assembly101
+│   ├── captaincook4d
+│   │   └── ground_truth_task_graphs
+│   └── epic-tent
 ├── lib
 └── task-graph-learning
     ├── DO
@@ -65,16 +70,19 @@ Differentiable-Task-Graph-Learning
   - ``Baseline/``: Configurations for baseline methods.
   - ``CaptainCook4D-DO/``: Configuration files for using CaptainCook4D datasets with the Direct Optimization (DO) model.
   - ``CaptainCook4D-TGT-text/``: Configuration files for using CaptainCook4D dataset with the Task Graph Transformer (TGT) model based on text embeddings.
-- ``data/``: Houses the dataset used in the project.
+- ``data/``: Houses the datasets used in the project.
+  - ``assembly101/``: A subdirectory dedicated to the Assembly101-O dataset.
   - ``captaincook4d/``: A subdirectory dedicated to the CaptainCook4D dataset.
     - ``ground_truth_task_graphs/``: Contains ground truth task graphs.
+  - ``epic-tent/``: A subdirectory dedicated to the EPIC-Tent-O dataset.
 - ``lib/``: Contains external libraries, utilities, and custom modules that the project depends on for task graph learning.
 - ``task-graph-learning/``: Contains all the scripts for task graph learning.
   - ``DO/``: Contains the scripts to use the Direct Optimization (DO) method for task graph learning.
+  - ``online-mistake-detection``: Contains the scripts for online mistake detection experiments.
   - ``TGT/``: Contains the scripts to use the Task Graph Transformer (TGT) approach for task graph learning.
   - ``baselines/``: Contains the scripts to use the baselines for task graph generation.
   - ``utils/``: Contains scripts for evaluation.
-  - ``video_understanding/``: Contains scripts for the video understanding tasks.
+  - ``video_understanding/``: Contains scripts for video understanding experiments.
 
 ## Environment configuration
 
@@ -103,10 +111,51 @@ While these versions are recommended, newer versions of these libraries may also
 
 
 
-## Data
+## Data and format
 In the **./data** directory, you will find the CaptainCook4D data that we have defined for our task. This data is provided in compliance with the license defined by the original authors. Our split differs from those defined by the original authors of the paper, as we have only included annotations that do not contain errors. For more information about the original dataset, please visit the official [CaptainCook4D repository](https://github.com/CaptainCook4D/).
 
+The proposed methods can be used with other datasets that follow the following JSON structure:
 
+```JSON
+{
+    "annotations": {
+        "1_14": {  // Unique identifier for a specific recording session [MANDATORY]
+            "recording_id": "1_14",  // Identifier for the recording (e.g., video file) [OPTIONAL]
+            "activity_id": 1,  // Numeric ID of the activity being performed [OPTIONAL]
+            "activity_name": "Microwave Egg Sandwich",  // Name of the activity being performed [MANDATORY]
+            "person_id": 1,  // ID of the person performing the task [OPTIONAL]
+            "environment": 5,  // Numeric code representing the environment (e.g., kitchen type) [OPTIONAL]
+            "scenario": "microwaveeggsandwich",  // Scenario name as a string (used for taxonomy linking) [MANDATORY]
+            "segments": [
+                {
+                    "step_id": 12,  // Step number within the activity [MANDATORY]
+                    "start_time": 0.799,  // Start time of the segment (in seconds) [MANDATORY]
+                    "end_time": 87.74,  // End time of the segment (in seconds) [MANDATORY]
+                    "description": "Cut - Cut the English muffin into two pieces with a knife",  // Text description of the action being performed [MANDATORY]
+                    "has_errors": false,  // Boolean flag indicating whether this segment contains any errors [OPTIONAL]
+                    "step_name": "Cut - Cut the English muffin into two pieces with a knife"  // Name of the action or step being performed [MANDATORY]
+                },
+              ...
+            ]
+          }
+      ...
+    },
+    "taxonomy": {
+        "microwaveeggsandwich": {  // Category or task label for the scenario
+            "1": { // This is the same of the "id"
+                "name": "Pour - Pour 1 egg into the ramekin cup",  // Name of the step in the taxonomy [MANDATORY]
+                "id": 1,  // Unique ID of this step [MANDATORY]
+                "is_leafnode": true,  // Boolean flag indicating if this step is a leaf node (i.e., has no substeps) [OPTIONAL]
+                "parent_id": null,  // ID of the parent step (null if no parent) [OPTIONAL]
+                "parent_name": null  // Name of the parent step (null if no parent) [OPTIONAL]
+            },
+          ...
+        }
+    }
+}
+```
+
+***NOTE: Fields marked <u>MANDATORY</u> are required for the proposed methods to work, while fields marked <u>OPTIONAL</u> can be absent without affecting the functionality of the code.***
 
 ## Qualitative results
 The figure reports the generated task graphs of the procedure called "Dressed Up Meatballs". On the left there is the ground truth task graph, while on the right the generated using the Direct Optimization model. These graphs must be interpreted from the bottom up, reflecting the bottom-up nature of dependency edges.
