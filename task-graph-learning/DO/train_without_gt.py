@@ -18,7 +18,9 @@ from taskgraph.task_graph_learning import (DO,
 @click.option("--log", "-l", type=bool, default=False, is_flag=True, help="Log the output to a file.")
 @click.option("--seed", "-s", type=int, default=None, help="Seed for reproducibility.")
 @click.option("--augmentation", "-ag", type=bool, default=False, is_flag=True, help="Augmentation of the sequences.")
-def main(config:str, log:bool, seed:int, augmentation:bool):
+@click.option("--device", "-d", type=str, default="cuda:0", help="Device to use.")
+@click.option("--relaxed", "-r", type=bool, default=False, is_flag=True, help="Relaxed edges.")
+def main(config:str, log:bool, seed:int, augmentation:bool, device:str, relaxed:bool):
     # Load config
     cfg = load_config_task_graph_learning(config)
 
@@ -40,13 +42,13 @@ def main(config:str, log:bool, seed:int, augmentation:bool):
     output_path = cfg.OUTPUT_DIR
 
     # Check output path
-    if not os.path.exists(os.path.join(output_path, f"{activity_name}")):
-        os.makedirs(os.path.join(output_path, f"{activity_name}"))
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
     
     # Check if log is True
     if log:
         # Redirect the output to the log file
-        sys.stdout = open(os.path.join(output_path, f"{activity_name}", "log.txt"), "w")
+        sys.stdout = open(os.path.join(output_path, "log.txt"), "w")
 
     # Annotations
     annotations_json = cfg.ANNOTATIONS["annotations"]
@@ -164,7 +166,7 @@ def main(config:str, log:bool, seed:int, augmentation:bool):
         train_seq_no_beta_gamma.extend([([id_start - 1] + [(s - 1) for s in seq] + [id_end - 1]) for seq in train_sequences])
 
     # Select the device
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device(device if torch.cuda.is_available() else "cpu")
 
     # Create the model
     net = DO(num_nodes, device).to(device)
@@ -229,11 +231,12 @@ def main(config:str, log:bool, seed:int, augmentation:bool):
             if node not in masked_nodes:
                 GP.add_edge(node, id_start-1)
 
-        for node in GP.nodes:
-            if len(list(GP.successors(node))) == 2 and 0 in GP.successors(node):
-                for successor in list(GP.successors(node)):
-                    if successor != 0:
-                        GP.remove_edge(node, successor)
+        if relaxed:
+            for node in GP.nodes:
+                if len(list(GP.successors(node))) == 2 and 0 in GP.successors(node):
+                    for successor in list(GP.successors(node)):
+                        if successor != 0:
+                            GP.remove_edge(node, successor)
 
         delete_redundant_edges(GP)
                 
@@ -261,20 +264,15 @@ def main(config:str, log:bool, seed:int, augmentation:bool):
 
         print(f"Epoch {i+1}: loss = {loss.item()} | accuracy = {accuracy_score}")
 
-        """
-        We stop the training if the accuracy is greater than 0.97.
-        We want to create a graph that is not too flat.
-        We found that the accuracy of 0.97 is a good threshold.
-        """
         if early_stopping is not None and accuracy_score > early_stopping:
             break
 
     print("Training completed")
-    torch.save(net.state_dict(), os.path.join(output_path, f"{activity_name}", f"{cfg.OUTPUT_NAME}"))
+    torch.save(net.state_dict(), os.path.join(output_path, f"{cfg.OUTPUT_NAME}"))
 
     A = nx.nx_agraph.to_agraph(GP)
     A.layout('dot')
-    A.draw(os.path.join(output_path, f"{activity_name}", "GP_graph.png"))
+    A.draw(os.path.join(output_path, "GP_graph.png"))
 
 if __name__ == "__main__":
     main()
