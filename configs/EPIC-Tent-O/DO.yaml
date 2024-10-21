@@ -1,0 +1,10 @@
+TRAIN:
+  ANNOTATIONS: "../../data/epic-tent/train.json"
+  ACTIVITY_NAME: "epic-tent"
+  OUTPUT_DIR: "./Experiments-EPIC-Tent-O/DO"
+  OUTPUT_NAME: "model_epic-tent_final-early-stopping.pth"
+  SEED: 42
+  BETA: 0.005
+  EPOCHS: 1200
+  MASK: null
+  EARLY_STOPPING: 0.97 # This is the threshold for the early stopping criterion that depends from the number of nodes in the graph

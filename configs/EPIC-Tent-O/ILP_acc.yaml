@@ -1,0 +1,6 @@
+DATA:
+  KEYSTEPS_JSON_PATH: ../../data/epic-tent/train.json
+  OUTPUT_PATH: ./EPIC-Tent-O/ILP_acc
+  SCRIPT_PATH: ILP.py
+  OBJECTIVE: acc # This is the objective function to optimize (acc or prec)
+  AUGMENTED: False

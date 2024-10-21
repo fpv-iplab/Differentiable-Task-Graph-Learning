@@ -1,0 +1,4 @@
+DATA:
+  KEYSTEPS_JSON_PATH: ../../data/epic-tent/train.json
+  OUTPUT_PATH: ./EPIC-Tent-O/count_based
+  SCRIPT_PATH: count_based.py
