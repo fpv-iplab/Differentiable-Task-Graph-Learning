@@ -1,0 +1,6 @@
+DATA:
+  ANNOTATIONS: "../../data/epic-tent/test.json"
+  PRED_TASK_GRAPHS: "../DO/Experiments-EPIC-Tent-O/DO/model_epic-tent_final-early-stopping.pth"
+  OUTPUT_PATH: "./EPIC-Tent-O-GT/DO"
+  SCENARIO_NAME: "epic-tent"
+  MASK: null

@@ -1,0 +1,6 @@
+DATA:
+  ANNOTATIONS: "../../data/assembly101/test.json"
+  PRED_TASK_GRAPHS: "../DO/Experiments-Assembly101-O/DO-without-early-stopping/model_assembly101_final-no-early-stopping.pth"
+  OUTPUT_PATH: "./Assembly101-O-GT/DO"
+  SCENARIO_NAME: "assembly101"
+  MASK: "5, 6, 7, 10, 11, 16, 17, 22, 23, 24, 27, 30, 34, 35, 36, 41, 46, 47, 50, 51, 52, 53, 66, 70, 71, 78, 85"

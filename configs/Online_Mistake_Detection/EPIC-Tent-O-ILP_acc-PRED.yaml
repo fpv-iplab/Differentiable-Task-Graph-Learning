@@ -1,0 +1,5 @@
+DATA:
+  ANNOTATIONS: "../../data/epic-tent/step_recognition_test.json"
+  PRED_TASK_GRAPHS: "../baselines/EPIC-Tent-O/ILP_acc/graph_epic-tent.adjlist"
+  OUTPUT_PATH: "./EPIC-Tent-O-PRED/ILP_acc"
+  SCENARIO_NAME: "epic-tent"

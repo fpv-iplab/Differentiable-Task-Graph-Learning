@@ -1,0 +1,7 @@
+DATA:
+  ANNOTATIONS: "../../data/epic-tent/step_recognition_test.json"
+  PRED_TASK_GRAPHS: "../TGT/Experiments-EPIC-Tent-O/TGT/model_epic-tent.pth"
+  OUTPUT_PATH: "./EPIC-Tent-O-PRED/TGT"
+  SCENARIO_NAME: "epic-tent"
+  EMBEDDINGS_PATH: "../../data/epic-tent/text_feature/epic-tent"
+  MASK: null

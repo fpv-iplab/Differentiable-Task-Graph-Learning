@@ -1,0 +1,5 @@
+DATA:
+  ANNOTATIONS: "../../data/assembly101/step_recognition_test.json"
+  PRED_TASK_GRAPHS: "../baselines/Assembly101-O/count_based/graph_assembly101.adjlist"
+  OUTPUT_PATH: "./Assembly101-O-PRED/count_based"
+  SCENARIO_NAME: "assembly101"

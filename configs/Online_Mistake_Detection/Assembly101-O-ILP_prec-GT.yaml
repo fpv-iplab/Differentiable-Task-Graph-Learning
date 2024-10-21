@@ -1,0 +1,5 @@
+DATA:
+  ANNOTATIONS: "../../data/assembly101/test.json"
+  PRED_TASK_GRAPHS: "../baselines/Assembly101-O/ILP_prec/graph_assembly101.adjlist"
+  OUTPUT_PATH: "./Assembly101-O-GT/ILP_prec"
+  SCENARIO_NAME: "assembly101"

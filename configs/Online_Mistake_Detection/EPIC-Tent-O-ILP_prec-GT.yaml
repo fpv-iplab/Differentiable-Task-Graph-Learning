@@ -1,0 +1,5 @@
+DATA:
+  ANNOTATIONS: "../../data/epic-tent/test.json"
+  PRED_TASK_GRAPHS: "../baselines/EPIC-Tent-O/ILP_prec/graph_epic-tent.adjlist"
+  OUTPUT_PATH: "./EPIC-Tent-O-GT/ILP_prec"
+  SCENARIO_NAME: "epic-tent"
