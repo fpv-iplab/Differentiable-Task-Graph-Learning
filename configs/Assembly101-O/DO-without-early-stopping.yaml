@@ -1,0 +1,10 @@
+TRAIN:
+  ANNOTATIONS: "../../data/assembly101/train.json"
+  ACTIVITY_NAME: "assembly101"
+  OUTPUT_DIR: "./Experiments-Assembly101-O/DO-without-early-stopping"
+  OUTPUT_NAME: "model_assembly101_final-no-early-stopping.pth"
+  SEED: 42
+  BETA: 0.005
+  EPOCHS: 1200
+  MASK: null
+  EARLY_STOPPING: null # This is the threshold for the early stopping criterion that depends from the number of nodes in the graph

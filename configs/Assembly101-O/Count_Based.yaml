@@ -1,0 +1,4 @@
+DATA:
+  KEYSTEPS_JSON_PATH: ../../data/assembly101/train.json
+  OUTPUT_PATH: ./Assembly101-O/count_based
+  SCRIPT_PATH: count_based.py

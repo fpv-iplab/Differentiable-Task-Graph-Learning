@@ -1,0 +1,6 @@
+DATA:
+  KEYSTEPS_JSON_PATH: ../../data/assembly101/train.json
+  OUTPUT_PATH: ./Assembly101-O/ILP_prec
+  SCRIPT_PATH: ILP.py
+  OBJECTIVE: prec # This is the objective function to optimize (acc or prec)
+  AUGMENTED: False

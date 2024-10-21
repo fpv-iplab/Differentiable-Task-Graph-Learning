@@ -1,0 +1,8 @@
+TRAIN:
+  ANNOTATIONS: "../../data/assembly101/train.json"
+  ACTIVITY_NAME: "assembly101"
+  OUTPUT_DIR: "./Experiments-Assembly101-O/TGT"
+  SEED: 42
+  BETA: 1.0
+  EPOCHS: 1200
+  EMBEDDINGS: "../../data/assembly101/text_feature"
