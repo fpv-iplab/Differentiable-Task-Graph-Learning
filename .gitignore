@@ -1,6 +1,10 @@
-# Output
+# Features
 data/captaincook4d/text_feature
 data/captaincook4d/video_and_text_feature
+data/assembly101/text_feature
+data/epic-tent/text_feature
+
+# Experiments on CaptainCook4D
 task-graph-learning/baselines/Baseline_Count_Based
 task-graph-learning/baselines/Baseline_ILP_acc
 task-graph-learning/baselines/Baseline_ILP_prec
@@ -14,6 +18,26 @@ task-graph-learning/TGT/Experiments-TGT-video-model
 task-graph-learning/TGT/wandb
 task-graph-learning/video_understanding/ordering
 task-graph-learning/video_understanding/forecasting
+
+# Experiments on Assembly101-O
+data/assembly101/train.json
+data/assembly101/test.json
+data/assembly101/step_recognition_test.json
+task-graph-learning/baselines/Assembly101-O
+task-graph-learning/DO/Experiments-Assembly101-O
+task-graph-learning/TGT/Experiments-Assembly101-O
+task-graph-learning/online-mistake-detection/Assembly101-O-GT
+task-graph-learning/online-mistake-detection/Assembly101-O-PRED
+
+# Experiments on EPIC-Tent-O
+data/epic-tent/train.json
+data/epic-tent/test.json
+data/epic-tent/step_recognition_test.json
+task-graph-learning/baselines/EPIC-Tent-O
+task-graph-learning/DO/Experiments-EPIC-Tent-O
+task-graph-learning/TGT/Experiments-EPIC-Tent-O
+task-graph-learning/online-mistake-detection/EPIC-Tent-O-GT
+task-graph-learning/online-mistake-detection/EPIC-Tent-O-PRED
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
