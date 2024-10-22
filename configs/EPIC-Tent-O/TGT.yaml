@@ -6,3 +6,5 @@ TRAIN:
   BETA: 1.0
   EPOCHS: 1200
   EMBEDDINGS: "../../data/epic-tent/text_feature"
+  MASK: null
+  LR: 0.000015
