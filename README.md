@@ -6,9 +6,17 @@
 
 NeurIPS (spotlight), 2024
 
-[arXiv pre-print](https://arxiv.org/pdf/2406.01486v1)
+[arXiv pre-print](https://arxiv.org/pdf/2406.01486v1) | [Project page](https://fpv-iplab.github.io/Differentiable-Task-Graph-Learning/)
 
+[![Stargazers][stars-shield]][stars-url]
+[![Forks][forks-shield]][forks-url]
+[![Issues][issues-shield]][issues-url]
 
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![X][x-shield]][x-url]
+
+![python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+![pytorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 
 ## 📢 News
 - [October, 2024] We release the Differentiable Task Graph Learning codebase.
@@ -16,15 +24,14 @@ NeurIPS (spotlight), 2024
 
 
 
-## ✍️ Catalog
-🚧 WORK IN PROGRESS:
+## 🚧 WORK IN PROGRESS
 - [x] Baselines
 - [x] Direct Optimization (DO) Model
 - [x] Task Graph Transformer (TGT) Model
 - [x] Video Understanding
 - [x] Online Mistake Detection
-- [ ] Guide for Assembly101-O and EPIC-Tent-O
 - [ ] Guide for all experiments
+- [ ] Guide for Assembly101-O and EPIC-Tent-O
 
 ---
 - [Repository Structure](#repository-structure)
@@ -160,11 +167,15 @@ The proposed methods can be used with other datasets that follow the following J
 ***NOTE: Fields marked <u>MANDATORY</u> are required for the proposed methods to work, while fields marked <u>OPTIONAL</u> can be absent without affecting the functionality of the code.***
 
 ## Qualitative results
-The figure reports the generated task graphs of the procedure called "Dressed Up Meatballs". On the left there is the ground truth task graph, while on the right the generated using the Direct Optimization model. These graphs must be interpreted from the bottom up, reflecting the bottom-up nature of dependency edges.
+The figure reports the generated task graphs of the procedure called "Dressed Up Meatballs". On the left there is the ground truth task graph, while on the right the generated using the Direct Optimization model. These graphs must be interpreted from the bottom up, reflecting the bottom-up nature of dependency edges. Other qualitative results are reported in the supplementary material of the [paper](https://arxiv.org/pdf/2406.01486v1).
 
 Ground Truth             |  Generated 
 :-------------------------:|:-------------------------:
 ![First Image](./assets/task_graph_ground_truth.png) | ![Second Image](./assets/task_graph_generated.png)
+
+The figure shows a success (left) and failure (right) case on EPIC-Tent. Past key-steps' colors match nodes' colors. On the left, the current key-step "Pickup/Open Stakebag" is correctly evaluated as a mistake because the step "Pickup/Place Ventcover" is a precondition of the current key-step, but it is not included among the previous key-steps. On the right, "Pickup/Open Supportbag" is incorrectly evaluated as mistake because the step "Spread Tent" is precondition of the current key-step, but it is not included among the previous key-steps. This is due to the fact that our method wrongly predicted "Spread Tent" as a pre-condition of "Pickup/Open Supportbag", probably due to the two actions often occurring in this order.
+
+![OMD](./assets/omd_example.svg)
 
 
 
@@ -198,3 +209,15 @@ Please, refer to the [paper](https://arxiv.org/pdf/2406.01486v1) for more techni
 ## Authors
 
 ![Authors](./assets/authors/authors.png)
+
+[forks-shield]: https://img.shields.io/github/forks/fpv-iplab/Differentiable-Task-Graph-Learning.svg?style=for-the-badge
+[forks-url]: https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/network/members
+[stars-shield]: https://img.shields.io/github/stars/fpv-iplab/Differentiable-Task-Graph-Learning.svg?style=for-the-badge
+[stars-url]: https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/stargazers
+[issues-shield]: https://img.shields.io/github/issues/fpv-iplab/Differentiable-Task-Graph-Learning.svg?style=for-the-badge
+[issues-url]: https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/issues
+[license-shield]: https://img.shields.io/github/license/fpv-iplab/Differentiable-Task-Graph-Learning.svg?style=for-the-badge
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://it.linkedin.com/in/luigi-seminara-3bb2a2204
+[x-shield]: https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white
+[x-url]: https://x.com/Gigii_Gii
