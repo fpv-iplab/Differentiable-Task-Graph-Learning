@@ -11,6 +11,7 @@ NeurIPS (spotlight), 2024
 
 
 ## 📢 News
+- [October, 2024] We release the Differentiable Task Graph Learning codebase.
 - [September, 2024] *Differentiable Task Graph Learning* is accepted in **NeurIPS 2024** as <u>spotlight</u>.
 
 
@@ -21,7 +22,8 @@ NeurIPS (spotlight), 2024
 - [x] Direct Optimization (DO) Model
 - [x] Task Graph Transformer (TGT) Model
 - [x] Video Understanding
-- [ ] Online Mistake Detection
+- [x] Online Mistake Detection
+- [ ] Guide for Assembly101-O and EPIC-Tent-O
 - [ ] Guide for all experiments
 
 ---
