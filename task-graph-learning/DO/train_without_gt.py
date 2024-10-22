@@ -7,11 +7,14 @@ import click
 import os
 import sys
 
-from taskgraph.task_graph_learning import (DO, 
-                                           extract_predecessors,
-                                           delete_redundant_edges,
-                                           load_config_task_graph_learning,
-                                           sequences_accuracy)
+try:
+    from taskgraph.task_graph_learning import (DO, 
+                                            extract_predecessors,
+                                            delete_redundant_edges,
+                                            load_config_task_graph_learning,
+                                            sequences_accuracy)
+except:
+    raise Exception("You need to install the TGML library. Please read the README.md file.")
 
 @click.command()
 @click.option("--config", "-cfg", type=str, required=True, help="Path to the config file. You can find the config file in the config folder.")
@@ -36,6 +39,7 @@ def main(config:str, log:bool, seed:int, augmentation:bool, device:str, relaxed:
     torch.manual_seed(cfg.SEED)
     np.random.seed(cfg.SEED)
 
+    # Activity name
     activity_name = cfg.ACTIVITY_NAME
 
     # Output path
@@ -180,12 +184,6 @@ def main(config:str, log:bool, seed:int, augmentation:bool, device:str, relaxed:
     for seq in all_y:
         y.extend(seq)
     net.train()
-    mappings = {
-        id_start - 1: "START",
-        id_end - 1: "END"
-    }
-    for i, step in enumerate(taxonomy_json):
-        mappings[i + 1] = step + "_" + taxonomy_json[step]["name"]
 
     for i in range(epochs):
         net.train()
@@ -269,10 +267,6 @@ def main(config:str, log:bool, seed:int, augmentation:bool, device:str, relaxed:
 
     print("Training completed")
     torch.save(net.state_dict(), os.path.join(output_path, f"{cfg.OUTPUT_NAME}"))
-
-    A = nx.nx_agraph.to_agraph(GP)
-    A.layout('dot')
-    A.draw(os.path.join(output_path, "GP_graph.png"))
 
 if __name__ == "__main__":
     main()
