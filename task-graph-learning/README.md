@@ -99,6 +99,44 @@ python run_baseline.py -cfg ../../configs/Assembly101-O/Count_Based.yaml
 python run_baseline.py -cfg ../../configs/EPIC-Tent-O/Count_Based.yaml
 ```
 
+### LLM
+Below is the prompt that was employed to instruct the model on its task, which involves identifying pre-conditions for given procedural steps.
+
+<blockquote>
+I would like you to learn to answer questions by telling me the steps 
+that need to be performed before a given one.
+
+The questions refer to procedural activities and these are of the following type:
+
+Q - Which of the following key steps is a pre-condition for the current key step 
+"add brownie mix"?
+
+- add oil
+- add water
+- break eggs
+- mix all the contents
+- mix eggs
+- pour the mixture in the tray
+- spray oil on the tray
+- None of the above
+
+Your task is to use your immense knowledge and your immense ability to tell me 
+which preconditions are among those listed that must necessarily be carried out 
+before the key step indicated in quotes in the question.
+
+You have to give me the answers and a very brief explanation of why you chose them.
+
+Provide the correct preconditions answer inside a JSON format like this:
+
+{
+   "add brownie mix": ["add oil", "add water", "break eggs"]
+}
+</blockquote>
+
+Finally, we used all the JSON files containing the preconditions to construct the task graphs.
+
+Due to the non-reproducibility of this experiment, the generated graphs have been included in the **./baselines/Baseline_LLM** folder. However, by repeating the experiment, it is still possible to obtain similar results.
+
 ### Graph Evaluation for Baselines
 
 To evaluate the predicted task graphs against the ground truth, you can use the following command:
@@ -132,10 +170,11 @@ python calculate_results.py -cfg <path to the folder containing evaluations>
 ```
 
 ## Direct Optimization (DO)
-
-![DO](../assets/DO.svg)
-
 This section provides a guide for using the Direct Optimization (DO) method.
+
+<p align="center">
+<img src="../assets/DO.svg">
+</p>
 
 There are two scripts available for applying the Direct Optimization method: `train_with_gt.py` and `train_without_gt.py`.
 
@@ -218,4 +257,4 @@ To perform training on all scenarios of CaptainCook4D using the Direct Optimizat
 python train_all.py
 ```
 
-By specifying the `--more_seeds` parameter, you can repeat the experiment with different seed values for reproducibility of the results.
+By specifying the `--more_seeds` parameter, you can repeat the experiment with different seed values.
