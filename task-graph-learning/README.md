@@ -166,8 +166,14 @@ DATA:
 To compute the values reported in the paper, you can use the `calculate_results.py` script, located in the **./utils** folder, as follows:
 
 ```shell
-python calculate_results.py -cfg <path to the folder containing evaluations>
+python calculate_results.py -r <path to the folder containing evaluations>
 ```
+
+If you have followed all the previous steps, you will find the evaluation results in the following directories:
+- `./baselines/Baseline_Count_Based/evaluation`
+- `./baselines/Baseline_ILP_acc/evaluation`
+- `./baselines/Baseline_ILP_prec/evaluation`
+- `./baselines/Baseline_LLM/evaluation`
 
 ## Direct Optimization (DO)
 This section provides a guide for using the Direct Optimization (DO) method.
@@ -250,7 +256,7 @@ TRAIN:
 - **EARLY_STOPPING**: Specifies a value for early stopping. A value of `null` means the training will continue until the number of epochs is reached.
 
 
-### Training using Direct Optimization (DO)
+### Training on CaptainCook4D using DO
 To perform training on all scenarios of CaptainCook4D using the Direct Optimization (DO) method, use the following command:
 
 ```shell
@@ -258,3 +264,13 @@ python train_all.py
 ```
 
 By specifying the `--more_seeds` parameter, you can repeat the experiment with different seed values.
+
+### Calculating Results
+
+To compute the values reported in the paper, you can use the `calculate_results_and_confidence_interval.py` script, located in the **./utils** folder, as follows:
+
+```shell
+python calculate_results_and_confidence_interval.py -r <path to the folder containing evaluations>
+```
+
+If you used the ``train_all.py`` you will find the results in **./DO/Experiments-DO-model**.
