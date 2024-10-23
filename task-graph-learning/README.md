@@ -274,3 +274,189 @@ python calculate_results_and_confidence_interval.py -r <path to the folder conta
 ```
 
 If you used the ``train_all.py`` you will find the results in **./DO/Experiments-DO-model**.
+
+## Task Graph Transformer (TGT)
+This section provides a guide for using the Task Graph Transformer (TGT) to generate task graph.
+
+<p align="center">
+<img src="../assets/TGT.svg">
+</p>
+
+There are four scripts to train models to generate task graphs:
+- ``train_with_gt_text_single.py``
+- ``train_without_gt.py``
+- ``train_with_gt_videos.py``
+- ``train_with_gt_text_unified.py``
+
+### Script ``train_with_gt_text_single.py``
+
+The script `train_with_gt_text_single.py` has the following options:
+
+```text
+-cfg, --config TEXT  Path to the config file. You can find the config file in the config folder.  [required]
+--pre_trained TEXT   Path to the pre-trained model.
+-l, --log            Log the output in a file.
+-s, --seed INTEGER   Seed for reproducibility.
+--cuda INTEGER       CUDA device to use.
+-w                   Use wandb.
+--project_name TEXT  Project name for wandb.
+--entity TEXT        Entity name for wandb.
+--save               Save the model.
+--help               Show this message and exit.
+```
+
+The configuration file must contain the following fields:
+
+```yaml
+TRAIN:
+  ANNOTATIONS: "../../data/captaincook4d/task_graph_generation_annotations.json"
+  TASK_GRAPHS: "../../data/captaincook4d/ground_truth_task_graphs"
+  ACTIVITY_NAME: "Blender Banana Pancakes"
+  OUTPUT_DIR: "./Experiments-TGT-text-model"
+  SEED: 42
+  EPOCHS: 3000
+  EMBEDDINGS: "../../data/captaincook4d/text_feature"
+```
+
+- **ANNOTATIONS**: Path to the JSON file containing annotations.
+- **TASK_GRAPHS**: Path to the folder containing ground truth task graphs.
+- **ACTIVITY_NAME**: Name of the activity for which the task graph should be generated.
+- **OUTPUT_DIR**: Directory where the output will be saved.
+- **SEED**: Seed for reproducibility.
+- **EPOCHS**: Number of epochs.
+- **EMBEDDINGS**: Path to the text embeddings.
+
+
+### Script ``train_without_gt.py``
+
+The script ``train_without_gt.py`` has the following options:
+
+```text
+-cfg, --config TEXT  Path to the config file. You can find the config file in the config folder.  [required]
+-l, --log            Log the output to a file.
+-s, --seed INTEGER   Seed for reproducibility.
+-ag, --augmentation  Augmentation of the sequences.
+-d, --device TEXT    Device to use.
+-r, --relaxed        Relaxed edges.
+--help               Show this message and exit.
+```
+
+The configuration file must contain the following fields:
+
+```yaml
+TRAIN:
+  ANNOTATIONS: "../../data/assembly101/train.json"
+  ACTIVITY_NAME: "assembly101"
+  OUTPUT_DIR: "./Experiments-Assembly101-O/TGT"
+  SEED: 42
+  BETA: 1.0
+  EPOCHS: 1200
+  EMBEDDINGS: "../../data/assembly101/text_feature"
+  MASK: "5, 6, 7, 10, 11, 16, 17, 22, 23, 24, 27, 30, 34, 35, 36, 41, 46, 47, 50, 51, 52, 53, 66, 70, 71, 78, 85"
+  LR: 0.000001
+```
+
+- **ANNOTATIONS**: Path to the JSON file containing annotations.
+- **ACTIVITY_NAME**: Name of the activity for which the task graph should be generated.
+- **OUTPUT_DIR**: Directory where the output will be saved.
+- **SEED**: Seed for reproducibility.
+- **BETA**: Hyperparameter.
+- **EPOCHS**: Number of epochs.
+- **EMBEDDINGS**: Path to the text embeddings.
+- **MASK**: Specifies the nodes to mask during training. A value of `null` indicates no mask is defined.
+- **LR**: Learning rate.
+
+### Script ``train_with_gt_videos.py``
+
+The script ``train_with_gt_videos.py`` has the following options:
+
+```text
+-cfg, --config TEXT  Path to the config file. You can find the config file in the config folder.  [required]
+-l, --log            Log the output in a file.
+-s, --seed INTEGER   Seed for reproducibility.
+--cuda INTEGER       CUDA device to use.
+-w                   Use wandb.
+--project_name TEXT  Project name for wandb.
+--entity TEXT        Entity name for wandb.
+--save               Save the model.
+--help               Show this message and exit.
+```
+
+The configuration file must contain the following fields:
+
+```yaml
+TRAIN:
+  ANNOTATIONS: "../../data/captaincook4d/task_graph_generation_annotations.json"
+  TASK_GRAPHS: "../../data/captaincook4d/ground_truth_task_graphs"
+  ACTIVITY_NAME: "Blender Banana Pancakes"
+  OUTPUT_DIR: "./Experiments-TGT-video-model"
+  SEED: 42
+  EPOCHS: 3000
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
+```
+
+- **ANNOTATIONS**: Path to the JSON file containing annotations.
+- **TASK_GRAPHS**: Path to the folder containing ground truth task graphs.
+- **ACTIVITY_NAME**: Name of the activity for which the task graph should be generated.
+- **OUTPUT_DIR**: Directory where the output will be saved.
+- **SEED**: Seed for reproducibility.
+- **EPOCHS**: Number of epochs.
+- **EMBEDDINGS**: Path to the video embeddings.
+
+### Script ``train_with_gt_text_unified.py``
+
+The script ``train_with_gt_text_unified.py`` has the following options:
+
+```text
+-cfg, --config TEXT  Path to the config file. You can find the config file in the config folder.  [required]
+-l, --log            Log the output in a file.
+-s, --seed INTEGER   Seed for reproducibility.
+--cuda INTEGER       CUDA device to use.
+-w                   Use wandb.
+--project_name TEXT  Project name for wandb.
+--entity TEXT        Entity name for wandb.
+--exclude_current    Exclude the current config task graph. Use for leave one out.
+--help               Show this message and exit.
+```
+
+The configuration file must contain the following fields:
+
+```yaml
+TRAIN:
+  ANNOTATIONS: "../../data/captaincook4d/task_graph_generation_annotations.json"
+  TASK_GRAPHS: "../../data/captaincook4d/ground_truth_task_graphs"
+  ACTIVITY_NAME: "Blender Banana Pancakes"
+  OUTPUT_DIR: "./Experiments-TGT-text-model"
+  SEED: 42
+  EPOCHS: 3000
+  EMBEDDINGS: "../../data/captaincook4d/text_feature"
+```
+
+- **ANNOTATIONS**: Path to the JSON file containing annotations.
+- **TASK_GRAPHS**: Path to the folder containing ground truth task graphs.
+- **ACTIVITY_NAME**: Name of the activity for which the task graph should be generated.
+- **OUTPUT_DIR**: Directory where the output will be saved.
+- **SEED**: Seed for reproducibility.
+- **EPOCHS**: Number of epochs.
+- **EMBEDDINGS**: Path to the text embeddings.
+
+If you use the option ``--exclude-current``, the ``ACTIVITY_NAME`` will be excluded from the training. This option was used to train models excluding one scenario.
+
+### Training on CaptainCook4D using TGT
+To perform training on all scenarios of CaptainCook4D using Task Graph Transformer (TGT), use the following command:
+
+```shell
+python train_all_TGT-text.py
+```
+
+By specifying the `--more_seeds` parameter, you can repeat the experiment with different seed values.
+
+### Calculating Results
+
+To compute the values reported in the paper, you can use the `calculate_results_and_confidence_interval.py` script, located in the **./utils** folder, as follows:
+
+```shell
+python calculate_results_and_confidence_interval.py -r <path to the folder containing evaluations>
+```
+
+If you used the ``train_all_TGT-text.py`` you will find the results in **./TGT/Experiments-TGT-text-model**.
