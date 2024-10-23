@@ -28,12 +28,13 @@ os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
 @click.command()
 @click.option("--config", "-cfg", type=str, required=True, help="Path to the config file. You can find the config file in the config folder.")
 @click.option("--log", "-l", type=bool, default=False, is_flag=True, help="Log the output in a file.")
+@click.option("--seed", "-s", type=int, default=None, help="Seed for reproducibility.")
 @click.option("--cuda", type=int, default=0, help="CUDA device to use.")
 @click.option("-w", type=bool, default=False, is_flag=True, help="Use wandb.")
 @click.option("--project_name", type=str, default="TGT", help="Project name for wandb.")
 @click.option("--entity", type=str, default=None, help="Entity name for wandb.")
 @click.option("--exclude_current", type=bool, default=False, is_flag=True, help="Exclude the current config task graph.")
-def main(config:str, log:bool, cuda:str, w:bool, project_name:str, entity:str, exclude_current:bool):
+def main(config:str, log:bool, seed:int, cuda:str, w:bool, project_name:str, entity:str, exclude_current:bool):
     # Check if wandb is True
     if w:
         if entity is None:
@@ -61,6 +62,8 @@ def main(config:str, log:bool, cuda:str, w:bool, project_name:str, entity:str, e
     beta_end = 0.05
 
     # Set seed
+    if seed is not None:
+        cfg.SEED = seed
     torch.manual_seed(cfg.SEED)
     np.random.seed(cfg.SEED)
     random.seed(cfg.SEED)
@@ -305,7 +308,10 @@ def main(config:str, log:bool, cuda:str, w:bool, project_name:str, entity:str, e
         net.load_state_dict(best_model)
 
     # Save the model
-    torch.save(net.state_dict(), os.path.join(output_path, f"{activity_name}", f"model_unified.pth"))
+    if seed is not None:
+        torch.save(net.state_dict(), os.path.join(output_path, f"{activity_name}", f"model_unified_seed_{seed}.pth"))
+    else:
+        torch.save(net.state_dict(), os.path.join(output_path, f"{activity_name}", f"model_unified.pth"))
 
 if __name__ == "__main__":
     main()
