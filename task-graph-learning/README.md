@@ -1,10 +1,44 @@
 # Experiments
 Here is a guide on how to perform the experiments described in the paper. All the steps will be outlined in detail, including a comprehensive description of every parameter that the script or configuration file takes as input.
 
+Download everything you need to run the experiments:
+
+**CaptainCook4D text features**
+<!-- BEGIN LATEST DOWNLOAD BUTTON -->
+[![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/captaincook4d/text_feature.zip)
+<!-- END LATEST DOWNLOAD BUTTON -->
+
+*NOTE*: Unzip and move the folder **./text_feature/** inside the folder **../data/captaincook4d**
+
+**CaptainCook4D video features**
+<!-- BEGIN LATEST DOWNLOAD BUTTON -->
+[![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/captaincook4d/video_and_text_feature.zip)
+<!-- END LATEST DOWNLOAD BUTTON -->
+
+*NOTE*: Unzip and move the folder **./video_and_text_feature/** inside the folder **../data/captaincook4d**
+
+**Assembly101 text features**
+<!-- BEGIN LATEST DOWNLOAD BUTTON -->
+[![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/assembly101/text_feature.zip)
+<!-- END LATEST DOWNLOAD BUTTON -->
+
+*NOTE*: Unzip and move the folder **./text_feature/** inside the folder **../data/assembly101**
+
+**EPIC-Tent text features**
+<!-- BEGIN LATEST DOWNLOAD BUTTON -->
+[![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/epic-tent/text_feature.zip)
+<!-- END LATEST DOWNLOAD BUTTON -->
+
+*NOTE*: Unzip and move the folder **./text_feature/** inside the folder **../data/epic-tent**
 
 ## Baselines
 
 This section provides a guide for executing the baselines. All baseline results are reproducible, except for those based on **ChatGPT**, which do not have a fixed seed, meaning that executions may yield different results from those presented in the paper.
+
+First of all, change directory:
+```shell
+cd baselines
+```
 
 To run a baseline (different from the LLM one), you can use the script `run_baseline.py`, which takes a configuration file as input, structured as follows:
 
@@ -182,6 +216,11 @@ This section provides a guide for using the Direct Optimization (DO) method.
 <img src="../assets/DO.svg">
 </p>
 
+First of all, change directory:
+```shell
+cd DO
+```
+
 There are two scripts available for applying the Direct Optimization method: `train_with_gt.py` and `train_without_gt.py`.
 
 ### Script `train_with_gt.py`
@@ -193,7 +232,6 @@ The script `train_with_gt.py` has the following options:
 -l, --log             Log the output to a file.
 -s, --seed INTEGER    Seed for reproducibility.
 -d, --device TEXT     Device to use for training.
---help                Show this message and exit.
 ```
 
 The configuration file must contain the following fields:
@@ -228,7 +266,6 @@ The script `train_without_gt.py` has the following options:
 -ag, --augmentation   Augmentation of the sequences.
 -d, --device TEXT     Device to use for training.
 -r, --relaxed         Relaxed edges for graph training.
---help                Show this message and exit.
 ```
 
 The configuration file must contain the following fields:
@@ -282,6 +319,11 @@ This section provides a guide for using the Task Graph Transformer (TGT) to gene
 <img src="../assets/TGT.svg">
 </p>
 
+First of all, change directory:
+```shell
+cd TGT
+```
+
 There are four scripts to train models to generate task graphs:
 - ``train_with_gt_text_single.py``
 - ``train_without_gt.py``
@@ -302,7 +344,6 @@ The script `train_with_gt_text_single.py` has the following options:
 --project_name TEXT  Project name for wandb.
 --entity TEXT        Entity name for wandb.
 --save               Save the model.
---help               Show this message and exit.
 ```
 
 The configuration file must contain the following fields:
@@ -338,7 +379,6 @@ The script ``train_without_gt.py`` has the following options:
 -ag, --augmentation  Augmentation of the sequences.
 -d, --device TEXT    Device to use.
 -r, --relaxed        Relaxed edges.
---help               Show this message and exit.
 ```
 
 The configuration file must contain the following fields:
@@ -379,7 +419,6 @@ The script ``train_with_gt_videos.py`` has the following options:
 --project_name TEXT  Project name for wandb.
 --entity TEXT        Entity name for wandb.
 --save               Save the model.
---help               Show this message and exit.
 ```
 
 The configuration file must contain the following fields:
@@ -416,7 +455,6 @@ The script ``train_with_gt_text_unified.py`` has the following options:
 --project_name TEXT  Project name for wandb.
 --entity TEXT        Entity name for wandb.
 --exclude_current    Exclude the current config task graph. Use for leave one out.
---help               Show this message and exit.
 ```
 
 The configuration file must contain the following fields:
@@ -460,3 +498,91 @@ python calculate_results_and_confidence_interval.py -r <path to the folder conta
 ```
 
 If you used the ``train_all_TGT-text.py`` you will find the results in **./TGT/Experiments-TGT-text-model**.
+
+## Video Understanding
+
+To begin, the TGT model must be trained to predict task graphs based on video features. Ensure you are in the **./TGT** folder. To train the TGT model using video features across all CaptainCook4D scenarios, use the following script:
+
+```shell
+python train_all_TGT-video.py
+```
+
+The experiments presented in the paper were conducted without the `--more_seeds` parameter.
+
+After running the script, the results can be found in the **./TGT/Experiments-TGT-video-model/** folder. As specified in the paper, a portion of the videos was excluded from training to be used as test data. For each scenario, 50% of the videos were used for training and 50% for testing. The videos not used during training are saved in a JSON file.
+
+Next, ensure you are in the **./video_understanding** folder. Here, you will find three scripts:
+
+- `forecasting.py`
+- `ordering.py`
+- `test_video_understanding.py`
+
+### Script ``forecasting.py``
+
+This script tests the forecasting capabilities of the TGT model based on video features. The script has the following options:
+
+```text
+-cfg, --config TEXT  Path to the config file. You can find the config file in the config folder.  [required]
+--cuda INTEGER       CUDA device to use.
+```
+
+The configuration file must contain the following fields:
+
+```yaml
+TRAIN:
+  ANNOTATIONS: "../TGT/Experiments-TGT-video-model/blenderbananapancakes/not_used_in_train.json"
+  ACTIVITY_NAME: "Blender Banana Pancakes"
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
+  MODEL: ../TGT/Experiments-TGT-video-model/blenderbananapancakes/model_blenderbananapancakes_best.pth
+```
+
+- **ANNOTATIONS**: Path to the JSON file containing annotations.
+- **ACTIVITY_NAME**: Name of the activity for which the task graph should be generated.
+- **EMBEDDINGS**: Path to the video embeddings.
+- **MODEL**: Path to the trained model.
+
+### Script ``ordering.py``
+
+This script tests the pairwise ordering capabilities of the TGT model based on video features. The script has the following options:
+
+```text
+-cfg, --config TEXT  Path to the config file. You can find the config file in the config folder.  [required]
+--cuda INTEGER       CUDA device to use.
+```
+
+The configuration file must contain the following fields:
+
+```yaml
+TRAIN:
+  ANNOTATIONS: "../TGT/Experiments-TGT-video-model/blenderbananapancakes/not_used_in_train.json"
+  ACTIVITY_NAME: "Blender Banana Pancakes"
+  EMBEDDINGS: "../../data/captaincook4d/video_and_text_feature"
+  MODEL: ../TGT/Experiments-TGT-video-model/blenderbananapancakes/model_blenderbananapancakes_best.pth
+```
+
+- **ANNOTATIONS**: Path to the JSON file containing annotations.
+- **ACTIVITY_NAME**: Name of the activity for which the task graph should be generated.
+- **EMBEDDINGS**: Path to the video embeddings.
+- **MODEL**: Path to the trained model.
+
+### Video Understanding on CaptainCook4D
+
+To run both the forecasting and pairwise ordering tasks on all CaptainCook4D scenarios, use the following commands:
+
+```shell
+# Pairwise Ordering
+python test_video_understanding.py
+
+# Forecasting
+python test_video_understanding.py --forecast
+```
+
+The results will be saved in the **./video_understanding/ordering** and **./video_understanding/forecasting** folders.
+
+### Calculating Results
+
+To compute the values reported in the paper, you can use the `calculate_results_video_understanding.py` script, located in the **./utils** folder, as follows:
+
+```shell
+python calculate_results_video_understanding.py -r <path to the folder containing evaluations>
+```
