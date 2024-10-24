@@ -6,33 +6,11 @@ Here is a guide on how to perform the experiments described in the paper. All th
 
 Download everything you need to run the experiments:
 
-**CaptainCook4D text features**
-<!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/captaincook4d/text_feature.zip)
-<!-- END LATEST DOWNLOAD BUTTON -->
+| CaptainCook4D text features                                  | CaptainCook4D video features                                 | Assembly101 text features                                    | EPIC-Tent text features                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/captaincook4d/text_feature.zip) | [![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/captaincook4d/video_and_text_feature.zip) | [![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/assembly101/text_feature.zip) | [![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/epic-tent/text_feature.zip) |
+| **NOTE**: Unzip and move the folder **/text_feature/** inside the folder **../data/captaincook4d** | **NOTE**: Unzip and move the folder **./video_and_text_feature/** inside the folder **../data/captaincook4d** | **NOTE**: Unzip and move the folder **/text_feature/** inside the folder **../data/assembly101** | **NOTE**: Unzip and move the folder **./text_feature/** inside the folder **../data/assembly101** |
 
-*NOTE*: Unzip and move the folder **./text_feature/** inside the folder **../data/captaincook4d**
-
-**CaptainCook4D video features**
-<!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/captaincook4d/video_and_text_feature.zip)
-<!-- END LATEST DOWNLOAD BUTTON -->
-
-*NOTE*: Unzip and move the folder **./video_and_text_feature/** inside the folder **../data/captaincook4d**
-
-**Assembly101 text features**
-<!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/assembly101/text_feature.zip)
-<!-- END LATEST DOWNLOAD BUTTON -->
-
-*NOTE*: Unzip and move the folder **./text_feature/** inside the folder **../data/assembly101**
-
-**EPIC-Tent text features**
-<!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/epic-tent/text_feature.zip)
-<!-- END LATEST DOWNLOAD BUTTON -->
-
-*NOTE*: Unzip and move the folder **./text_feature/** inside the folder **../data/epic-tent**
 
 ## Baselines
 
