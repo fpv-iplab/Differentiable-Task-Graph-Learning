@@ -19,18 +19,18 @@ NeurIPS (spotlight), 2024
 ![pytorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 
 ## 📢 News
-- [October, 2024] We release the Differentiable Task Graph Learning codebase.
+- [October, 2024] We release the Differentiable Task Graph Learning codebase, checkpoints and features.
 - [September, 2024] *Differentiable Task Graph Learning* is accepted in **NeurIPS 2024** as <u>spotlight</u>.
 
 
 
 ## 🚧 WORK IN PROGRESS
-- [x] Baselines
-- [x] Direct Optimization (DO) Model
-- [x] Task Graph Transformer (TGT) Model
-- [x] Video Understanding
-- [x] Online Mistake Detection
-- [ ] Guide for all experiments
+- [x] Baselines [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#baselines)]
+- [x] Direct Optimization (DO) Model [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#direct-optimization-do)]
+- [x] Task Graph Transformer (TGT) Model [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#task-graph-transformer-tgt)]
+- [x] Video Understanding [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#video-understanding)]
+- [x] Online Mistake Detection [[LINK](#)]
+- [ ] Guide for all experiments [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#experiments)]
 - [ ] Guide for Assembly101-O and EPIC-Tent-O
 
 ---
@@ -70,6 +70,7 @@ Differentiable-Task-Graph-Learning
     ├── DO
     ├── TGT
     ├── baselines
+    ├── online-mistake-detection
     ├── utils
     └── video_understanding
 
@@ -85,11 +86,11 @@ Differentiable-Task-Graph-Learning
     - ``ground_truth_task_graphs/``: Contains ground truth task graphs.
   - ``epic-tent/``: A subdirectory dedicated to the EPIC-Tent-O dataset.
 - ``lib/``: Contains external libraries, utilities, and custom modules that the project depends on for task graph learning.
-- ``task-graph-learning/``: Contains all the scripts for task graph learning.
+- ``task-graph-learning/``: Contains all the scripts for run experiments and a guide on how to run them [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning)]
   - ``DO/``: Contains the scripts to use the Direct Optimization (DO) method for task graph learning.
-  - ``online-mistake-detection``: Contains the scripts for online mistake detection experiments.
   - ``TGT/``: Contains the scripts to use the Task Graph Transformer (TGT) approach for task graph learning.
   - ``baselines/``: Contains the scripts to use the baselines for task graph generation.
+  - ``online-mistake-detection``: Contains the scripts for online mistake detection experiments.
   - ``utils/``: Contains scripts for evaluation.
   - ``video_understanding/``: Contains scripts for video understanding experiments.
 

@@ -1,4 +1,7 @@
 # Experiments
+
+<u>*Remember to configure the environment*</u>. [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning#environment-configuration)]
+
 Here is a guide on how to perform the experiments described in the paper. All the steps will be outlined in detail, including a comprehensive description of every parameter that the script or configuration file takes as input.
 
 Download everything you need to run the experiments:
