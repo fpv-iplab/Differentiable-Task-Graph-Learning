@@ -589,3 +589,121 @@ To compute the values reported in the paper, you can use the `calculate_results_
 ```shell
 python calculate_results_video_understanding.py -r <path to the folder containing evaluations>
 ```
+
+## Online Mistake Detection
+
+<u>*Remember to download the datasets following the respective guides*</u>: [Assembly101-O](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/data/assembly101) - [EPIC-Tent-O](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/data/epic-tent)
+
+This section provides a guide for conducting Online Mistake Detection experiments on Assembly101-O and EPIC-Tent-O. Note that this guide will allow you to replicate results based on ground truth action sequences. For obtaining predicted action sequences, please refer to the official [PREGO](https://github.com/aleflabo/PREGO) repository.
+
+<p align="center">
+<img src="../assets/omd_example.svg"
+</p>
+
+### Baseline
+
+To generate the task graphs for Assembly101-O and EPIC-Tent-O using the baselines, you can use the following commands:
+
+```shell
+# Go to the baseline folder
+cd baselines
+
+# Assembly101-O
+python run_baseline.py -cfg ../../configs/Assembly101-O/Count_Based.yaml
+
+python run_baseline.py -cfg ../../configs/Assembly101-O/ILP_acc.yaml
+
+python run_baseline.py -cfg ../../configs/Assembly101-O/ILP_prec.yaml
+
+# EPIC-Tent-O
+python run_baseline.py -cfg ../../configs/EPIC-Tent-O/Count_Based.yaml
+
+python run_baseline.py -cfg ../../configs/EPIC-Tent-O/ILP_acc.yaml
+
+python run_baseline.py -cfg ../../configs/EPIC-Tent-O/ILP_prec.yaml
+```
+
+The generated task graphs will be saved in the **./baselines/Assembly101-O** folder.
+
+To use the generated graphs for the Online Mistake Detection task, you can utilize the following scripts:
+
+```shell
+# Go to the online-mistake-detection folder
+cd online-mistake-detection
+
+# Assembly101-O
+python check_precondition_Baselines.py -cfg ../../configs/Online_Mistake_Detection/Assembly101-O-Count-Based-GT.yaml
+
+python check_precondition_Baselines.py -cfg ../../configs/Online_Mistake_Detection/Assembly101-O-ILP_acc-GT.yaml
+
+python check_precondition_Baselines.py -cfg ../../configs/Online_Mistake_Detection/Assembly101-O-ILP_prec-GT.yaml
+
+# EPIC-Tent-O
+python check_precondition_Baselines.py -cfg ../../configs/Online_Mistake_Detection/EPIC-Tent-O-Count-Based-GT.yaml
+
+python check_precondition_Baselines.py -cfg ../../configs/Online_Mistake_Detection/EPIC-Tent-O-ILP_acc-GT.yaml
+
+python check_precondition_Baselines.py -cfg ../../configs/Online_Mistake_Detection/EPIC-Tent-O-ILP_prec-GT.yaml
+```
+
+The results will be saved in the following folders: **./online-mistake-detection/Assembly101-O-GT** and **./online-mistake-detection/EPIC-Tent-O-GT**.
+
+### Direct Optimization (DO)
+
+To generate the task graphs for Assembly101-O and EPIC-Tent-O using Direct Optimization (DO), you can use the following commands:
+
+```shell
+# Go to the DO folder
+cd DO
+
+# Assembly101-O
+python train_without_gt.py -cfg ../../configs/Assembly101-O/DO-without-early-stopping.yaml --augmentation --relaxed
+
+# EPIC-Tent-O
+python train_without_gt.py -cfg ../../configs/EPIC-Tent-O/DO.yaml --augmentation --relaxed
+```
+
+To use the generated graphs for the Online Mistake Detection task, you can utilize the following scripts:
+
+```shell
+# Go to the online-mistake-detection folder
+cd online-mistake-detection
+
+# Assembly101-O
+python check_precondition_DO.py -cfg ../../configs/Online_Mistake_Detection/Assembly101-O-DO-GT.yaml --relaxed
+
+# EPIC-Tent-O
+python check_precondition_DO.py -cfg ../../configs/Online_Mistake_Detection/EPIC-Tent-O-DO-GT.yaml --relaxed
+```
+
+The results will be saved in the following folders: **./online-mistake-detection/Assembly101-O-GT/DO** and **./online-mistake-detection/EPIC-Tent-O-GT/DO**.
+
+### Task Graph Transformer (TGT)
+
+To generate the task graphs for Assembly101-O and EPIC-Tent-O using Task Graph Transformer (TGT) with text embeddings, you can use the following commands:
+
+```shell
+# Go to the TGT folder
+cd TGT
+
+# Assembly101-O
+python train_without_gt.py -cfg ../../configs/Assembly101-O/TGT.yaml --relaxed
+
+# EPIC-Tent-O
+python train_without_gt.py -cfg ../../configs/EPIC-Tent-O/TGT.yaml --relaxed
+```
+
+To use the generated graphs for the Online Mistake Detection task, you can utilize the following scripts:
+
+```shell
+# Go to the online-mistake-detection folder
+cd online-mistake-detection
+
+# Assembly101-O
+python check_precondition_TGT.py -cfg ../../configs/Online_Mistake_Detection/Assembly101-O-TGT-GT.yaml --relaxed
+
+# EPIC-Tent-O
+python check_precondition_TGT.py -cfg ../../configs/Online_Mistake_Detection/EPIC-Tent-O-TGT-GT.yaml --relaxed
+```
+
+The results will be saved in the following folders: **./online-mistake-detection/Assembly101-O-GT/TGT** and **./online-mistake-detection/EPIC-Tent-O-GT/TGT**.
