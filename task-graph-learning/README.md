@@ -685,3 +685,136 @@ python check_precondition_TGT.py -cfg ../../configs/Online_Mistake_Detection/EPI
 ```
 
 The results will be saved in the following folders: **./online-mistake-detection/Assembly101-O-GT/TGT** and **./online-mistake-detection/EPIC-Tent-O-GT/TGT**.
+
+## Unified Model on CaptainCook4D
+
+You can train a single TGT-text model across all CaptainCook4D procedures using the following command: 
+
+```shell
+# Go to the TGT folder
+cd TGT
+
+# Train a unified model for all scenarios
+python train_with_gt_text_unified.py -cfg ../../configs/CaptainCook4D-TGT-text/Blender_Banana_Pancakes.yaml
+```
+
+*NOTE*: The trained model will be saved in the following folder **./TGT/Experiments-TGT-text-model/blenderbananapancakes/** under the name ``model_unified.pth``.
+
+You can download our best unified model from this [LINK](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/TGT-text-unified/model_unified.pth).
+
+To train a unified model with different seeds, you can use the following commands:
+
+```shell
+# Train a unified model for all scenarios with different seeds
+python train_with_gt_text_unified.py -cfg ../../configs/CaptainCook4D-TGT-text/Blender_Banana_Pancakes.yaml --seed 42
+
+python train_with_gt_text_unified.py -cfg ../../configs/CaptainCook4D-TGT-text/Blender_Banana_Pancakes.yaml --seed 1337
+
+python train_with_gt_text_unified.py -cfg ../../configs/CaptainCook4D-TGT-text/Blender_Banana_Pancakes.yaml --seed 2024
+
+python train_with_gt_text_unified.py -cfg ../../configs/CaptainCook4D-TGT-text/Blender_Banana_Pancakes.yaml --seed 2025
+
+python train_with_gt_text_unified.py -cfg ../../configs/CaptainCook4D-TGT-text/Blender_Banana_Pancakes.yaml --seed 2026
+```
+
+To generate a task graph using the trained unified model and evaluate it, you need to run the following command:
+```shell
+python test_generation.py -cfg ../../configs/CaptainCook4D-TGT-text/Blender_Banana_Pancakes.yaml --pre_trained ./Experiments-TGT-text-model/blenderbananapancakes/model_unified.pth --device cuda:0
+```
+
+To generate all task graphs for CaptainCook4D using the trained unified model and evaluate them, use the following command:
+```shell
+python test_all_with_one.py --pre_trained ./Experiments-TGT-text-model/blenderbananapancakes/model_unified.pth
+```
+
+The results will be saved in the folder: **./TGT/Experiments-TGT-text-model-unified**.
+
+**NOTE**: Rename this folder if you attempt to generate task graphs with a different model, otherwise, the results will be overwritten.
+
+You can rename the folders using the following names:
+- **Experiments-TGT-text-model-unified-42**
+- **Experiments-TGT-text-model-unified-1337**
+- **Experiments-TGT-text-model-unified-2024**
+- **Experiments-TGT-text-model-unified-2025**
+- **Experiments-TGT-text-model-unified-2026**
+
+Run the commands to calculate the results:
+```shell
+# Go to the utils folder
+cd utils
+
+python calculate_results_and_confidence_interval.py -r ../TGT/Experiments-TGT-text-model-unified-42
+
+python calculate_results_and_confidence_interval.py -r ../TGT/Experiments-TGT-text-model-unified-1337
+
+python calculate_results_and_confidence_interval.py -r ../TGT/Experiments-TGT-text-model-unified-2024
+
+python calculate_results_and_confidence_interval.py -r ../TGT/Experiments-TGT-text-model-unified-2025
+
+python calculate_results_and_confidence_interval.py -r ../TGT/Experiments-TGT-text-model-unified-2026
+```
+
+Create the necessary folders::
+```shell
+mkdir Unified & mkdir Unified/unified
+```
+
+Create the required files:
+```shell
+touch ./Unified/unified/01_one_model_results.json
+touch ./Unified/unified/02_one_model_results.json
+touch ./Unified/unified/03_one_model_results.json
+touch ./Unified/unified/04_one_model_results.json
+touch ./Unified/unified/05_one_model_results.json
+```
+
+Populate the JSON files with the correct format and copy the Precision, Recall, and F1 results obtained from the ``calculate_results_and_confidence_interval.py`` script into the created files.
+
+```json
+{
+    "Precision": 0.7202,
+    "Recall": 0.7841,
+    "F1": 0.7493,
+}
+```
+
+To compute the values reported in the paper, you can use the following command:
+
+```shell
+python calculate_results_and_confidence_interval.py -r ./Unified
+```
+
+## Few-shot Learning on CaptainCook4D
+
+We evaluated TGT’s transfer learning capability. Using a "leave-one-out" approach, we trained TGT on all procedures except one. Then, we fine-tuned the model on 5 sequences of the held-out procedure (hence a 5-shot regime).
+
+```shell
+# Go to the TGT folder
+cd TGT
+
+python train_all_TGT-text-leave-one-out.py
+```
+
+The models will be saved in **./TGT/Experiments-TGT-text-model-leave-one-out**.
+
+You can donwload the pre-trained model from this [LINK](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/Experiments-TGT-text-model-leave_one_out.zip).
+
+To fine-tune the models on 5 sequences of the held-out procedure, you can use the following command:
+
+```shell
+# Go to the TGT folder
+cd TGT
+
+python train_all_TGT-text-5-shots.py
+```
+
+The results will be saved in **./TGT/Experiments-TGT-text-model-5-shots**.
+
+To compute the values reported in the paper, you can use the following command:
+
+```shell
+# Go to the utils folder
+cd utils
+
+python calculate_results_and_confidence_interval.py -r ../TGT/Experiments-TGT-text-model-5-shots
+```

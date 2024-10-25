@@ -30,7 +30,7 @@ NeurIPS (spotlight), 2024
 - [x] Task Graph Transformer (TGT) Model [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#task-graph-transformer-tgt)]
 - [x] Video Understanding [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#video-understanding)]
 - [x] Online Mistake Detection [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#online-mistake-detection)]
-- [ ] Guide for all experiments [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#experiments)]
+- [x] Guide for all experiments [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#experiments)]
 - [ ] Guide for Assembly101-O and EPIC-Tent-O
 
 ---
