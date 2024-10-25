@@ -20,6 +20,7 @@ task-graph-learning/video_understanding/ordering
 task-graph-learning/video_understanding/forecasting
 
 # Experiments on Assembly101-O
+data/assembly101/assembly101-mistake-detection
 data/assembly101/train.json
 data/assembly101/test.json
 data/assembly101/step_recognition_test.json
@@ -30,6 +31,7 @@ task-graph-learning/online-mistake-detection/Assembly101-O-GT
 task-graph-learning/online-mistake-detection/Assembly101-O-PRED
 
 # Experiments on EPIC-Tent-O
+data/epic-tent/EPIC_Tent2019
 data/epic-tent/train.json
 data/epic-tent/test.json
 data/epic-tent/step_recognition_test.json
