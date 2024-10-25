@@ -1,0 +1,14 @@
+{
+    "1": "assemble_support",
+    "2": "insert_stake",
+    "3": "insert_support",
+    "4": "insert_support_tab",
+    "5": "instruction",
+    "6": "pickup/open_stakebag",
+    "7": "pickup/open_supportbag",
+    "8": "pickup/open_tentbag",
+    "9": "pickup/place_ventcover",
+    "10": "place_guyline",
+    "11": "spread_tent",
+    "12": "tie_top"
+}
