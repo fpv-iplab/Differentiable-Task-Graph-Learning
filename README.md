@@ -24,14 +24,14 @@ NeurIPS (spotlight), 2024
 
 
 
-## 🚧 WORK IN PROGRESS
+## 🎯 What's inside?
 - [x] Baselines [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#baselines)]
 - [x] Direct Optimization (DO) Model [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#direct-optimization-do)]
 - [x] Task Graph Transformer (TGT) Model [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#task-graph-transformer-tgt)]
 - [x] Video Understanding [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#video-understanding)]
 - [x] Online Mistake Detection [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#online-mistake-detection)]
 - [x] Guide for all experiments [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#experiments)]
-- [ ] Guide for Assembly101-O and EPIC-Tent-O
+- [x] Guide for set up Assembly101-O and EPIC-Tent-O [[Assembly101-O](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/data/assembly101) | [EPIC-Tent-O](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/data/epic-tent)]
 
 ---
 - [Repository Structure](#repository-structure)
