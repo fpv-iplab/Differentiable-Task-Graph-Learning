@@ -43,13 +43,13 @@ DATA:
 To execute the MSGI baseline for all scenarios in CaptainCook4D, you can use the following command:
 
 ```shell
-python run_baseline.py -cfg ../../configs/baseline_ILP_acc.yaml
+python run_baseline.py -cfg ../../configs/Baselines/baseline_ILP_acc.yaml
 ```
 
 For few-shot experiments, such as the 5-shots described in the paper, you can use the following command:
 
 ```shell
-python run_baseline.py -cfg ../../configs/baseline_ILP_acc_few.yaml
+python run_baseline.py -cfg ../../configs/Baselines/baseline_ILP_acc_few.yaml
 ```
 
 This configuration file will also include the `MAX_LENGTH` field, along with the aforementioned parameters, which specifies the number of sequences to consider for constructing the graph.
@@ -69,13 +69,13 @@ python run_baseline.py -cfg ../../configs/EPIC-Tent-O/ILP_acc.yaml
 To execute the MSG<sup>2</sup> baseline for all scenarios in CaptainCook4D, you can use the following command:
 
 ```shell
-python run_baseline.py -cfg ../../configs/baseline_ILP_prec.yaml
+python run_baseline.py -cfg ../../configs/Baselines/baseline_ILP_prec.yaml
 ```
 
 For few-shot experiments, such as the 5-shots described in the paper, you can use the following command:
 
 ```shell
-python run_baseline.py -cfg ../../configs/baseline_ILP_prec_few.yaml
+python run_baseline.py -cfg ../../configs/Baselines/baseline_ILP_prec_few.yaml
 ```
 
 This configuration file will also include the `MAX_LENGTH` field, along with the aforementioned parameters, which specifies the number of sequences to consider for constructing the graph.
@@ -95,13 +95,13 @@ python run_baseline.py -cfg ../../configs/EPIC-Tent-O/ILP_prec.yaml
 To execute the Count-Based baseline for all scenarios in CaptainCook4D, you can use the following command:
 
 ```shell
-python run_baseline.py -cfg ../../configs/baseline_Count_Based.yaml
+python run_baseline.py -cfg ../../configs/Baselines/baseline_Count_Based.yaml
 ```
 
 For few-shot experiments, such as the 5-shots described in the paper, you can use the following command:
 
 ```shell
-python run_baseline.py -cfg ../../configs/baseline_Count_Based_few.yaml
+python run_baseline.py -cfg ../../configs/Baselines/baseline_Count_Based_few.yaml
 ```
 
 This configuration file will also include the `MAX_LENGTH` field, along with the aforementioned parameters, which specifies the number of sequences to consider for constructing the graph.
