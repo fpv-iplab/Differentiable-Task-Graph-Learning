@@ -6,7 +6,7 @@
 
 NeurIPS (spotlight), 2024
 
-[arXiv pre-print](https://arxiv.org/pdf/2406.01486v1) | [Project page](https://fpv-iplab.github.io/Differentiable-Task-Graph-Learning/)
+[arXiv pre-print](https://arxiv.org/pdf/2406.01486) | [Project page](https://fpv-iplab.github.io/Differentiable-Task-Graph-Learning/)
 
 [![Stargazers][stars-shield]][stars-url]
 [![Forks][forks-shield]][forks-url]
@@ -168,7 +168,7 @@ The proposed methods can be used with other datasets that follow the following J
 ***NOTE: Fields marked <u>MANDATORY</u> are required for the proposed methods to work, while fields marked <u>OPTIONAL</u> can be absent without affecting the functionality of the code.***
 
 ## Qualitative results
-The figure reports the generated task graphs of the procedure called "Dressed Up Meatballs". On the left there is the ground truth task graph, while on the right the generated using the Direct Optimization model. These graphs must be interpreted from the bottom up, reflecting the bottom-up nature of dependency edges. Other qualitative results are reported in the supplementary material of the [paper](https://arxiv.org/pdf/2406.01486v1).
+The figure reports the generated task graphs of the procedure called "Dressed Up Meatballs". On the left there is the ground truth task graph, while on the right the generated using the Direct Optimization model. These graphs must be interpreted from the bottom up, reflecting the bottom-up nature of dependency edges. Other qualitative results are reported in the supplementary material of the [paper](https://arxiv.org/pdf/2406.01486).
 
 Ground Truth             |  Generated 
 :-------------------------:|:-------------------------:
@@ -204,7 +204,7 @@ If you use the code/models hosted in this repository, please cite the following 
   year={2024}
 }
 ```
-Please, refer to the [paper](https://arxiv.org/pdf/2406.01486v1) for more technical details.
+Please, refer to the [paper](https://arxiv.org/pdf/2406.01486) for more technical details.
 
 
 ## Authors
