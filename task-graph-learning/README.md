@@ -783,38 +783,3 @@ To compute the values reported in the paper, you can use the following command:
 ```shell
 python calculate_results_and_confidence_interval.py -r ./Unified
 ```
-
-## Few-shot Learning on CaptainCook4D
-
-We evaluated TGT’s transfer learning capability. Using a "leave-one-out" approach, we trained TGT on all procedures except one. Then, we fine-tuned the model on 5 sequences of the held-out procedure (hence a 5-shot regime).
-
-```shell
-# Go to the TGT folder
-cd TGT
-
-python train_all_TGT-text-leave-one-out.py
-```
-
-The models will be saved in **./TGT/Experiments-TGT-text-model-leave-one-out**.
-
-You can donwload the pre-trained model from this [LINK](https://iplab.dmi.unict.it/sharing/Differentiable_Task_Graph_Learning/Experiments-TGT-text-model-leave_one_out.zip).
-
-To fine-tune the models on 5 sequences of the held-out procedure, you can use the following command:
-
-```shell
-# Go to the TGT folder
-cd TGT
-
-python train_all_TGT-text-5-shots.py
-```
-
-The results will be saved in **./TGT/Experiments-TGT-text-model-5-shots**.
-
-To compute the values reported in the paper, you can use the following command:
-
-```shell
-# Go to the utils folder
-cd utils
-
-python calculate_results_and_confidence_interval.py -r ../TGT/Experiments-TGT-text-model-5-shots
-```
