@@ -1,6 +1,6 @@
 # Differentiable Task Graph Learning: Procedural Activity Representation and Online Mistake Detection from Egocentric Videos
 
-[Differentiable Task Graph Learning: Procedural Activity Representation and Online Mistake Detection from Egocentric Videos](https://arxiv.org/abs/2406.01486)
+[Differentiable Task Graph Learning: Procedural Activity Representation and Online Mistake Detection from Egocentric Videos](https://openreview.net/forum?id=2HvgvB4aWq)
 
 [Luigi Seminara](https://seminaraluigi.altervista.org/), [Giovanni Maria Farinella](https://www.dmi.unict.it/farinella/), [Antonino Furnari](https://antoninofurnari.github.io/)
 
@@ -204,14 +204,16 @@ Visit [PREGO repository](https://github.com/aleflabo/PREGO) for more details.
 If you use the code/models hosted in this repository, please cite the following paper:
 
 ```text
-@article{seminara2024differentiable,
+@inproceedings{
+  seminara2024differentiable,
   title={Differentiable Task Graph Learning: Procedural Activity Representation and Online Mistake Detection from Egocentric Videos},
-  author={Seminara, Luigi and Farinella, Giovanni Maria and Furnari, Antonino},
-  journal={arXiv preprint arXiv:2406.01486},
-  year={2024}
+  author={Luigi Seminara and Giovanni Maria Farinella and Antonino Furnari},
+  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
+  year={2024},
+  url={https://openreview.net/forum?id=2HvgvB4aWq}
 }
 ```
-Please, refer to the [paper](https://arxiv.org/pdf/2406.01486) for more technical details.
+Please, refer to the [paper](https://openreview.net/pdf?id=2HvgvB4aWq) for more technical details.
 
 
 ## Authors
