@@ -24,6 +24,13 @@ NeurIPS (spotlight), 2024
 
 
 
+## 🖼️ Poster
+<p align="center">
+  <img src="./assets/Poster.png" width="100%" height="auto">
+</p>
+
+
+
 ## 🎯 What's inside?
 - [x] Baselines [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#baselines)]
 - [x] Direct Optimization (DO) Model [[LINK](https://github.com/fpv-iplab/Differentiable-Task-Graph-Learning/tree/main/task-graph-learning#direct-optimization-do)]
